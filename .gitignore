@@ -482,3 +482,5 @@ $RECYCLE.BIN/
 
 # Vim temporary swap files
 *.swp
+HelpPlatform/src/HelpPlatform.Web/log20240918.txt
+HelpPlatform/src/HelpPlatform.Web/database.sqlite
