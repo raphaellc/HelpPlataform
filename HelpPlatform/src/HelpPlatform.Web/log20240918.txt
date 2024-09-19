@@ -1,0 +1,130 @@
+2024-09-18 19:53:39.919 -03:00 [INF] Executed DbCommand (28ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA journal_mode = 'wal';
+2024-09-18 19:53:40.133 -03:00 [INF] Executed DbCommand (29ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "__EFMigrationsHistory" (
+    "MigrationId" TEXT NOT NULL CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY,
+    "ProductVersion" TEXT NOT NULL
+);
+2024-09-18 19:53:40.154 -03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2024-09-18 19:53:40.165 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2024-09-18 19:53:40.198 -03:00 [INF] Applying migration '20240918225224_Initial'.
+2024-09-18 19:53:40.253 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Contributors" (
+    "Id" INTEGER NOT NULL CONSTRAINT "PK_Contributors" PRIMARY KEY AUTOINCREMENT,
+    "Name" TEXT NOT NULL,
+    "Status" INTEGER NOT NULL,
+    "PhoneNumber_CountryCode" TEXT NULL,
+    "PhoneNumber_Number" TEXT NULL,
+    "PhoneNumber_Extension" TEXT NULL
+);
+2024-09-18 19:53:40.259 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Users" (
+    "Id" INTEGER NOT NULL CONSTRAINT "PK_Users" PRIMARY KEY AUTOINCREMENT,
+    "Name" TEXT NOT NULL,
+    "Email" TEXT NOT NULL,
+    "CreationTime" TEXT NOT NULL
+);
+2024-09-18 19:53:40.266 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+VALUES ('20240918225224_Initial', '8.0.8');
+2024-09-18 19:54:10.611 -03:00 [INF] Registered 6 endpoints in 1,068 milliseconds.
+2024-09-18 19:54:12.648 -03:00 [INF] Executed DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2024-09-18 19:54:13.076 -03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2024-09-18 19:54:13.366 -03:00 [INF] Executed DbCommand (8ms) [Parameters=[@p0='?' (Size = 7), @p1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Contributors" ("Name", "Status")
+VALUES (@p0, @p1)
+RETURNING "Id";
+2024-09-18 19:54:13.400 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[@p0='?' (Size = 8), @p1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Contributors" ("Name", "Status")
+VALUES (@p0, @p1)
+RETURNING "Id";
+2024-09-18 19:54:13.692 -03:00 [INF] Now listening on: https://localhost:57679
+2024-09-18 19:54:13.695 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-18 19:54:13.698 -03:00 [INF] Hosting environment: Development
+2024-09-18 19:54:13.701 -03:00 [INF] Content root path: C:\Users\gzlav\RiderProjects\HelpPlatform\HelpPlatform\src\HelpPlatform.Web
+2024-09-18 19:55:07.943 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/ - null null
+2024-09-18 19:55:08.055 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/ - 404 0 null 117.5371ms
+2024-09-18 19:55:08.078 -03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:57679/, Response status code: 404
+2024-09-18 19:55:22.039 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger - null null
+2024-09-18 19:55:22.061 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger - 302 0 null 22.2393ms
+2024-09-18 19:55:22.068 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/index.html - null null
+2024-09-18 19:55:22.341 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/index.html - 200 null text/html; charset=utf-8 272.5954ms
+2024-09-18 19:55:22.376 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/swagger-ui.css - null null
+2024-09-18 19:55:22.383 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/index.css - null null
+2024-09-18 19:55:22.383 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/swagger-ui-bundle.js - null null
+2024-09-18 19:55:22.383 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/swagger-ui-standalone-preset.js - null null
+2024-09-18 19:55:22.409 -03:00 [INF] Sending file. Request path: '/index.css'. Physical path: 'N/A'
+2024-09-18 19:55:22.421 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/index.css - 200 218 text/css 38.1288ms
+2024-09-18 19:55:22.451 -03:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2024-09-18 19:55:22.451 -03:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2024-09-18 19:55:22.465 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/swagger-ui-standalone-preset.js - 200 230294 text/javascript 81.4682ms
+2024-09-18 19:55:22.470 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/swagger-ui.css - 200 152073 text/css 93.9546ms
+2024-09-18 19:55:22.512 -03:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2024-09-18 19:55:22.517 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/swagger-ui-bundle.js - 200 1452754 text/javascript 133.751ms
+2024-09-18 19:55:22.950 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/v1/swagger.json - null null
+2024-09-18 19:55:22.981 -03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-09-18 19:55:22.998 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/favicon-32x32.png - null null
+2024-09-18 19:55:23.007 -03:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2024-09-18 19:55:23.013 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/favicon-32x32.png - 200 628 image/png 15.1664ms
+2024-09-18 19:55:24.343 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 1392.4232ms
+2024-09-18 19:55:57.204 -03:00 [INF] Request starting HTTP/2 POST https://localhost:57679/Users - application/json 64
+2024-09-18 19:55:57.221 -03:00 [INF] Executing endpoint 'HTTP: POST /Users'
+2024-09-18 19:55:57.381 -03:00 [INF] Handling CreateUserCommand
+2024-09-18 19:55:57.384 -03:00 [INF] Property Name : Gustavo Lavina
+2024-09-18 19:55:57.388 -03:00 [INF] Property Email : gz.lavina@gmail.com
+2024-09-18 19:55:57.474 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (Size = 19), @p2='?' (Size = 14)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Users" ("CreationTime", "Email", "Name")
+VALUES (@p0, @p1, @p2)
+RETURNING "Id";
+2024-09-18 19:55:57.486 -03:00 [INF] Handled CreateUserCommand with Ardalis.Result.Result`1[System.Int32] in 93 ms
+2024-09-18 19:55:57.525 -03:00 [INF] Executed endpoint 'HTTP: POST /Users'
+2024-09-18 19:55:57.537 -03:00 [INF] Request finished HTTP/2 POST https://localhost:57679/Users - 200 null application/json 333.5428ms
+2024-09-18 19:57:01.609 -03:00 [INF] Application is shutting down...
+2024-09-18 20:42:53.779 -03:00 [INF] Registered 7 endpoints in 515 milliseconds.
+2024-09-18 20:42:55.317 -03:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2024-09-18 20:42:55.659 -03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2024-09-18 20:42:55.829 -03:00 [INF] Now listening on: https://localhost:57679
+2024-09-18 20:42:55.832 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-18 20:42:55.834 -03:00 [INF] Hosting environment: Development
+2024-09-18 20:42:55.837 -03:00 [INF] Content root path: C:\Users\gzlav\RiderProjects\HelpPlatform\HelpPlatform\src\HelpPlatform.Web
+2024-09-18 20:43:05.393 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/index.html - null null
+2024-09-18 20:43:05.641 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/index.html - 200 null text/html; charset=utf-8 250.348ms
+2024-09-18 20:43:05.678 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/swagger-ui.css - null null
+2024-09-18 20:43:05.679 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/index.css - null null
+2024-09-18 20:43:05.679 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/swagger-ui-bundle.js - null null
+2024-09-18 20:43:05.680 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/swagger-ui-standalone-preset.js - null null
+2024-09-18 20:43:05.706 -03:00 [INF] Sending file. Request path: '/index.css'. Physical path: 'N/A'
+2024-09-18 20:43:05.716 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/index.css - 200 218 text/css 36.6656ms
+2024-09-18 20:43:05.730 -03:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2024-09-18 20:43:05.730 -03:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2024-09-18 20:43:05.741 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/swagger-ui-standalone-preset.js - 200 230294 text/javascript 60.4315ms
+2024-09-18 20:43:05.741 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/swagger-ui.css - 200 152073 text/css 62.1944ms
+2024-09-18 20:43:05.753 -03:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2024-09-18 20:43:05.768 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/swagger-ui-bundle.js - 200 1452754 text/javascript 88.4776ms
+2024-09-18 20:43:06.177 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/v1/swagger.json - null null
+2024-09-18 20:43:06.201 -03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-09-18 20:43:07.549 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 1371.899ms
+2024-09-18 20:43:11.993 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/Users - null null
+2024-09-18 20:43:12.017 -03:00 [INF] Executing endpoint 'HTTP: GET /Users'
+2024-09-18 20:43:12.102 -03:00 [INF] Handling ListUsersQuery
+2024-09-18 20:43:12.105 -03:00 [INF] Property Skip : null
+2024-09-18 20:43:12.110 -03:00 [INF] Property Take : null
+2024-09-18 20:43:12.269 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "u"."Id", "u"."CreationTime", "u"."Email", "u"."Name"
+FROM "Users" AS "u"
+2024-09-18 20:43:12.388 -03:00 [INF] Handled ListUsersQuery with Ardalis.Result.Result`1[System.Collections.Generic.IEnumerable`1[HelpPlatform.UseCases.Users.UserDTO]] in 272 ms
+2024-09-18 20:43:12.472 -03:00 [INF] Executed endpoint 'HTTP: GET /Users'
+2024-09-18 20:43:12.489 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/Users - 200 null application/json 496.6445ms
+2024-09-18 20:44:40.440 -03:00 [INF] Application is shutting down...
