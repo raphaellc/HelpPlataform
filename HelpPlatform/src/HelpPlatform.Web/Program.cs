@@ -12,6 +12,7 @@ using HelpPlatform.UseCases.Contributors.Create;
 using MediatR;
 using Serilog;
 using Serilog.Extensions.Logging;
+using HelpPlatform.Web.Components;
 
 var logger = Log.Logger = new LoggerConfiguration()
     .Enrich.FromLogContext()
@@ -21,6 +22,13 @@ var logger = Log.Logger = new LoggerConfiguration()
 logger.Information("Starting web host");
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddRazorComponents()
+    .AddInteractiveServerComponents();
+
+builder.Services.AddRazorPages();
+builder.Services.AddServerSideBlazor();
+builder.Services.AddHttpClient();
 
 builder.Host.UseSerilog((_, config) => config.ReadFrom.Configuration(builder.Configuration));
 var microsoftLogger = new SerilogLoggerFactory(logger)
@@ -69,6 +77,14 @@ app.UseFastEndpoints()
 app.UseHttpsRedirection();
 
 await SeedDatabase(app);
+
+app.UseStaticFiles();
+
+app.MapRazorComponents<App>()
+    .AddInteractiveServerRenderMode();
+
+app.UseAntiforgery();
+app.MapRazorPages();
 
 app.Run();
 

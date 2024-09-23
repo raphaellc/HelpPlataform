@@ -1,0 +1,888 @@
+2024-09-23 00:07:15.675 -03:00 [INF] Registered 7 endpoints in 418 milliseconds.
+2024-09-23 00:07:16.360 -03:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2024-09-23 00:07:16.483 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2024-09-23 00:07:16.557 -03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-09-23 00:07:16.579 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger - null null
+2024-09-23 00:07:16.623 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-23 00:07:16.623 -03:00 [INF] Hosting environment: Development
+2024-09-23 00:07:16.623 -03:00 [INF] Content root path: C:\Users\eduar\source\repos\HelpPlatform\HelpPlatform\src\HelpPlatform.Web
+2024-09-23 00:07:16.701 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - null null
+2024-09-23 00:07:16.705 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger - 302 null null 128.0936ms
+2024-09-23 00:07:16.811 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - 200 null text/html; charset=utf-8 110.1014ms
+2024-09-23 00:07:16.816 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2024-09-23 00:07:16.816 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-23 00:07:16.820 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13768 application/javascript; charset=utf-8 3.3711ms
+2024-09-23 00:07:16.844 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 27.8383ms
+2024-09-23 00:07:16.961 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - null null
+2024-09-23 00:07:17.409 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 447.4418ms
+2024-09-23 01:00:47.566 -03:00 [INF] Registered 7 endpoints in 1,401 milliseconds.
+2024-09-23 01:00:48.745 -03:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2024-09-23 01:00:48.892 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2024-09-23 01:00:49.048 -03:00 [INF] User profile is available. Using 'C:\Users\eduar\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-09-23 01:00:49.118 -03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-09-23 01:00:49.381 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger - null null
+2024-09-23 01:00:49.392 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-23 01:00:49.392 -03:00 [INF] Hosting environment: Development
+2024-09-23 01:00:49.392 -03:00 [INF] Content root path: C:\Users\eduar\source\repos\HelpPlatform\HelpPlatform\src\HelpPlatform.Web
+2024-09-23 01:00:49.523 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - null null
+2024-09-23 01:00:49.528 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger - 302 null null 150.8684ms
+2024-09-23 01:00:49.634 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - 200 null text/html; charset=utf-8 110.4111ms
+2024-09-23 01:00:49.657 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-23 01:00:49.661 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2024-09-23 01:00:49.664 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13768 application/javascript; charset=utf-8 5.1658ms
+2024-09-23 01:00:49.704 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 44.0918ms
+2024-09-23 01:00:49.757 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - null null
+2024-09-23 01:00:50.173 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 416.2858ms
+2024-09-23 01:00:53.860 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - null null
+2024-09-23 01:00:53.864 -03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-23 01:00:53.868 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Endpoint / (/) contains anti-forgery metadata, but a middleware was not found that supports anti-forgery.
+Configure your application startup by adding app.UseAntiforgery() in the application startup code. If there are calls to app.UseRouting() and app.UseEndpoints(...), the call to app.UseAntiforgery() must go between them. Calls to app.UseAntiforgery() must be placed after calls to app.UseAuthentication() and app.UseAuthorization().
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.ThrowMissingAntiforgeryMiddlewareException(Endpoint endpoint)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.DefaultFilesMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Ardalis.ListStartupServices.ShowAllServicesMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-09-23 01:00:53.903 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - 500 null text/html; charset=utf-8 43.1243ms
+2024-09-23 01:00:53.913 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-23 01:00:53.913 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2024-09-23 01:00:53.916 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13768 application/javascript; charset=utf-8 2.5016ms
+2024-09-23 01:00:53.927 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 13.7094ms
+2024-09-23 01:00:53.957 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/favicon.ico - null null
+2024-09-23 01:00:53.959 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/favicon.ico - 404 null null 1.887ms
+2024-09-23 01:00:53.961 -03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:57678/favicon.ico, Response status code: 404
+2024-09-23 01:01:34.225 -03:00 [INF] Registered 7 endpoints in 306 milliseconds.
+2024-09-23 01:01:34.862 -03:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2024-09-23 01:01:34.994 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2024-09-23 01:01:35.100 -03:00 [INF] User profile is available. Using 'C:\Users\eduar\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-09-23 01:01:35.186 -03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-09-23 01:01:35.328 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger - null null
+2024-09-23 01:01:35.367 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-23 01:01:35.368 -03:00 [INF] Hosting environment: Development
+2024-09-23 01:01:35.368 -03:00 [INF] Content root path: C:\Users\eduar\source\repos\HelpPlatform\HelpPlatform\src\HelpPlatform.Web
+2024-09-23 01:01:35.429 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger - null null
+2024-09-23 01:01:35.451 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger - 499 null null 128.5207ms
+2024-09-23 01:01:35.455 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - null null
+2024-09-23 01:01:35.457 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger - 302 null null 28.3633ms
+2024-09-23 01:01:35.539 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - 200 null text/html; charset=utf-8 83.9246ms
+2024-09-23 01:01:35.544 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2024-09-23 01:01:35.544 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-23 01:01:35.547 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13768 application/javascript; charset=utf-8 3.0054ms
+2024-09-23 01:01:35.569 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 24.6512ms
+2024-09-23 01:01:35.608 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - null null
+2024-09-23 01:01:35.942 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 333.9611ms
+2024-09-23 01:01:36.941 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - null null
+2024-09-23 01:01:36.947 -03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-23 01:01:36.950 -03:00 [INF] Executing endpoint '/ (/)'
+2024-09-23 01:01:37.028 -03:00 [INF] Executed endpoint '/ (/)'
+2024-09-23 01:01:37.032 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - 200 null text/html; charset=utf-8 91.0935ms
+2024-09-23 01:01:37.041 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/app.css - null null
+2024-09-23 01:01:37.064 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/bootstrap/bootstrap.min.css - null null
+2024-09-23 01:01:37.069 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/blazor.web.js - null null
+2024-09-23 01:01:37.070 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-23 01:01:37.071 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2024-09-23 01:01:37.072 -03:00 [INF] Executing endpoint 'Blazor web static files'
+2024-09-23 01:01:37.074 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13768 application/javascript; charset=utf-8 5.1573ms
+2024-09-23 01:01:37.077 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/HelpPlatform.styles.css - null null
+2024-09-23 01:01:37.082 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/HelpPlatform.styles.css - 404 null null 6.1117ms
+2024-09-23 01:01:37.082 -03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:57678/HelpPlatform.styles.css, Response status code: 404
+2024-09-23 01:01:37.098 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 26.187ms
+2024-09-23 01:01:37.099 -03:00 [INF] Sending file. Request path: '/_framework/blazor.web.js'. Physical path: 'N/A'
+2024-09-23 01:01:37.099 -03:00 [INF] Sending file. Request path: '/app.css'. Physical path: 'C:\Users\eduar\source\repos\HelpPlatform\HelpPlatform\src\HelpPlatform.Web\wwwroot\app.css'
+2024-09-23 01:01:37.099 -03:00 [INF] Executed endpoint 'Blazor web static files'
+2024-09-23 01:01:37.100 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/app.css - 200 2540 text/css 59.1842ms
+2024-09-23 01:01:37.102 -03:00 [INF] Sending file. Request path: '/bootstrap/bootstrap.min.css'. Physical path: 'C:\Users\eduar\source\repos\HelpPlatform\HelpPlatform\src\HelpPlatform.Web\wwwroot\bootstrap\bootstrap.min.css'
+2024-09-23 01:01:37.102 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/blazor.web.js - 200 187162 text/javascript 32.7737ms
+2024-09-23 01:01:37.107 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/bootstrap/bootstrap.min.css - 200 162720 text/css 66.2101ms
+2024-09-23 01:01:37.129 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/favicon.png - null null
+2024-09-23 01:01:37.141 -03:00 [INF] Sending file. Request path: '/favicon.png'. Physical path: 'C:\Users\eduar\source\repos\HelpPlatform\HelpPlatform\src\HelpPlatform.Web\wwwroot\favicon.png'
+2024-09-23 01:01:37.142 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/favicon.png - 200 1148 image/png 12.3812ms
+2024-09-23 01:02:04.689 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/requests - null null
+2024-09-23 01:02:04.700 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/requests - 404 null null 11.2452ms
+2024-09-23 01:02:04.700 -03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:57678/requests, Response status code: 404
+2024-09-23 01:02:12.763 -03:00 [INF] Registered 7 endpoints in 336 milliseconds.
+2024-09-23 01:02:13.467 -03:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2024-09-23 01:02:13.622 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2024-09-23 01:02:13.663 -03:00 [INF] User profile is available. Using 'C:\Users\eduar\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-09-23 01:02:13.727 -03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-09-23 01:02:13.894 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - null null
+2024-09-23 01:02:13.894 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger - null null
+2024-09-23 01:02:13.928 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-23 01:02:13.928 -03:00 [INF] Hosting environment: Development
+2024-09-23 01:02:13.928 -03:00 [INF] Content root path: C:\Users\eduar\source\repos\HelpPlatform\HelpPlatform\src\HelpPlatform.Web
+2024-09-23 01:02:14.018 -03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-23 01:02:14.020 -03:00 [INF] Executing endpoint '/ (/)'
+2024-09-23 01:02:14.021 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger - 499 null null 142.583ms
+2024-09-23 01:02:14.124 -03:00 [INF] Executed endpoint '/ (/)'
+2024-09-23 01:02:14.128 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - 200 null text/html; charset=utf-8 249.5824ms
+2024-09-23 01:02:14.136 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/bootstrap/bootstrap.min.css - null null
+2024-09-23 01:02:14.142 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/app.css - null null
+2024-09-23 01:02:14.142 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/HelpPlatform.styles.css - null null
+2024-09-23 01:02:14.146 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/blazor.web.js - null null
+2024-09-23 01:02:14.146 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-23 01:02:14.146 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2024-09-23 01:02:14.147 -03:00 [INF] Executing endpoint 'Blazor web static files'
+2024-09-23 01:02:14.156 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/HelpPlatform.styles.css - 404 null null 18.0018ms
+2024-09-23 01:02:14.157 -03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:57678/HelpPlatform.styles.css, Response status code: 404
+2024-09-23 01:02:14.158 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13768 application/javascript; charset=utf-8 11.8982ms
+2024-09-23 01:02:14.158 -03:00 [INF] The file /bootstrap/bootstrap.min.css was not modified
+2024-09-23 01:02:14.158 -03:00 [INF] The file /_framework/blazor.web.js was not modified
+2024-09-23 01:02:14.158 -03:00 [INF] The file /app.css was not modified
+2024-09-23 01:02:14.160 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/bootstrap/bootstrap.min.css - 304 null text/css 24.1083ms
+2024-09-23 01:02:14.160 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/app.css - 304 null text/css 21.9564ms
+2024-09-23 01:02:14.160 -03:00 [INF] Executed endpoint 'Blazor web static files'
+2024-09-23 01:02:14.162 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/blazor.web.js - 304 null text/javascript 17.0021ms
+2024-09-23 01:02:14.190 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 43.8735ms
+2024-09-23 01:03:45.503 -03:00 [INF] Registered 7 endpoints in 1,135 milliseconds.
+2024-09-23 01:03:46.558 -03:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2024-09-23 01:03:46.704 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2024-09-23 01:03:46.741 -03:00 [INF] User profile is available. Using 'C:\Users\eduar\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-09-23 01:03:46.805 -03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-09-23 01:03:46.952 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger - null null
+2024-09-23 01:03:46.976 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-23 01:03:46.977 -03:00 [INF] Hosting environment: Development
+2024-09-23 01:03:46.977 -03:00 [INF] Content root path: C:\Users\eduar\source\repos\HelpPlatform\HelpPlatform\src\HelpPlatform.Web
+2024-09-23 01:03:47.051 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - null null
+2024-09-23 01:03:47.053 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger - 302 null null 107.7387ms
+2024-09-23 01:03:47.149 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - 200 null text/html; charset=utf-8 98.4951ms
+2024-09-23 01:03:47.161 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-23 01:03:47.161 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2024-09-23 01:03:47.164 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13768 application/javascript; charset=utf-8 3.1191ms
+2024-09-23 01:03:47.187 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 26.5448ms
+2024-09-23 01:03:47.231 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - null null
+2024-09-23 01:03:52.747 -03:00 [INF] Registered 7 endpoints in 323 milliseconds.
+2024-09-23 01:03:53.341 -03:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2024-09-23 01:03:53.478 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2024-09-23 01:03:53.518 -03:00 [INF] User profile is available. Using 'C:\Users\eduar\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-09-23 01:03:53.584 -03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-09-23 01:03:53.726 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger - null null
+2024-09-23 01:03:53.751 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-23 01:03:53.752 -03:00 [INF] Hosting environment: Development
+2024-09-23 01:03:53.752 -03:00 [INF] Content root path: C:\Users\eduar\source\repos\HelpPlatform\HelpPlatform\src\HelpPlatform.Web
+2024-09-23 01:03:53.860 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - null null
+2024-09-23 01:03:53.863 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger - 302 null null 141.5512ms
+2024-09-23 01:03:53.950 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - 200 null text/html; charset=utf-8 89.7164ms
+2024-09-23 01:03:53.958 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-23 01:03:53.961 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2024-09-23 01:03:53.965 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13768 application/javascript; charset=utf-8 8.3499ms
+2024-09-23 01:03:53.993 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 32.7198ms
+2024-09-23 01:03:54.042 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - null null
+2024-09-23 01:03:54.420 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 378.1018ms
+2024-09-23 01:04:27.090 -03:00 [INF] Registered 7 endpoints in 331 milliseconds.
+2024-09-23 01:04:27.765 -03:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2024-09-23 01:04:27.903 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2024-09-23 01:04:27.964 -03:00 [INF] User profile is available. Using 'C:\Users\eduar\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-09-23 01:04:28.044 -03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-09-23 01:04:28.203 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger - null null
+2024-09-23 01:04:28.203 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - null null
+2024-09-23 01:04:28.229 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-23 01:04:28.229 -03:00 [INF] Hosting environment: Development
+2024-09-23 01:04:28.229 -03:00 [INF] Content root path: C:\Users\eduar\source\repos\HelpPlatform\HelpPlatform\src\HelpPlatform.Web
+2024-09-23 01:04:28.317 -03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-23 01:04:28.318 -03:00 [INF] Executing endpoint '/ (/)'
+2024-09-23 01:04:28.320 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger - 499 null null 129.2018ms
+2024-09-23 01:04:28.375 -03:00 [INF] Executed endpoint '/ (/)'
+2024-09-23 01:04:28.379 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - 200 null text/html; charset=utf-8 188.429ms
+2024-09-23 01:04:28.396 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/blazor.web.js - null null
+2024-09-23 01:04:28.398 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/HelpPlatform.styles.css - null null
+2024-09-23 01:04:28.398 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/bootstrap/bootstrap.min.css - null null
+2024-09-23 01:04:28.401 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/app.css - null null
+2024-09-23 01:04:28.401 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-23 01:04:28.407 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2024-09-23 01:04:28.407 -03:00 [INF] Executing endpoint 'Blazor web static files'
+2024-09-23 01:04:28.414 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/HelpPlatform.styles.css - 404 null null 18.3222ms
+2024-09-23 01:04:28.415 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13768 application/javascript; charset=utf-8 13.6464ms
+2024-09-23 01:04:28.415 -03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:57678/HelpPlatform.styles.css, Response status code: 404
+2024-09-23 01:04:28.417 -03:00 [INF] The file /bootstrap/bootstrap.min.css was not modified
+2024-09-23 01:04:28.417 -03:00 [INF] The file /_framework/blazor.web.js was not modified
+2024-09-23 01:04:28.417 -03:00 [INF] The file /app.css was not modified
+2024-09-23 01:04:28.421 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/bootstrap/bootstrap.min.css - 304 null text/css 27.136ms
+2024-09-23 01:04:28.421 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/app.css - 304 null text/css 19.9251ms
+2024-09-23 01:04:28.421 -03:00 [INF] Executed endpoint 'Blazor web static files'
+2024-09-23 01:04:28.422 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/blazor.web.js - 304 null text/javascript 25.6229ms
+2024-09-23 01:04:28.441 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 38.7384ms
+2024-09-23 01:05:51.149 -03:00 [INF] Registered 7 endpoints in 296 milliseconds.
+2024-09-23 01:05:51.840 -03:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2024-09-23 01:05:51.975 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2024-09-23 01:05:52.009 -03:00 [INF] User profile is available. Using 'C:\Users\eduar\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-09-23 01:05:52.066 -03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-09-23 01:05:52.200 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - null null
+2024-09-23 01:05:52.200 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger - null null
+2024-09-23 01:05:52.223 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-23 01:05:52.223 -03:00 [INF] Hosting environment: Development
+2024-09-23 01:05:52.223 -03:00 [INF] Content root path: C:\Users\eduar\source\repos\HelpPlatform\HelpPlatform\src\HelpPlatform.Web
+2024-09-23 01:05:52.298 -03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-23 01:05:52.299 -03:00 [INF] Executing endpoint '/ (/)'
+2024-09-23 01:05:52.300 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger - 499 null null 107.7466ms
+2024-09-23 01:05:52.346 -03:00 [INF] Executed endpoint '/ (/)'
+2024-09-23 01:05:52.352 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - 200 null text/html; charset=utf-8 159.9888ms
+2024-09-23 01:05:52.370 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-23 01:05:52.370 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/app.css - null null
+2024-09-23 01:05:52.371 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/bootstrap/bootstrap.min.css - null null
+2024-09-23 01:05:52.370 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2024-09-23 01:05:52.372 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/blazor.web.js - null null
+2024-09-23 01:05:52.372 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/HelpPlatform.styles.css - null null
+2024-09-23 01:05:52.376 -03:00 [INF] Executing endpoint 'Blazor web static files'
+2024-09-23 01:05:52.382 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/HelpPlatform.styles.css - 404 null null 9.9296ms
+2024-09-23 01:05:52.382 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13768 application/javascript; charset=utf-8 12.5092ms
+2024-09-23 01:05:52.383 -03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:57678/HelpPlatform.styles.css, Response status code: 404
+2024-09-23 01:05:52.386 -03:00 [INF] The file /app.css was not modified
+2024-09-23 01:05:52.387 -03:00 [INF] The file /bootstrap/bootstrap.min.css was not modified
+2024-09-23 01:05:52.387 -03:00 [INF] The file /_framework/blazor.web.js was not modified
+2024-09-23 01:05:52.389 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/app.css - 304 null text/css 24.1014ms
+2024-09-23 01:05:52.389 -03:00 [INF] Executed endpoint 'Blazor web static files'
+2024-09-23 01:05:52.389 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/bootstrap/bootstrap.min.css - 304 null text/css 27.3589ms
+2024-09-23 01:05:52.389 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/blazor.web.js - 304 null text/javascript 17.6593ms
+2024-09-23 01:05:52.405 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 35.8278ms
+2024-09-23 01:05:55.209 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/HelpPlatform.styles.css - null null
+2024-09-23 01:05:55.210 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/HelpPlatform.styles.css - 404 null null 1.6282ms
+2024-09-23 01:05:55.210 -03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:57678/HelpPlatform.styles.css, Response status code: 404
+2024-09-23 01:05:55.264 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/bootstrap/bootstrap.min.css.map - null null
+2024-09-23 01:05:55.280 -03:00 [INF] Sending file. Request path: '/bootstrap/bootstrap.min.css.map'. Physical path: 'C:\Users\eduar\source\repos\HelpPlatform\HelpPlatform\src\HelpPlatform.Web\wwwroot\bootstrap\bootstrap.min.css.map'
+2024-09-23 01:05:55.286 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/bootstrap/bootstrap.min.css.map - 200 449111 text/plain 22.288ms
+2024-09-23 01:08:34.725 -03:00 [INF] Registered 7 endpoints in 324 milliseconds.
+2024-09-23 01:08:35.421 -03:00 [INF] Executed DbCommand (25ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2024-09-23 01:08:35.573 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2024-09-23 01:08:35.612 -03:00 [INF] User profile is available. Using 'C:\Users\eduar\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-09-23 01:08:35.670 -03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-09-23 01:08:35.808 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger - null null
+2024-09-23 01:08:35.836 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-23 01:08:35.836 -03:00 [INF] Hosting environment: Development
+2024-09-23 01:08:35.836 -03:00 [INF] Content root path: C:\Users\eduar\source\repos\HelpPlatform\HelpPlatform\src\HelpPlatform.Web
+2024-09-23 01:08:35.921 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - null null
+2024-09-23 01:08:35.922 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger - 302 null null 118.2091ms
+2024-09-23 01:08:36.013 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - 200 null text/html; charset=utf-8 92.8609ms
+2024-09-23 01:08:36.022 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-23 01:08:36.024 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2024-09-23 01:08:36.027 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13768 application/javascript; charset=utf-8 5.0942ms
+2024-09-23 01:08:36.054 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 30.0833ms
+2024-09-23 01:08:36.090 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - null null
+2024-09-23 01:08:36.433 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 343.2974ms
+2024-09-23 01:08:47.551 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - null null
+2024-09-23 01:08:47.556 -03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-23 01:08:47.558 -03:00 [INF] Executing endpoint '/ (/)'
+2024-09-23 01:08:47.604 -03:00 [INF] Executed endpoint '/ (/)'
+2024-09-23 01:08:47.608 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - 200 null text/html; charset=utf-8 57.0584ms
+2024-09-23 01:08:47.611 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/bootstrap/bootstrap.min.css - null null
+2024-09-23 01:08:47.611 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/HelpPlatform.styles.css - null null
+2024-09-23 01:08:47.611 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/app.css - null null
+2024-09-23 01:08:47.613 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/HelpPlatform.styles.css - 404 null null 1.806ms
+2024-09-23 01:08:47.614 -03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:57678/HelpPlatform.styles.css, Response status code: 404
+2024-09-23 01:08:47.616 -03:00 [INF] The file /bootstrap/bootstrap.min.css was not modified
+2024-09-23 01:08:47.616 -03:00 [INF] The file /app.css was not modified
+2024-09-23 01:08:47.617 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/bootstrap/bootstrap.min.css - 304 null text/css 6.6031ms
+2024-09-23 01:08:47.617 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/app.css - 304 null text/css 5.8367ms
+2024-09-23 01:08:47.622 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2024-09-23 01:08:47.622 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/blazor.web.js - null null
+2024-09-23 01:08:47.623 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-23 01:08:47.624 -03:00 [INF] Executing endpoint 'Blazor web static files'
+2024-09-23 01:08:47.625 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13768 application/javascript; charset=utf-8 1.6604ms
+2024-09-23 01:08:47.628 -03:00 [INF] The file /_framework/blazor.web.js was not modified
+2024-09-23 01:08:47.628 -03:00 [INF] Executed endpoint 'Blazor web static files'
+2024-09-23 01:08:47.629 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/blazor.web.js - 304 null text/javascript 7.7997ms
+2024-09-23 01:08:47.638 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 17.1745ms
+2024-09-23 01:08:52.362 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/HelpPlatform.styles.css - null null
+2024-09-23 01:08:52.364 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/HelpPlatform.styles.css - 404 null null 1.8015ms
+2024-09-23 01:08:52.364 -03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:57678/HelpPlatform.styles.css, Response status code: 404
+2024-09-23 01:08:52.444 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/bootstrap/bootstrap.min.css.map - null null
+2024-09-23 01:08:52.445 -03:00 [INF] The file /bootstrap/bootstrap.min.css.map was not modified
+2024-09-23 01:08:52.445 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/bootstrap/bootstrap.min.css.map - 304 null text/plain 1.5435ms
+2024-09-23 01:08:55.660 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - null null
+2024-09-23 01:08:55.663 -03:00 [INF] Executing endpoint '/ (/)'
+2024-09-23 01:08:55.669 -03:00 [INF] Executed endpoint '/ (/)'
+2024-09-23 01:08:55.670 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - 200 null text/html; charset=utf-8 10.2112ms
+2024-09-23 01:08:55.683 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-23 01:08:55.683 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2024-09-23 01:08:55.685 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/HelpPlatform.styles.css - null null
+2024-09-23 01:08:55.685 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/blazor.web.js - null null
+2024-09-23 01:08:55.685 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13768 application/javascript; charset=utf-8 3.8014ms
+2024-09-23 01:08:55.687 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/HelpPlatform.styles.css - 404 null null 1.7951ms
+2024-09-23 01:08:55.687 -03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:57678/HelpPlatform.styles.css, Response status code: 404
+2024-09-23 01:08:55.687 -03:00 [INF] Executing endpoint 'Blazor web static files'
+2024-09-23 01:08:55.690 -03:00 [INF] The file /_framework/blazor.web.js was not modified
+2024-09-23 01:08:55.691 -03:00 [INF] Executed endpoint 'Blazor web static files'
+2024-09-23 01:08:55.691 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/blazor.web.js - 304 null text/javascript 6.2173ms
+2024-09-23 01:08:55.698 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 18.4141ms
+2024-09-23 01:08:55.731 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/favicon.png - null null
+2024-09-23 01:08:55.732 -03:00 [INF] The file /favicon.png was not modified
+2024-09-23 01:08:55.732 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/favicon.png - 304 null image/png 1.0149ms
+2024-09-23 01:15:42.803 -03:00 [INF] Registered 7 endpoints in 551 milliseconds.
+2024-09-23 01:15:43.641 -03:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2024-09-23 01:15:43.769 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2024-09-23 01:15:43.868 -03:00 [INF] User profile is available. Using 'C:\Users\eduar\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-09-23 01:15:43.972 -03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-09-23 01:15:44.187 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - null null
+2024-09-23 01:15:44.187 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger - null null
+2024-09-23 01:15:44.197 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-23 01:15:44.197 -03:00 [INF] Hosting environment: Development
+2024-09-23 01:15:44.197 -03:00 [INF] Content root path: C:\Users\eduar\source\repos\HelpPlatform\HelpPlatform\src\HelpPlatform.Web
+2024-09-23 01:15:44.307 -03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-23 01:15:44.309 -03:00 [INF] Executing endpoint '/ (/)'
+2024-09-23 01:15:44.309 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger - 499 null null 126.1385ms
+2024-09-23 01:15:44.370 -03:00 [INF] Executed endpoint '/ (/)'
+2024-09-23 01:15:44.374 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - 200 null text/html; charset=utf-8 190.6384ms
+2024-09-23 01:15:44.381 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/bootstrap/bootstrap.min.css - null null
+2024-09-23 01:15:44.388 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/HelpPlatform.styles.css - null null
+2024-09-23 01:15:44.394 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-23 01:15:44.395 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2024-09-23 01:15:44.394 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/app.css - null null
+2024-09-23 01:15:44.396 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/blazor.web.js - null null
+2024-09-23 01:15:44.401 -03:00 [INF] Executing endpoint 'Blazor web static files'
+2024-09-23 01:15:44.402 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/HelpPlatform.styles.css - 404 null null 14.0786ms
+2024-09-23 01:15:44.406 -03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:57678/HelpPlatform.styles.css, Response status code: 404
+2024-09-23 01:15:44.406 -03:00 [INF] The file /app.css was not modified
+2024-09-23 01:15:44.406 -03:00 [INF] The file /bootstrap/bootstrap.min.css was not modified
+2024-09-23 01:15:44.406 -03:00 [INF] The file /_framework/blazor.web.js was not modified
+2024-09-23 01:15:44.407 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13768 application/javascript; charset=utf-8 13.886ms
+2024-09-23 01:15:44.407 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/bootstrap/bootstrap.min.css - 304 null text/css 26.3445ms
+2024-09-23 01:15:44.407 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/app.css - 304 null text/css 12.9425ms
+2024-09-23 01:15:44.407 -03:00 [INF] Executed endpoint 'Blazor web static files'
+2024-09-23 01:15:44.408 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/blazor.web.js - 304 null text/javascript 11.3087ms
+2024-09-23 01:15:44.430 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 35.5686ms
+2024-09-23 01:16:24.833 -03:00 [INF] Registered 7 endpoints in 362 milliseconds.
+2024-09-23 01:16:25.460 -03:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2024-09-23 01:16:25.590 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2024-09-23 01:16:25.632 -03:00 [INF] User profile is available. Using 'C:\Users\eduar\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-09-23 01:16:25.694 -03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-09-23 01:16:25.848 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - null null
+2024-09-23 01:16:25.848 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger - null null
+2024-09-23 01:16:25.873 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-23 01:16:25.873 -03:00 [INF] Hosting environment: Development
+2024-09-23 01:16:25.873 -03:00 [INF] Content root path: C:\Users\eduar\source\repos\HelpPlatform\HelpPlatform\src\HelpPlatform.Web
+2024-09-23 01:16:25.950 -03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-23 01:16:25.952 -03:00 [INF] Executing endpoint '/ (/)'
+2024-09-23 01:16:25.952 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger - 499 null null 112.8408ms
+2024-09-23 01:16:26.002 -03:00 [INF] Executed endpoint '/ (/)'
+2024-09-23 01:16:26.006 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - 200 null text/html; charset=utf-8 166.3526ms
+2024-09-23 01:16:26.016 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/HelpPlatform.styles.css - null null
+2024-09-23 01:16:26.016 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/blazor.web.js - null null
+2024-09-23 01:16:26.016 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-23 01:16:26.019 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2024-09-23 01:16:26.019 -03:00 [INF] Executing endpoint 'Blazor web static files'
+2024-09-23 01:16:26.021 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/HelpPlatform.styles.css - 404 null null 4.7253ms
+2024-09-23 01:16:26.021 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13768 application/javascript; charset=utf-8 4.7193ms
+2024-09-23 01:16:26.021 -03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:57678/HelpPlatform.styles.css, Response status code: 404
+2024-09-23 01:16:26.024 -03:00 [INF] The file /_framework/blazor.web.js was not modified
+2024-09-23 01:16:26.028 -03:00 [INF] Executed endpoint 'Blazor web static files'
+2024-09-23 01:16:26.029 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/blazor.web.js - 304 null text/javascript 12.6443ms
+2024-09-23 01:16:26.047 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 28.1401ms
+2024-09-23 01:17:21.574 -03:00 [INF] Registered 7 endpoints in 335 milliseconds.
+2024-09-23 01:17:22.236 -03:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2024-09-23 01:17:22.386 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2024-09-23 01:17:22.427 -03:00 [INF] User profile is available. Using 'C:\Users\eduar\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-09-23 01:17:22.488 -03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-09-23 01:17:22.628 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - null null
+2024-09-23 01:17:22.628 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger - null null
+2024-09-23 01:17:22.654 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-23 01:17:22.654 -03:00 [INF] Hosting environment: Development
+2024-09-23 01:17:22.655 -03:00 [INF] Content root path: C:\Users\eduar\source\repos\HelpPlatform\HelpPlatform\src\HelpPlatform.Web
+2024-09-23 01:17:22.737 -03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-23 01:17:22.738 -03:00 [INF] Executing endpoint '/ (/)'
+2024-09-23 01:17:22.739 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger - 499 null null 120.3166ms
+2024-09-23 01:17:22.798 -03:00 [INF] Executed endpoint '/ (/)'
+2024-09-23 01:17:22.802 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - 200 null text/html; charset=utf-8 183.2596ms
+2024-09-23 01:17:22.819 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/HelpPlatform.styles.css - null null
+2024-09-23 01:17:22.819 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-23 01:17:22.820 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2024-09-23 01:17:22.820 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/blazor.web.js - null null
+2024-09-23 01:17:22.822 -03:00 [INF] Executing endpoint 'Blazor web static files'
+2024-09-23 01:17:22.824 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13768 application/javascript; charset=utf-8 7.2311ms
+2024-09-23 01:17:22.826 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/HelpPlatform.styles.css - 404 null null 7.2592ms
+2024-09-23 01:17:22.844 -03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:57678/HelpPlatform.styles.css, Response status code: 404
+2024-09-23 01:17:22.860 -03:00 [INF] The file /_framework/blazor.web.js was not modified
+2024-09-23 01:17:22.863 -03:00 [INF] Executed endpoint 'Blazor web static files'
+2024-09-23 01:17:22.863 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/blazor.web.js - 304 null text/javascript 43.1107ms
+2024-09-23 01:17:22.899 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 80.0083ms
+2024-09-23 01:18:18.452 -03:00 [INF] Registered 7 endpoints in 331 milliseconds.
+2024-09-23 01:18:19.068 -03:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2024-09-23 01:18:19.190 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2024-09-23 01:18:19.227 -03:00 [INF] User profile is available. Using 'C:\Users\eduar\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-09-23 01:18:19.285 -03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-09-23 01:18:19.426 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - null null
+2024-09-23 01:18:19.426 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger - null null
+2024-09-23 01:18:19.450 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-23 01:18:19.450 -03:00 [INF] Hosting environment: Development
+2024-09-23 01:18:19.450 -03:00 [INF] Content root path: C:\Users\eduar\source\repos\HelpPlatform\HelpPlatform\src\HelpPlatform.Web
+2024-09-23 01:18:19.530 -03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-23 01:18:19.532 -03:00 [INF] Executing endpoint '/ (/)'
+2024-09-23 01:18:19.533 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger - 499 null null 114.3496ms
+2024-09-23 01:18:19.582 -03:00 [INF] Executed endpoint '/ (/)'
+2024-09-23 01:18:19.586 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - 200 null text/html; charset=utf-8 168.0452ms
+2024-09-23 01:18:19.596 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/bootstrap/bootstrap.min.css - null null
+2024-09-23 01:18:19.603 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/HelpPlatform.styles.css - null null
+2024-09-23 01:18:19.603 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/app.css - null null
+2024-09-23 01:18:19.607 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-23 01:18:19.607 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2024-09-23 01:18:19.608 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/blazor.web.js - null null
+2024-09-23 01:18:19.612 -03:00 [INF] Executing endpoint 'Blazor web static files'
+2024-09-23 01:18:19.613 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/HelpPlatform.styles.css - 404 null null 10.7123ms
+2024-09-23 01:18:19.618 -03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:57678/HelpPlatform.styles.css, Response status code: 404
+2024-09-23 01:18:19.618 -03:00 [INF] The file /app.css was not modified
+2024-09-23 01:18:19.618 -03:00 [INF] The file /_framework/blazor.web.js was not modified
+2024-09-23 01:18:19.618 -03:00 [INF] The file /bootstrap/bootstrap.min.css was not modified
+2024-09-23 01:18:19.619 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13768 application/javascript; charset=utf-8 11.9091ms
+2024-09-23 01:18:19.620 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/app.css - 304 null text/css 17.4089ms
+2024-09-23 01:18:19.620 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/bootstrap/bootstrap.min.css - 304 null text/css 23.9677ms
+2024-09-23 01:18:19.620 -03:00 [INF] Executed endpoint 'Blazor web static files'
+2024-09-23 01:18:19.620 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/blazor.web.js - 304 null text/javascript 12.3905ms
+2024-09-23 01:18:19.645 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 37.8218ms
+2024-09-23 01:18:21.238 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/HelpPlatform.styles.css - null null
+2024-09-23 01:18:21.240 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/HelpPlatform.styles.css - 404 null null 2.5664ms
+2024-09-23 01:18:21.241 -03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:57678/HelpPlatform.styles.css, Response status code: 404
+2024-09-23 01:18:21.299 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/bootstrap/bootstrap.min.css.map - null null
+2024-09-23 01:18:21.299 -03:00 [INF] The file /bootstrap/bootstrap.min.css.map was not modified
+2024-09-23 01:18:21.300 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/bootstrap/bootstrap.min.css.map - 304 null text/plain 1.1608ms
+2024-09-23 01:18:23.626 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - null null
+2024-09-23 01:18:23.631 -03:00 [INF] Executing endpoint '/ (/)'
+2024-09-23 01:18:23.639 -03:00 [INF] Executed endpoint '/ (/)'
+2024-09-23 01:18:23.640 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - 200 null text/html; charset=utf-8 13.6723ms
+2024-09-23 01:18:23.653 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-23 01:18:23.653 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/blazor.web.js - null null
+2024-09-23 01:18:23.654 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2024-09-23 01:18:23.654 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/HelpPlatform.styles.css - null null
+2024-09-23 01:18:23.655 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/HelpPlatform.styles.css - 404 null null 1.5668ms
+2024-09-23 01:18:23.655 -03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:57678/HelpPlatform.styles.css, Response status code: 404
+2024-09-23 01:18:23.656 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13768 application/javascript; charset=utf-8 2.5053ms
+2024-09-23 01:18:23.656 -03:00 [INF] Executing endpoint 'Blazor web static files'
+2024-09-23 01:18:23.657 -03:00 [INF] The file /_framework/blazor.web.js was not modified
+2024-09-23 01:18:23.657 -03:00 [INF] Executed endpoint 'Blazor web static files'
+2024-09-23 01:18:23.657 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/blazor.web.js - 304 null text/javascript 3.8937ms
+2024-09-23 01:18:23.668 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 14.5429ms
+2024-09-23 01:18:23.710 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/favicon.png - null null
+2024-09-23 01:18:23.711 -03:00 [INF] The file /favicon.png was not modified
+2024-09-23 01:18:23.711 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/favicon.png - 304 null image/png 0.9774ms
+2024-09-23 01:20:26.454 -03:00 [INF] Registered 7 endpoints in 345 milliseconds.
+2024-09-23 01:20:27.092 -03:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2024-09-23 01:20:27.222 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2024-09-23 01:20:27.267 -03:00 [INF] User profile is available. Using 'C:\Users\eduar\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-09-23 01:20:27.329 -03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-09-23 01:20:27.492 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - null null
+2024-09-23 01:20:27.492 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger - null null
+2024-09-23 01:20:27.518 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-23 01:20:27.518 -03:00 [INF] Hosting environment: Development
+2024-09-23 01:20:27.518 -03:00 [INF] Content root path: C:\Users\eduar\source\repos\HelpPlatform\HelpPlatform\src\HelpPlatform.Web
+2024-09-23 01:20:27.612 -03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-23 01:20:27.614 -03:00 [INF] Executing endpoint '/ (/)'
+2024-09-23 01:20:27.615 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger - 499 null null 130.2734ms
+2024-09-23 01:20:27.674 -03:00 [INF] Executed endpoint '/ (/)'
+2024-09-23 01:20:27.679 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - 200 null text/html; charset=utf-8 194.4104ms
+2024-09-23 01:20:27.687 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/bootstrap/bootstrap.min.css - null null
+2024-09-23 01:20:27.690 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-23 01:20:27.691 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/app.css - null null
+2024-09-23 01:20:27.691 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/HelpPlatform.styles.css - null null
+2024-09-23 01:20:27.697 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2024-09-23 01:20:27.698 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/blazor.web.js - null null
+2024-09-23 01:20:27.702 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/HelpPlatform.styles.css - 404 null null 9.8992ms
+2024-09-23 01:20:27.703 -03:00 [INF] Executing endpoint 'Blazor web static files'
+2024-09-23 01:20:27.706 -03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:57678/HelpPlatform.styles.css, Response status code: 404
+2024-09-23 01:20:27.707 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13768 application/javascript; charset=utf-8 13.5945ms
+2024-09-23 01:20:27.708 -03:00 [INF] The file /app.css was not modified
+2024-09-23 01:20:27.708 -03:00 [INF] The file /_framework/blazor.web.js was not modified
+2024-09-23 01:20:27.708 -03:00 [INF] The file /bootstrap/bootstrap.min.css was not modified
+2024-09-23 01:20:27.709 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/app.css - 304 null text/css 17.9263ms
+2024-09-23 01:20:27.709 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/bootstrap/bootstrap.min.css - 304 null text/css 22.2247ms
+2024-09-23 01:20:27.709 -03:00 [INF] Executed endpoint 'Blazor web static files'
+2024-09-23 01:20:27.709 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/blazor.web.js - 304 null text/javascript 11.3444ms
+2024-09-23 01:20:27.734 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 36.2827ms
+2024-09-23 01:21:38.970 -03:00 [INF] Registered 7 endpoints in 337 milliseconds.
+2024-09-23 01:21:39.588 -03:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2024-09-23 01:21:39.713 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2024-09-23 01:21:39.751 -03:00 [INF] User profile is available. Using 'C:\Users\eduar\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-09-23 01:21:39.816 -03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-09-23 01:21:39.959 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger - null null
+2024-09-23 01:21:39.984 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-23 01:21:39.984 -03:00 [INF] Hosting environment: Development
+2024-09-23 01:21:39.984 -03:00 [INF] Content root path: C:\Users\eduar\source\repos\HelpPlatform\HelpPlatform\src\HelpPlatform.Web
+2024-09-23 01:21:40.066 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - null null
+2024-09-23 01:21:40.068 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger - 302 null null 115.9643ms
+2024-09-23 01:21:40.189 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - 200 null text/html; charset=utf-8 122.5174ms
+2024-09-23 01:21:40.208 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-23 01:21:40.210 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2024-09-23 01:21:40.212 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13768 application/javascript; charset=utf-8 3.3248ms
+2024-09-23 01:21:40.240 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 30.4553ms
+2024-09-23 01:21:40.290 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - null null
+2024-09-23 01:21:40.714 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 424.4393ms
+2024-09-23 01:21:46.642 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - null null
+2024-09-23 01:21:46.705 -03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-23 01:21:46.794 -03:00 [INF] Executing endpoint '/ (/)'
+2024-09-23 01:21:46.849 -03:00 [INF] Executed endpoint '/ (/)'
+2024-09-23 01:21:46.852 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - 200 null text/html; charset=utf-8 209.7835ms
+2024-09-23 01:21:46.859 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-23 01:21:46.859 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/HelpPlatform.styles.css - null null
+2024-09-23 01:21:46.860 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/blazor.web.js - null null
+2024-09-23 01:21:46.861 -03:00 [INF] Executing endpoint 'Blazor web static files'
+2024-09-23 01:21:46.861 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13768 application/javascript; charset=utf-8 2.4171ms
+2024-09-23 01:21:46.862 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/HelpPlatform.styles.css - 404 null null 3.6873ms
+2024-09-23 01:21:46.863 -03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:57678/HelpPlatform.styles.css, Response status code: 404
+2024-09-23 01:21:46.863 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2024-09-23 01:21:46.869 -03:00 [INF] The file /_framework/blazor.web.js was not modified
+2024-09-23 01:21:46.870 -03:00 [INF] Executed endpoint 'Blazor web static files'
+2024-09-23 01:21:46.871 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/blazor.web.js - 304 null text/javascript 10.2937ms
+2024-09-23 01:21:46.878 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 14.5084ms
+2024-09-23 01:21:49.721 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/HelpPlatform.styles.css - null null
+2024-09-23 01:21:49.722 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/HelpPlatform.styles.css - 404 null null 1.7138ms
+2024-09-23 01:21:49.723 -03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:57678/HelpPlatform.styles.css, Response status code: 404
+2024-09-23 01:21:49.783 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/bootstrap/bootstrap.min.css.map - null null
+2024-09-23 01:21:49.784 -03:00 [INF] The file /bootstrap/bootstrap.min.css.map was not modified
+2024-09-23 01:21:49.784 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/bootstrap/bootstrap.min.css.map - 304 null text/plain 1.8763ms
+2024-09-23 01:21:52.290 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - null null
+2024-09-23 01:21:52.292 -03:00 [INF] Executing endpoint '/ (/)'
+2024-09-23 01:21:52.297 -03:00 [INF] Executed endpoint '/ (/)'
+2024-09-23 01:21:52.298 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - 200 null text/html; charset=utf-8 7.9267ms
+2024-09-23 01:21:52.307 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/HelpPlatform.styles.css - null null
+2024-09-23 01:21:52.308 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/HelpPlatform.styles.css - 404 null null 1.168ms
+2024-09-23 01:21:52.308 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-23 01:21:52.308 -03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:57678/HelpPlatform.styles.css, Response status code: 404
+2024-09-23 01:21:52.308 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2024-09-23 01:21:52.309 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/blazor.web.js - null null
+2024-09-23 01:21:52.309 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13768 application/javascript; charset=utf-8 0.9097ms
+2024-09-23 01:21:52.312 -03:00 [INF] Executing endpoint 'Blazor web static files'
+2024-09-23 01:21:52.312 -03:00 [INF] The file /_framework/blazor.web.js was not modified
+2024-09-23 01:21:52.312 -03:00 [INF] Executed endpoint 'Blazor web static files'
+2024-09-23 01:21:52.314 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/blazor.web.js - 304 null text/javascript 5.1522ms
+2024-09-23 01:21:52.318 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 10.0617ms
+2024-09-23 01:21:52.348 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/favicon.png - null null
+2024-09-23 01:21:52.348 -03:00 [INF] The file /favicon.png was not modified
+2024-09-23 01:21:52.349 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/favicon.png - 304 null image/png 0.9063ms
+2024-09-23 01:24:29.206 -03:00 [INF] Registered 7 endpoints in 311 milliseconds.
+2024-09-23 01:24:29.842 -03:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2024-09-23 01:24:29.960 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2024-09-23 01:24:29.997 -03:00 [INF] User profile is available. Using 'C:\Users\eduar\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-09-23 01:24:30.071 -03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-09-23 01:24:30.210 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - null null
+2024-09-23 01:24:30.210 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger - null null
+2024-09-23 01:24:30.243 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-23 01:24:30.243 -03:00 [INF] Hosting environment: Development
+2024-09-23 01:24:30.243 -03:00 [INF] Content root path: C:\Users\eduar\source\repos\HelpPlatform\HelpPlatform\src\HelpPlatform.Web
+2024-09-23 01:24:30.328 -03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-23 01:24:30.330 -03:00 [INF] Executing endpoint '/ (/)'
+2024-09-23 01:24:30.331 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger - 499 null null 124.4405ms
+2024-09-23 01:24:30.384 -03:00 [INF] Executed endpoint '/ (/)'
+2024-09-23 01:24:30.388 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - 200 null text/html; charset=utf-8 182.3911ms
+2024-09-23 01:24:30.399 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/bootstrap/bootstrap.min.css - null null
+2024-09-23 01:24:30.401 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/app.css - null null
+2024-09-23 01:24:30.403 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/HelpPlatform.Web.styles.css - null null
+2024-09-23 01:24:30.407 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/blazor.web.js - null null
+2024-09-23 01:24:30.409 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-23 01:24:30.409 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2024-09-23 01:24:30.409 -03:00 [INF] Executing endpoint 'Blazor web static files'
+2024-09-23 01:24:30.416 -03:00 [INF] The file /bootstrap/bootstrap.min.css was not modified
+2024-09-23 01:24:30.416 -03:00 [INF] The file /_framework/blazor.web.js was not modified
+2024-09-23 01:24:30.416 -03:00 [INF] The file /app.css was not modified
+2024-09-23 01:24:30.417 -03:00 [INF] Executed endpoint 'Blazor web static files'
+2024-09-23 01:24:30.418 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/app.css - 304 null text/css 16.5818ms
+2024-09-23 01:24:30.418 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/blazor.web.js - 304 null text/javascript 10.8465ms
+2024-09-23 01:24:30.418 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/bootstrap/bootstrap.min.css - 304 null text/css 18.773ms
+2024-09-23 01:24:30.418 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13768 application/javascript; charset=utf-8 10.546ms
+2024-09-23 01:24:30.434 -03:00 [INF] Sending file. Request path: '/HelpPlatform.Web.styles.css'. Physical path: 'C:\Users\eduar\source\repos\HelpPlatform\HelpPlatform\src\HelpPlatform.Web\obj\Debug\net8.0\scopedcss\bundle\HelpPlatform.Web.styles.css'
+2024-09-23 01:24:30.434 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/HelpPlatform.Web.styles.css - 200 5709 text/css 32.5103ms
+2024-09-23 01:24:30.435 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_content/BootstrapBlazor/BootstrapBlazor.bundle.scp.css - null null
+2024-09-23 01:24:30.440 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 31.3571ms
+2024-09-23 01:24:30.447 -03:00 [INF] Sending file. Request path: '/_content/BootstrapBlazor/BootstrapBlazor.bundle.scp.css'. Physical path: 'C:\Users\eduar\.nuget\packages\bootstrapblazor\8.9.3\staticwebassets\BootstrapBlazor.bundle.scp.css'
+2024-09-23 01:24:30.451 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_content/BootstrapBlazor/BootstrapBlazor.bundle.scp.css - 200 440 text/css 15.3048ms
+2024-09-23 01:24:35.847 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/bootstrap/bootstrap.min.css.map - null null
+2024-09-23 01:24:35.848 -03:00 [INF] The file /bootstrap/bootstrap.min.css.map was not modified
+2024-09-23 01:24:35.848 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/bootstrap/bootstrap.min.css.map - 304 null text/plain 2.2947ms
+2024-09-23 01:27:00.643 -03:00 [INF] Registered 7 endpoints in 317 milliseconds.
+2024-09-23 01:27:01.254 -03:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2024-09-23 01:27:01.370 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2024-09-23 01:27:01.408 -03:00 [INF] User profile is available. Using 'C:\Users\eduar\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-09-23 01:27:01.467 -03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-09-23 01:27:01.660 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger - null null
+2024-09-23 01:27:01.686 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-23 01:27:01.686 -03:00 [INF] Hosting environment: Development
+2024-09-23 01:27:01.686 -03:00 [INF] Content root path: C:\Users\eduar\source\repos\HelpPlatform\HelpPlatform\src\HelpPlatform.Web
+2024-09-23 01:27:01.768 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/index.html - null null
+2024-09-23 01:27:01.771 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger - 302 null null 114.2446ms
+2024-09-23 01:27:01.855 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/index.html - 200 null text/html; charset=utf-8 86.8196ms
+2024-09-23 01:27:01.856 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-23 01:27:01.858 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2024-09-23 01:27:01.860 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13768 application/javascript; charset=utf-8 3.5501ms
+2024-09-23 01:27:01.885 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 26.9508ms
+2024-09-23 01:27:01.921 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - null null
+2024-09-23 01:27:02.262 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 341.5457ms
+2024-09-23 01:27:04.428 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - null null
+2024-09-23 01:27:04.433 -03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-23 01:27:04.434 -03:00 [INF] Executing endpoint '/ (/)'
+2024-09-23 01:27:04.483 -03:00 [INF] Executed endpoint '/ (/)'
+2024-09-23 01:27:04.486 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - 200 null text/html; charset=utf-8 58.3051ms
+2024-09-23 01:27:04.490 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/HelpPlatform.styles.css - null null
+2024-09-23 01:27:04.490 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/blazor.web.js - null null
+2024-09-23 01:27:04.491 -03:00 [INF] Executing endpoint 'Blazor web static files'
+2024-09-23 01:27:04.491 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-23 01:27:04.492 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13768 application/javascript; charset=utf-8 0.7449ms
+2024-09-23 01:27:04.493 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/HelpPlatform.styles.css - 404 null null 2.4847ms
+2024-09-23 01:27:04.494 -03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:57678/HelpPlatform.styles.css, Response status code: 404
+2024-09-23 01:27:04.496 -03:00 [INF] The file /_framework/blazor.web.js was not modified
+2024-09-23 01:27:04.497 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2024-09-23 01:27:04.497 -03:00 [INF] Executed endpoint 'Blazor web static files'
+2024-09-23 01:27:04.497 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/blazor.web.js - 304 null text/javascript 7.0706ms
+2024-09-23 01:27:04.513 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 16.2371ms
+2024-09-23 01:27:09.277 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - null null
+2024-09-23 01:27:09.279 -03:00 [INF] Executing endpoint '/ (/)'
+2024-09-23 01:27:09.285 -03:00 [INF] Executed endpoint '/ (/)'
+2024-09-23 01:27:09.285 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - 200 null text/html; charset=utf-8 8.9437ms
+2024-09-23 01:27:09.293 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/HelpPlatform.styles.css - null null
+2024-09-23 01:27:09.293 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-23 01:27:09.295 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13768 application/javascript; charset=utf-8 2.2534ms
+2024-09-23 01:27:09.298 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/blazor.web.js - null null
+2024-09-23 01:27:09.299 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/HelpPlatform.styles.css - 404 null null 5.799ms
+2024-09-23 01:27:09.299 -03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:57678/HelpPlatform.styles.css, Response status code: 404
+2024-09-23 01:27:09.299 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2024-09-23 01:27:09.300 -03:00 [INF] Executing endpoint 'Blazor web static files'
+2024-09-23 01:27:09.301 -03:00 [INF] The file /_framework/blazor.web.js was not modified
+2024-09-23 01:27:09.301 -03:00 [INF] Executed endpoint 'Blazor web static files'
+2024-09-23 01:27:09.301 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/blazor.web.js - 304 null text/javascript 6.0071ms
+2024-09-23 01:27:09.308 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 8.9726ms
+2024-09-23 01:27:09.320 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/favicon.png - null null
+2024-09-23 01:27:09.320 -03:00 [INF] The file /favicon.png was not modified
+2024-09-23 01:27:09.321 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/favicon.png - 304 null image/png 1.0455ms
+2024-09-23 01:27:10.631 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/HelpPlatform.styles.css - null null
+2024-09-23 01:27:10.631 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/bootstrap/bootstrap.min.css - null null
+2024-09-23 01:27:10.631 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/app.css - null null
+2024-09-23 01:27:10.632 -03:00 [INF] The file /bootstrap/bootstrap.min.css was not modified
+2024-09-23 01:27:10.632 -03:00 [INF] The file /app.css was not modified
+2024-09-23 01:27:10.632 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/bootstrap/bootstrap.min.css - 304 null text/css 1.1262ms
+2024-09-23 01:27:10.632 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/app.css - 304 null text/css 3.291ms
+2024-09-23 01:27:10.633 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/HelpPlatform.styles.css - 404 null null 1.6293ms
+2024-09-23 01:27:10.633 -03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:57678/HelpPlatform.styles.css, Response status code: 404
+2024-09-23 01:27:12.497 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/requests - null null
+2024-09-23 01:27:12.501 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/requests - 404 null null 3.7148ms
+2024-09-23 01:27:12.501 -03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:57678/requests, Response status code: 404
+2024-09-23 01:27:12.669 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/requests - null null
+2024-09-23 01:27:12.673 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/requests - 404 null null 4.2105ms
+2024-09-23 01:27:12.673 -03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:57678/requests, Response status code: 404
+2024-09-23 01:27:15.070 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - null null
+2024-09-23 01:27:15.074 -03:00 [INF] Executing endpoint '/ (/)'
+2024-09-23 01:27:15.102 -03:00 [INF] Executed endpoint '/ (/)'
+2024-09-23 01:27:15.103 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - 200 null text/html; charset=utf-8 32.7442ms
+2024-09-23 01:27:15.292 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-23 01:27:15.293 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/HelpPlatform.styles.css - null null
+2024-09-23 01:27:15.293 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/blazor.web.js - null null
+2024-09-23 01:27:15.294 -03:00 [INF] Executing endpoint 'Blazor web static files'
+2024-09-23 01:27:15.294 -03:00 [INF] The file /_framework/blazor.web.js was not modified
+2024-09-23 01:27:15.294 -03:00 [INF] Executed endpoint 'Blazor web static files'
+2024-09-23 01:27:15.297 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13768 application/javascript; charset=utf-8 5.2811ms
+2024-09-23 01:27:15.297 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2024-09-23 01:27:15.297 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/HelpPlatform.styles.css - 404 null null 4.523ms
+2024-09-23 01:27:15.297 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/blazor.web.js - 304 null text/javascript 4.5186ms
+2024-09-23 01:27:15.297 -03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:57678/HelpPlatform.styles.css, Response status code: 404
+2024-09-23 01:27:15.307 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 9.6865ms
+2024-09-23 01:27:16.874 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - null null
+2024-09-23 01:27:16.878 -03:00 [INF] Executing endpoint '/ (/)'
+2024-09-23 01:27:16.880 -03:00 [INF] Executed endpoint '/ (/)'
+2024-09-23 01:27:16.880 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - 200 null text/html; charset=utf-8 6.3314ms
+2024-09-23 01:27:16.890 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/HelpPlatform.styles.css - null null
+2024-09-23 01:27:16.891 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/HelpPlatform.styles.css - 404 null null 0.763ms
+2024-09-23 01:27:16.891 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-23 01:27:16.891 -03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:57678/HelpPlatform.styles.css, Response status code: 404
+2024-09-23 01:27:16.891 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2024-09-23 01:27:16.891 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/blazor.web.js - null null
+2024-09-23 01:27:16.891 -03:00 [INF] Executing endpoint 'Blazor web static files'
+2024-09-23 01:27:16.891 -03:00 [INF] The file /_framework/blazor.web.js was not modified
+2024-09-23 01:27:16.891 -03:00 [INF] Executed endpoint 'Blazor web static files'
+2024-09-23 01:27:16.891 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/blazor.web.js - 304 null text/javascript 0.9022ms
+2024-09-23 01:27:16.891 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13768 application/javascript; charset=utf-8 0.8696ms
+2024-09-23 01:27:16.898 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 7.0083ms
+2024-09-23 01:27:16.929 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/bootstrap/bootstrap.min.css.map - null null
+2024-09-23 01:27:16.929 -03:00 [INF] The file /bootstrap/bootstrap.min.css.map was not modified
+2024-09-23 01:27:16.929 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/bootstrap/bootstrap.min.css.map - 304 null text/plain 0.7215ms
+2024-09-23 01:27:17.896 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - null null
+2024-09-23 01:27:17.899 -03:00 [INF] Executing endpoint '/ (/)'
+2024-09-23 01:27:17.902 -03:00 [INF] Executed endpoint '/ (/)'
+2024-09-23 01:27:17.903 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - 200 null text/html; charset=utf-8 6.8246ms
+2024-09-23 01:27:17.916 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/HelpPlatform.styles.css - null null
+2024-09-23 01:27:17.918 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/HelpPlatform.styles.css - 404 null null 1.8278ms
+2024-09-23 01:27:17.918 -03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:57678/HelpPlatform.styles.css, Response status code: 404
+2024-09-23 01:27:17.920 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2024-09-23 01:27:17.921 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-23 01:27:17.928 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/blazor.web.js - null null
+2024-09-23 01:27:17.929 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13768 application/javascript; charset=utf-8 7.2072ms
+2024-09-23 01:27:17.929 -03:00 [INF] Executing endpoint 'Blazor web static files'
+2024-09-23 01:27:17.930 -03:00 [INF] The file /_framework/blazor.web.js was not modified
+2024-09-23 01:27:17.930 -03:00 [INF] Executed endpoint 'Blazor web static files'
+2024-09-23 01:27:17.931 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/blazor.web.js - 304 null text/javascript 2.3419ms
+2024-09-23 01:27:17.933 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 13.3732ms
+2024-09-23 01:27:18.099 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - null null
+2024-09-23 01:27:18.101 -03:00 [INF] Executing endpoint '/ (/)'
+2024-09-23 01:27:18.103 -03:00 [INF] Executed endpoint '/ (/)'
+2024-09-23 01:27:18.103 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - 200 null text/html; charset=utf-8 4.0323ms
+2024-09-23 01:27:18.111 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/HelpPlatform.styles.css - null null
+2024-09-23 01:27:18.112 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/HelpPlatform.styles.css - 404 null null 0.7649ms
+2024-09-23 01:27:18.112 -03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:57678/HelpPlatform.styles.css, Response status code: 404
+2024-09-23 01:27:18.114 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/blazor.web.js - null null
+2024-09-23 01:27:18.114 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2024-09-23 01:27:18.114 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-23 01:27:18.114 -03:00 [INF] Executing endpoint 'Blazor web static files'
+2024-09-23 01:27:18.115 -03:00 [INF] The file /_framework/blazor.web.js was not modified
+2024-09-23 01:27:18.115 -03:00 [INF] Executed endpoint 'Blazor web static files'
+2024-09-23 01:27:18.115 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/blazor.web.js - 304 null text/javascript 1.037ms
+2024-09-23 01:27:18.115 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13768 application/javascript; charset=utf-8 1.1278ms
+2024-09-23 01:27:18.120 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 6.3925ms
+2024-09-23 01:27:20.867 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - null null
+2024-09-23 01:27:20.870 -03:00 [INF] Executing endpoint '/ (/)'
+2024-09-23 01:27:20.877 -03:00 [INF] Executed endpoint '/ (/)'
+2024-09-23 01:27:20.878 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - 200 null text/html; charset=utf-8 10.9647ms
+2024-09-23 01:27:20.922 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/bootstrap/bootstrap.min.css - null null
+2024-09-23 01:27:20.926 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/blazor.web.js - null null
+2024-09-23 01:27:20.926 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-23 01:27:20.926 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/HelpPlatform.styles.css - null null
+2024-09-23 01:27:20.927 -03:00 [INF] Executing endpoint 'Blazor web static files'
+2024-09-23 01:27:20.930 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/HelpPlatform.styles.css - 404 null null 4.2274ms
+2024-09-23 01:27:20.930 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13768 application/javascript; charset=utf-8 4.2116ms
+2024-09-23 01:27:20.930 -03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:57678/HelpPlatform.styles.css, Response status code: 404
+2024-09-23 01:27:20.930 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2024-09-23 01:27:20.930 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/app.css - null null
+2024-09-23 01:27:20.945 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 14.6007ms
+2024-09-23 01:27:20.949 -03:00 [INF] Sending file. Request path: '/_framework/blazor.web.js'. Physical path: 'N/A'
+2024-09-23 01:27:20.949 -03:00 [INF] Executed endpoint 'Blazor web static files'
+2024-09-23 01:27:20.950 -03:00 [INF] Sending file. Request path: '/app.css'. Physical path: 'C:\Users\eduar\source\repos\HelpPlatform\HelpPlatform\src\HelpPlatform.Web\wwwroot\app.css'
+2024-09-23 01:27:20.952 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/blazor.web.js - 200 187162 text/javascript 25.9067ms
+2024-09-23 01:27:20.961 -03:00 [INF] Sending file. Request path: '/bootstrap/bootstrap.min.css'. Physical path: 'C:\Users\eduar\source\repos\HelpPlatform\HelpPlatform\src\HelpPlatform.Web\wwwroot\bootstrap\bootstrap.min.css'
+2024-09-23 01:27:20.965 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/app.css - 200 2540 text/css 34.362ms
+2024-09-23 01:27:20.970 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/bootstrap/bootstrap.min.css - 200 162720 text/css 47.2536ms
+2024-09-23 01:27:21.008 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/favicon.png - null null
+2024-09-23 01:27:21.020 -03:00 [INF] Sending file. Request path: '/favicon.png'. Physical path: 'C:\Users\eduar\source\repos\HelpPlatform\HelpPlatform\src\HelpPlatform.Web\wwwroot\favicon.png'
+2024-09-23 01:27:21.021 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/favicon.png - 200 1148 image/png 12.1339ms
+2024-09-23 01:27:25.423 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/HelpPlatform.styles.css - null null
+2024-09-23 01:27:25.424 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/HelpPlatform.styles.css - 404 null null 1.4007ms
+2024-09-23 01:27:25.424 -03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:57678/HelpPlatform.styles.css, Response status code: 404
+2024-09-23 01:27:25.478 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/bootstrap/bootstrap.min.css.map - null null
+2024-09-23 01:27:25.490 -03:00 [INF] Sending file. Request path: '/bootstrap/bootstrap.min.css.map'. Physical path: 'C:\Users\eduar\source\repos\HelpPlatform\HelpPlatform\src\HelpPlatform.Web\wwwroot\bootstrap\bootstrap.min.css.map'
+2024-09-23 01:27:25.495 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/bootstrap/bootstrap.min.css.map - 200 449111 text/plain 16.9736ms
+2024-09-23 01:27:26.473 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - null null
+2024-09-23 01:27:26.476 -03:00 [INF] Executing endpoint '/ (/)'
+2024-09-23 01:27:26.477 -03:00 [INF] Executed endpoint '/ (/)'
+2024-09-23 01:27:26.478 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - 200 null text/html; charset=utf-8 4.4797ms
+2024-09-23 01:27:26.485 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/HelpPlatform.styles.css - null null
+2024-09-23 01:27:26.486 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/blazor.web.js - null null
+2024-09-23 01:27:26.486 -03:00 [INF] Executing endpoint 'Blazor web static files'
+2024-09-23 01:27:26.486 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-23 01:27:26.486 -03:00 [INF] The file /_framework/blazor.web.js was not modified
+2024-09-23 01:27:26.486 -03:00 [INF] Executed endpoint 'Blazor web static files'
+2024-09-23 01:27:26.487 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/blazor.web.js - 304 null text/javascript 0.8848ms
+2024-09-23 01:27:26.487 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2024-09-23 01:27:26.487 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13768 application/javascript; charset=utf-8 1.0101ms
+2024-09-23 01:27:26.488 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/HelpPlatform.styles.css - 404 null null 2.903ms
+2024-09-23 01:27:26.488 -03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:57678/HelpPlatform.styles.css, Response status code: 404
+2024-09-23 01:27:26.495 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 7.8282ms
+2024-09-23 01:27:43.861 -03:00 [INF] Registered 7 endpoints in 326 milliseconds.
+2024-09-23 01:27:44.467 -03:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2024-09-23 01:27:44.586 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2024-09-23 01:27:44.624 -03:00 [INF] User profile is available. Using 'C:\Users\eduar\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-09-23 01:27:44.679 -03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-09-23 01:27:44.831 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/swagger - null null
+2024-09-23 01:27:44.831 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - null null
+2024-09-23 01:27:44.852 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-23 01:27:44.852 -03:00 [INF] Hosting environment: Development
+2024-09-23 01:27:44.852 -03:00 [INF] Content root path: C:\Users\eduar\source\repos\HelpPlatform\HelpPlatform\src\HelpPlatform.Web
+2024-09-23 01:27:44.932 -03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-23 01:27:44.934 -03:00 [INF] Executing endpoint '/ (/)'
+2024-09-23 01:27:44.935 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/swagger - 499 null null 111.8056ms
+2024-09-23 01:27:44.985 -03:00 [INF] Executed endpoint '/ (/)'
+2024-09-23 01:27:44.988 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - 200 null text/html; charset=utf-8 165.4667ms
+2024-09-23 01:27:44.998 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-23 01:27:45.000 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/blazor.web.js - null null
+2024-09-23 01:27:45.000 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/HelpPlatform.Web.styles.css - null null
+2024-09-23 01:27:45.002 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - null null
+2024-09-23 01:27:45.003 -03:00 [INF] Executing endpoint 'Blazor web static files'
+2024-09-23 01:27:45.004 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - 200 13768 application/javascript; charset=utf-8 5.7617ms
+2024-09-23 01:27:45.010 -03:00 [INF] The file /HelpPlatform.Web.styles.css was not modified
+2024-09-23 01:27:45.010 -03:00 [INF] The file /_framework/blazor.web.js was not modified
+2024-09-23 01:27:45.014 -03:00 [INF] Executed endpoint 'Blazor web static files'
+2024-09-23 01:27:45.014 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/HelpPlatform.Web.styles.css - 304 null text/css 15.3434ms
+2024-09-23 01:27:45.014 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/blazor.web.js - 304 null text/javascript 15.3433ms
+2024-09-23 01:27:45.035 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - 200 null text/javascript; charset=UTF-8 33.0752ms
+2024-09-23 01:27:46.715 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/requests - null null
+2024-09-23 01:27:46.720 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/requests - 404 null null 5.2724ms
+2024-09-23 01:27:46.721 -03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:57678/requests, Response status code: 404
+2024-09-23 01:27:47.779 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - null null
+2024-09-23 01:27:47.782 -03:00 [INF] Executing endpoint '/ (/)'
+2024-09-23 01:27:47.787 -03:00 [INF] Executed endpoint '/ (/)'
+2024-09-23 01:27:47.788 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - 200 null text/html; charset=utf-8 8.6362ms
+2024-09-23 01:27:48.617 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - null null
+2024-09-23 01:27:48.619 -03:00 [INF] Executing endpoint '/ (/)'
+2024-09-23 01:27:48.628 -03:00 [INF] Executed endpoint '/ (/)'
+2024-09-23 01:27:48.628 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - 200 null text/html; charset=utf-8 11.497ms
+2024-09-23 01:27:49.178 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - null null
+2024-09-23 01:27:49.180 -03:00 [INF] Executing endpoint '/ (/)'
+2024-09-23 01:27:49.183 -03:00 [INF] Executed endpoint '/ (/)'
+2024-09-23 01:27:49.183 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - 200 null text/html; charset=utf-8 5.2917ms
