@@ -22,6 +22,7 @@
         <PackageReference Include="Ardalis.ListStartupServices" />
         <PackageReference Include="Ardalis.Result" />
         <PackageReference Include="Ardalis.Result.AspNetCore" />
+        <PackageReference Include="Blazor.Bootstrap" />
         <PackageReference Include="bootstrap" />
         <PackageReference Include="BootstrapBlazor" />
         <PackageReference Include="FastEndpoints" />

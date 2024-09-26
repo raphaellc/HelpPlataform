@@ -9,6 +9,7 @@
     <PackageVersion Include="Ardalis.SmartEnum" Version="8.0.0" />
     <PackageVersion Include="Ardalis.Specification" Version="8.0.0" />
     <PackageVersion Include="Ardalis.Specification.EntityFrameworkCore" Version="8.0.0" />
+    <PackageVersion Include="Blazor.Bootstrap" Version="3.0.0" />
     <PackageVersion Include="bootstrap" Version="5.3.3" />
     <PackageVersion Include="BootstrapBlazor" Version="8.9.3" />
     <PackageVersion Include="coverlet.collector" Version="6.0.2" />

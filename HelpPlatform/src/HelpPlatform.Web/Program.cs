@@ -29,6 +29,7 @@ builder.Services.AddRazorComponents()
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddHttpClient();
+builder.Services.AddBlazorBootstrap();
 
 builder.Host.UseSerilog((_, config) => config.ReadFrom.Configuration(builder.Configuration));
 var microsoftLogger = new SerilogLoggerFactory(logger)
