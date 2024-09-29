@@ -2,6 +2,7 @@
 using Ardalis.SharedKernel;
 using HelpPlatform.Core.Contributor.ContributorAggregate;
 using HelpPlatform.Core.User;
+using HelpPlatform.Core.ResourceType;
 using Microsoft.EntityFrameworkCore;
 
 namespace HelpPlatform.Infrastructure.Data;
@@ -18,6 +19,8 @@ public class AppDbContext : DbContext {
     public DbSet<Contributor> Contributors => Set<Contributor>();
 
     public DbSet<User> Users => Set<User>();
+
+    public DbSet<ResourceType> ResourceTypes => Set<ResourceType>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder) {
         base.OnModelCreating(modelBuilder);

@@ -1,4 +1,3 @@
-using System.Runtime.CompilerServices;
 using Ardalis.SmartEnum;
 
 namespace HelpPlatform.Core.RequestStatus;
@@ -14,8 +13,7 @@ public abstract class RequestStatus : SmartEnum<RequestStatus> {
 
     public static readonly RequestStatus Cancelled = new CancelledStatus();
 
-    public abstract bool CanTransitionTo(RequestStatus next);
-
+    public abstract bool CanTransitionTo(RequestStatus next); 
     protected RequestStatus(String name, int value) : base(name,value){}
 
     private sealed class OpenStatus: RequestStatus

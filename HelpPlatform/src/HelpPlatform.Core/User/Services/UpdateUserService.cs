@@ -18,6 +18,6 @@ public class UpdateUserService(IRepository<User> _repository) : IUpdateUserServi
         
         await _repository.UpdateAsync(existingUser, cancellationToken);
 
-        return Result.NoContent();
+        return Result.NoContent(); //Result.Success()?
     }
 }
