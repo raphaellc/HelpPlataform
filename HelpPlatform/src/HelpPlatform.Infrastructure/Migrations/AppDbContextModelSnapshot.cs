@@ -36,13 +36,98 @@ namespace HelpPlatform.Infrastructure.Migrations
                     b.ToTable("Contributors");
                 });
 
-            modelBuilder.Entity("HelpPlatform.Core.User.User", b =>
+            modelBuilder.Entity("HelpPlatform.Core.DonationRequestDomain.DonationRequest", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("CreationTime")
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("Deadline")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(500)
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("FulfilledQuantity")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasDefaultValue(0);
+
+                    b.Property<string>("Location")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("RequestedQuantity")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("ResourceType")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("Status")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasDefaultValue(0);
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("DonationRequests");
+                });
+
+            modelBuilder.Entity("HelpPlatform.Core.DonationRequestDomain.DonationRequestClaim", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime?>("Deadline")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Message")
+                        .HasMaxLength(500)
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("RequestId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Status")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasDefaultValue(0);
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RequestId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("DonationRequestClaims");
+                });
+
+            modelBuilder.Entity("HelpPlatform.Core.UserDomain.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("CreatedAt")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Email")
@@ -87,6 +172,44 @@ namespace HelpPlatform.Infrastructure.Migrations
                         });
 
                     b.Navigation("PhoneNumber");
+                });
+
+            modelBuilder.Entity("HelpPlatform.Core.DonationRequestDomain.DonationRequest", b =>
+                {
+                    b.HasOne("HelpPlatform.Core.UserDomain.User", "User")
+                        .WithMany("DonationRequests")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("HelpPlatform.Core.DonationRequestDomain.DonationRequestClaim", b =>
+                {
+                    b.HasOne("HelpPlatform.Core.DonationRequestDomain.DonationRequest", null)
+                        .WithMany("Claims")
+                        .HasForeignKey("RequestId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("HelpPlatform.Core.UserDomain.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("HelpPlatform.Core.DonationRequestDomain.DonationRequest", b =>
+                {
+                    b.Navigation("Claims");
+                });
+
+            modelBuilder.Entity("HelpPlatform.Core.UserDomain.User", b =>
+                {
+                    b.Navigation("DonationRequests");
                 });
 #pragma warning restore 612, 618
         }

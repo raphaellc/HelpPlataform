@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 using Ardalis.ListStartupServices;
-using Ardalis.SharedKernel;
+using HelpPlatform.SharedKernel;
 using FastEndpoints;
 using FastEndpoints.Swagger;
 using HelpPlatform.Core.Contributor.ContributorAggregate;
@@ -63,7 +63,8 @@ else{
     app.UseHsts();
 }
 
-app.UseFastEndpoints()
+app.UseDefaultExceptionHandler()
+    .UseFastEndpoints()
     .UseSwaggerGen(); // Includes AddFileServer and static files middleware
 
 app.UseHttpsRedirection();

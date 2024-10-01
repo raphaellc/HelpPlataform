@@ -1,9 +1,11 @@
 ﻿using Ardalis.GuardClauses;
-using Ardalis.SharedKernel;
+using HelpPlatform.SharedKernel;
 using HelpPlatform.Core.Contributor.Interfaces;
 using HelpPlatform.Core.Contributor.Services;
-using HelpPlatform.Core.User.Interfaces;
-using HelpPlatform.Core.User.Services;
+using HelpPlatform.Core.DonationRequestDomain.Interfaces;
+using HelpPlatform.Core.DonationRequestDomain.Services;
+using HelpPlatform.Core.UserDomain.Interfaces;
+using HelpPlatform.Core.UserDomain.Services;
 using HelpPlatform.Infrastructure.Data;
 using HelpPlatform.Infrastructure.Data.Queries;
 using HelpPlatform.Infrastructure.Email;
@@ -31,6 +33,7 @@ public static class InfrastructureServiceExtensions {
         services.AddScoped<IDeleteContributorService, DeleteContributorService>();
         services.AddScoped<IDeleteUserService, DeleteUserService>();
         services.AddScoped<IUpdateUserService, UpdateUserService>();
+        services.AddScoped<ICreateDonationRequestClaimService, CreateDonationRequestClaimService>();
 
         services.Configure<MailserverConfiguration>(config.GetSection("Mailserver"));
 

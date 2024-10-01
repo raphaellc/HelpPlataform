@@ -1,14 +1,14 @@
 ﻿using Ardalis.Result;
-using Ardalis.SharedKernel;
-using HelpPlatform.Core.User.Interfaces;
+using HelpPlatform.Core.UserDomain.Interfaces;
+using HelpPlatform.SharedKernel;
 
-namespace HelpPlatform.Core.User.Services;
+namespace HelpPlatform.Core.UserDomain.Services;
 
 public class UpdateUserService(IRepository<User> _repository) : IUpdateUserService
 {
     public async Task<Result> UpdateUser(int userId, string name, CancellationToken cancellationToken)
     {
-        var existingUser = await _repository.GetByIdAsync(userId);
+        var existingUser = await _repository.GetByIdAsync(userId, cancellationToken);
         if (existingUser is null)
         {
             return Result.NotFound();

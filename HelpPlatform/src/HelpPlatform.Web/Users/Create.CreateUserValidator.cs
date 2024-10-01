@@ -11,13 +11,12 @@ public class CreateUserValidator : Validator<CreateUserRequest>
         RuleFor(request => request.Name)
             .NotEmpty()
             .WithMessage("Name is required")
-            .MaximumLength(DataSchemaConstants.DefaultNameLength)
-            .WithMessage("Name too long");
+            .MaximumLength(DataSchemaConstants.DefaultNameLength);
 
         RuleFor(request => request.Email)
             .NotEmpty()
             .WithMessage("Email is required")
-            .Matches(@"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$")
+            .EmailAddress()
             .WithMessage("Email invalid");
     }
 }

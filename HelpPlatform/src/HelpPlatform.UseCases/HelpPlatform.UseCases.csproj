@@ -8,6 +8,12 @@
 
     <ItemGroup>
         <ProjectReference Include="..\HelpPlatform.Core\HelpPlatform.Core.csproj"/>
+        <ProjectReference Include="..\HelpPlatform.SharedKernel\HelpPlatform.SharedKernel.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="DonationRequests\Close\" />
+      <Folder Include="DonationRequests\Get\" />
     </ItemGroup>
 
 </Project>

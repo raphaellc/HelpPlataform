@@ -1,4 +1,4 @@
-﻿using Ardalis.SharedKernel;
+﻿using HelpPlatform.SharedKernel;
 using HelpPlatform.UseCases.Contributors.Create;
 using FluentAssertions;
 using HelpPlatform.Core.Contributor.ContributorAggregate;
