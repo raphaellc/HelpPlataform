@@ -24,6 +24,9 @@ public class AppDbContext : DbContext {
 
     public DbSet<DonationRequestClaim> DonationRequestClaims => Set<DonationRequestClaim>();
 
+    public DbSet<Notification> Notifications => Set<Notification>();
+
+
     protected override void OnModelCreating(ModelBuilder modelBuilder) {
         base.OnModelCreating(modelBuilder);
         modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
