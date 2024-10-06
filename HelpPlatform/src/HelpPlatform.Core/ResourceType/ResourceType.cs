@@ -19,5 +19,9 @@ public class ResourceType(string name, int quantity, string scale) : EntityBase,
     {
         this.Scale = Guard.Against.NullOrWhiteSpace(scale,nameof(scale));
     }
+    public void UpdateQuantity(int quantity)
+    {
+        this.Quantity = Guard.Against.Null(quantity,nameof(quantity));
+    }
 }
 
