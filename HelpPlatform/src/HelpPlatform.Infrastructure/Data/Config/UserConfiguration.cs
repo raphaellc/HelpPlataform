@@ -1,4 +1,4 @@
-﻿using HelpPlatform.Core.User;
+﻿using HelpPlatform.Core.UserDomain;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -15,5 +15,10 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
     builder.Property(p => p.Email)
       .HasMaxLength(DataSchemaConstants.DefaultEmailLength)
       .IsRequired();
+    
+    builder.HasMany(u => u.DonationRequests)
+        .WithOne(dr => dr.User)
+        .HasForeignKey(dr => dr.UserId)
+        .OnDelete(DeleteBehavior.Cascade);
   }
 }

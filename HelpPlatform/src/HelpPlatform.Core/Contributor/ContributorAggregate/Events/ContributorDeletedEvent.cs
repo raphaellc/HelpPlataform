@@ -1,4 +1,4 @@
-﻿using Ardalis.SharedKernel;
+﻿using HelpPlatform.SharedKernel;
 
 namespace HelpPlatform.Core.Contributor.ContributorAggregate.Events;
 

@@ -1,4 +1,4 @@
-﻿using Ardalis.SharedKernel;
+﻿using HelpPlatform.SharedKernel;
 using Ardalis.Specification.EntityFrameworkCore;
 
 namespace HelpPlatform.Infrastructure.Data;

@@ -15,4 +15,8 @@
       <Folder Include="Contributor\" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\HelpPlatform.SharedKernel\HelpPlatform.SharedKernel.csproj" />
+    </ItemGroup>
+
 </Project>

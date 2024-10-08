@@ -1,5 +1,5 @@
 ﻿using Ardalis.Result;
-using Ardalis.SharedKernel;
+using HelpPlatform.SharedKernel;
 
 namespace HelpPlatform.UseCases.Users.Update;
 

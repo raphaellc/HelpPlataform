@@ -1,6 +1,6 @@
 ﻿using Ardalis.Result;
 
-namespace HelpPlatform.Core.User.Interfaces;
+namespace HelpPlatform.Core.UserDomain.Interfaces;
 
 public interface IDeleteUserService
 {
