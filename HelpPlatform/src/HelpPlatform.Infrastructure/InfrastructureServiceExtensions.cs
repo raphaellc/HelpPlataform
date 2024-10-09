@@ -34,6 +34,8 @@ public static class InfrastructureServiceExtensions {
         services.AddScoped<IDeleteUserService, DeleteUserService>();
         services.AddScoped<IUpdateUserService, UpdateUserService>();
         services.AddScoped<ICreateDonationRequestClaimService, CreateDonationRequestClaimService>();
+        services.AddScoped<IAcceptDonationRequestClaimService, AcceptDonationRequestClaimService>();
+        services.AddScoped<IFulfillDonationRequestClaimService, FulfillDonationRequestClaimService>();
 
         services.Configure<MailserverConfiguration>(config.GetSection("Mailserver"));
 

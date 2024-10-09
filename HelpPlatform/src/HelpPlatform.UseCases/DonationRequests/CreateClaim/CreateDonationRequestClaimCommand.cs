@@ -7,4 +7,5 @@ public record CreateDonationRequestClaimCommand(
     string? message,
     int userId,
     int requestId,
+    int quantity,
     DateTime? deadline) : ICommand<Result>;

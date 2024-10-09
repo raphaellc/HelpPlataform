@@ -11,18 +11,12 @@ public class CreateDonationRequestClaimService(
     IRepository<User> userRepository
     ) : ICreateDonationRequestClaimService
 {
-    public async Task<Result> CreateClaim(string? message, int userId, int requestId, DateTime? deadline, CancellationToken cancellationToken)
+    public async Task<Result> CreateClaim(string? message, int userId, int requestId, int quantity, DateTime? deadline, CancellationToken cancellationToken)
     {
         var donationRequest = await repository.FirstOrDefaultAsync(new DonationRequestWithClaimsSpecification(requestId), cancellationToken);
         if (donationRequest == null)
         {
-            return Result.NotFound("Request not found");
-        }
-        if (deadline != null && deadline > donationRequest.Deadline)
-        {
-            return Result.Invalid(
-                new ValidationError { ErrorMessage = "Claim deadline must not be greater than request deadline" }
-            );
+            return Result.NotFound("Donation request not found");
         }
 
         var user = await userRepository.GetByIdAsync(userId, cancellationToken);
@@ -31,7 +25,7 @@ public class CreateDonationRequestClaimService(
             return Result.NotFound("User not found");
         }
         
-        var result = donationRequest.AddClaim(message: message, userId: userId, requestId: requestId, deadline: deadline);
+        var result = donationRequest.AddClaim(message: message, userId: userId, requestId: requestId, quantity: quantity, deadline: deadline);
         if (result.IsSuccess)
         {
             await repository.UpdateAsync(donationRequest, cancellationToken);

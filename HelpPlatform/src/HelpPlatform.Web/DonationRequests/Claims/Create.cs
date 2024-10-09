@@ -30,6 +30,7 @@ public class Create(IMediator mediator) : Endpoint<CreateDonationRequestClaimReq
             message: request.Message,
             userId: request.UserId,
             requestId: request.RequestId,
+            quantity: request.Quantity,
             deadline: request.Deadline),
             cancellationToken
         );
