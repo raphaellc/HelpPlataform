@@ -1,7 +1,8 @@
 ﻿using System.Reflection;
-using Ardalis.SharedKernel;
+using HelpPlatform.SharedKernel;
 using HelpPlatform.Core.Contributor.ContributorAggregate;
-using HelpPlatform.Core.User;
+using HelpPlatform.Core.DonationRequestDomain;
+using HelpPlatform.Core.UserDomain;
 using HelpPlatform.Core.ResourceType;
 using Microsoft.EntityFrameworkCore;
 
@@ -19,6 +20,10 @@ public class AppDbContext : DbContext {
     public DbSet<Contributor> Contributors => Set<Contributor>();
 
     public DbSet<User> Users => Set<User>();
+    
+    public DbSet<DonationRequest> DonationRequests => Set<DonationRequest>();
+
+    public DbSet<DonationRequestClaim> DonationRequestClaims => Set<DonationRequestClaim>();
 
     public DbSet<ResourceType> ResourceTypes => Set<ResourceType>();
 

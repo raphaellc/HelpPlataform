@@ -1,4 +1,4 @@
-﻿using Ardalis.SharedKernel;
+﻿using HelpPlatform.SharedKernel;
 using HelpPlatform.Core.Contributor.ContributorAggregate;
 using HelpPlatform.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;

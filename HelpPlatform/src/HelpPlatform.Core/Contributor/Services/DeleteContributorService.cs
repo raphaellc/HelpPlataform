@@ -1,5 +1,5 @@
 ﻿using Ardalis.Result;
-using Ardalis.SharedKernel;
+using HelpPlatform.SharedKernel;
 using HelpPlatform.Core.Contributor.ContributorAggregate.Events;
 using HelpPlatform.Core.Contributor.Interfaces;
 using MediatR;

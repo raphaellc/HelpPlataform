@@ -1,6 +1,6 @@
 ﻿using Ardalis.Result;
-using Ardalis.SharedKernel;
-using HelpPlatform.Core.User;
+using HelpPlatform.SharedKernel;
+using HelpPlatform.Core.UserDomain;
 
 namespace HelpPlatform.UseCases.Users.Create;
 
@@ -9,6 +9,7 @@ public class CreateUserCommandHandler(IRepository<User> repository) : ICommandHa
   public async Task<Result<int>> Handle(CreateUserCommand request, CancellationToken cancellationToken)
   {
     var newUser = new User(request.Name, request.Email);
+    
     var createdUser = await repository.AddAsync(newUser, cancellationToken);
 
     return createdUser.Id;

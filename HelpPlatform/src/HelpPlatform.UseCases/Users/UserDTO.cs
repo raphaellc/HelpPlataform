@@ -1,6 +1,6 @@
 ﻿namespace HelpPlatform.UseCases.Users;
 
-public class UserDTO(int id, string name, string email)
+public class UserDto(int id, string name, string email)
 {
     public int Id { get; set; } = id;
 

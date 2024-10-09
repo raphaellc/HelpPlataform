@@ -1,6 +1,6 @@
 using Ardalis.SmartEnum;
 
-namespace HelpPlatform.Core.User;
+namespace HelpPlatform.Core.UserDomain;
 
 public class UserStatus : SmartEnum<UserStatus> {
     public static readonly UserStatus Requester = new(nameof(Requester), 0);

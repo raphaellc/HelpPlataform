@@ -20,16 +20,22 @@ public class Create(IMediator _mediator) : Endpoint<CreateUserRequest, CreateUse
     public override async Task HandleAsync(
         CreateUserRequest request,
         CancellationToken cancellationToken) {
-        var result = await _mediator.Send(new CreateUserCommand(
-        request.Name!,
-        request.Email!),
-        cancellationToken);
+        var result = await _mediator.Send(new CreateUserCommand(request.Name!, request.Email!), cancellationToken);
 
-        if (result.IsSuccess){
-            Response = new CreateUserResponse(result.Value, request.Name!, null);
-        } else {
-            Console.WriteLine("Erro!");
-            // TODO: Handle other cases as necessary
+        if (result.IsSuccess) {
+            Response = new CreateUserResponse(id: result.Value, name: request.Name!, email: request.Email);
+        } else
+        {
+            foreach (var resultError in result.Errors)
+            {
+                AddError(resultError);
+            }
+            foreach (var resultError in result.ValidationErrors)
+            {
+                AddError(resultError.ErrorMessage);
+            }
+
+            ThrowIfAnyErrors();
         }
     }
 }

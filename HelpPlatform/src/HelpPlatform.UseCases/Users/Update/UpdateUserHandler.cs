@@ -1,6 +1,6 @@
 ﻿using Ardalis.Result;
-using Ardalis.SharedKernel;
-using HelpPlatform.Core.User.Interfaces;
+using HelpPlatform.SharedKernel;
+using HelpPlatform.Core.UserDomain.Interfaces;
 
 namespace HelpPlatform.UseCases.Users.Update;
 
