@@ -24,4 +24,3 @@ public class ResourceType(string name, int quantity, string scale) : EntityBase,
         this.Quantity = Guard.Against.Null(quantity,nameof(quantity));
     }
 }
-
