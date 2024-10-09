@@ -34,6 +34,7 @@
         <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" PrivateAssets="All" />
         <PackageReference Include="Quick.AspNetCore.Components.Web.Extensions" />
         <PackageReference Include="Serilog.AspNetCore" />
+        <PackageReference Include="System.Net.Http.Json" />
     </ItemGroup>
 
     <ItemGroup>

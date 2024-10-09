@@ -1,0 +1,15 @@
+﻿@using HelpPlatform.Web.DonationRequests
+
+<div class="row">
+	<div class="col-5 col-md-3 text-end">Description :</div>
+	<div class="col-7 col-md-9">@RequestId</div>
+</div>
+
+@code {
+    [Parameter] public int RequestId { get; set; }
+
+    protected override void OnInitialized()
+    {
+		base.OnInitialized();
+	}
+}

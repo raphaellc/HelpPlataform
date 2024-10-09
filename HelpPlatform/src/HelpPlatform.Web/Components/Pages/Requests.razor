@@ -1,47 +1,80 @@
 @page "/requests"
 @rendermode InteractiveServer
+@using HelpPlatform.Web.DonationRequests
+@using System.Globalization
+@inject HttpClient HttpClient
+@inject NavigationManager NavigationManager
+
 
 <PageTitle>Help Requests</PageTitle>
+<div class="page-title">
+	<h1>Help Requests</h1>
+	<Button Color="ButtonColor.Primary" @onclick="() => OnClick(0)">Create New Request</Button>
+</div>
 
-<h1>Help Requests</h1>
+<Modal @ref="modal" />
 
-<Accordion>
-@foreach (var request in requests)
-{
-	<AccordionItem Title=request.title>
-	<Content>
-		<tr>
-			<td>@request.Resource</td>
-			<td>@request.Description</td>
-			<td>@request.Status</td>
-				<td><Button Color="ButtonColor.Primary" @onclick="OnClick"> Atender </Button></td>
-		</tr>
-	</Content>
-	</AccordionItem>
-}
-</Accordion>
+<div class="page-container">
+	<div class="content">
+		@* Your existing listing code goes here *@
+		<div class="request-list">
+			<Accordion>
+			@foreach (var request in requests)
+			{
+				<AccordionItem Title=@request.description>
+					<Content>
+						<div class="request-details">
+							<div class="detail"><strong>Deadline:</strong> @request.deadline.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture)</div>
+							<div class="detail"><strong>Location:</strong> @request.location</div>
+							<div class="detail"><strong>Resource Type:</strong> @request.resourceType</div>
+							<div class="detail"><strong>Requested Quantity:</strong> @request.requestedQuantity</div>
+							<div class="detail"><strong>Fulfilled Quantity:</strong> @request.fulfilledQuantity</div>
+							<div class="detail"><strong>Status:</strong> @request.status</div>
+							<div class="detail"><strong>User Name:</strong> @request.userName</div>
+							<div class="detail"><strong>Created At:</strong> @request.createdAt.ToString("dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture)</div>
+						</div>
+						<div class="action-button">
+							<Button Color="ButtonColor.Primary" @onclick="() => OnClick(request.id)">Claim Request</Button>
+						</div>
+					</Content>
+				</AccordionItem>
+			}
+			</Accordion>
+		</div>
+	</div>
 
-<Pagination ActivePageNumber="@currentPageNumber"
-			TotalPages="10"
-			PageChanged="OnPageChangedAsync" />
-
-<text>Current Page Number: @currentPageNumber</text>
-
+	<div class="pagination">
+		<Pagination ActivePageNumber="@currentPageNumber"
+					TotalPages="@totalPages"
+					PageChanged="OnPageChangedAsync" />
+	</div>
+</div>
 
 @code {
-	int currentPageNumber = 2;
-	private List<DonationRequest> requests = new();
+	int currentPageNumber = 1;
+	int totalPages = 10;
+	private List<DonationRequestRecord> requests = new List<DonationRequestRecord>();
 
-	protected override async Task OnInitializedAsync()
+	protected override void OnInitialized()
 	{
-		//requests = await DbContext.DonationRequests.ToListAsync();
-		List<DonationRequest> donationRequests = await HttpClient.GetFromJsonAsync<List<DonationRequest>>(NavigationManager.BaseUri + "donationrequests");
-		requests = donationRequests;
+		//List<DonationRequestRecord> donationRequests = await HttpClient.GetFromJsonAsync<List<DonationRequestRecord>>(NavigationManager.BaseUri + "/donationrequests");
+		//requests = donationRequests;
+		
+		for (int i = 0; i < 10; i++)
+		{
+			DonationRequestRecord donation_mock = new DonationRequestRecord(i, "Solicito doação", DateTime.Parse("10/10/2024"), "Avenida Nilo Peçanha 101", "Água", 50, 10, "Pending", "João", DateTime.Parse("05/10/2024"));
+			requests.Add(donation_mock);
+		}
+		
 	}
 
-	protected void OnClick(EventArgs args)
+	private Modal modal = default!;
+
+	protected async Task OnClick(int id)
 	{
-		Console.WriteLine("click event");
+		var parameters = new Dictionary<string, object>();
+		parameters.Add("RequestId", id);
+		await modal.ShowAsync<DonationRequestRecord>(title: "Donation Request", parameters: parameters);
 	}
 
 	private async Task OnPageChangedAsync(int newPageNumber)
@@ -49,3 +82,53 @@
 		await Task.Run(() => { currentPageNumber = newPageNumber; });
 	}
 }
+
+<style>
+	.page-title {
+		display: flex; /* Enable flexbox for layout */
+		justify-content: space-between; /* Space between items */
+		align-items: center; /* Center items vertically */
+		padding: 20px; /* Add padding for the container */
+		border-bottom: 1px solid #ddd; /* Optional border for visual separation */
+	}
+
+	.page-title h1 {
+		margin: 0; /* Remove default margin from h1 */
+	}
+
+	.page-container {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.content {
+		flex: 1; /* This allows content to grow and take available space */
+		padding: 20px; /* Add padding for the content */
+	}
+
+	.pagination {
+		padding-left: 10px; /* Add padding for the pagination */
+		padding-top: 5px;
+	}
+
+	.action-button {
+		margin-top: 5px;
+		display: flex; /* Enable flexbox for alignment */
+	}
+
+	.request-details {
+		display: flex;
+		flex-wrap: wrap; /* Allow items to wrap */
+	}
+
+	.detail {
+		flex: 1 1 50%; /* Two-column layout */
+		padding: 5px;
+	}
+
+	.page-title {
+		display: flex;
+		flex: 1; /* This allows content to grow and take available space */
+		flex-wrap: wrap; /* Allow items to wrap */
+	}
+</style>
