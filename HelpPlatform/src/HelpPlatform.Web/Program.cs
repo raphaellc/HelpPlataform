@@ -37,6 +37,8 @@ builder.Services.AddFastEndpoints()
 
 ConfigureMediatR();
 
+
+
 builder.Services.AddInfrastructureServices(builder.Configuration, microsoftLogger);
 
 if (builder.Environment.IsDevelopment()){

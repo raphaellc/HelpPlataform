@@ -3,6 +3,8 @@ using HelpPlatform.SharedKernel;
 using HelpPlatform.Core.Contributor.ContributorAggregate;
 using HelpPlatform.Core.DonationRequestDomain;
 using HelpPlatform.Core.UserDomain;
+using HelpPlatform.Core.NotificationDomain;
+
 using Microsoft.EntityFrameworkCore;
 
 namespace HelpPlatform.Infrastructure.Data;

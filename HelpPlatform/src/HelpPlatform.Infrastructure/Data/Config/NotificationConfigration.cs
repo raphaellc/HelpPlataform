@@ -8,8 +8,6 @@ public class NotificationConfiguration : IEntityTypeConfiguration<Notification>
 {
     public void Configure(EntityTypeBuilder<Notification> builder)
     {
-        builder.HasKey(n => new { n.NotificationId, n.UserId }); // Configuração da chave primária composta
-
         builder.Property(n => n.Message)
             .IsRequired()
             .HasMaxLength(DataSchemaConstants.DefaultMessageLength); // Assumindo que você tenha uma constante para o tamanho máximo da mensagem
@@ -19,5 +17,8 @@ public class NotificationConfiguration : IEntityTypeConfiguration<Notification>
 
         builder.Property(n => n.CreatedAt)
             .IsRequired();
+        
+        builder.Property(n => n.UserId).IsRequired();
+         
     }
 }

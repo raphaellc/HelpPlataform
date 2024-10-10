@@ -6,7 +6,7 @@ using HelpPlatform.Core.NotificationDomain.Interfaces;
 namespace HelpPlatform.Core.NotificationDomain.Services;
 
 public class NotificationService(
-    INotificationRepository repository,
+    IRepository<Notification> repository,
     IRepository<User> userRepository
     ) : INotificationService
 {
@@ -34,7 +34,7 @@ public class NotificationService(
 
         if (notification.UserId != userId)
         {
-            return Result.Forbidden("User is not authorized to modify this notification.");
+            return Result.Forbidden();
         }
 
         notification.Read = true;
