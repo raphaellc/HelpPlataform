@@ -1,0 +1,38 @@
+@using HelpPlatform.Web.DonationRequests
+@inject NavigationManager NavigationManager
+
+<EditForm Model="@request" OnSubmit="ValidateData" FormName="CreateRequest">
+    <label>
+        Description
+        <InputText @bind-Value=request.Description ></InputText>
+    </label>
+    <br />
+    <input type="submit" class="btn btn-primary" value="Save" />
+    <div>@Message</div>
+</EditForm>
+
+@code {
+    [Parameter] public EventCallback OnItemAdded { get; set; }
+
+    private string Message = String.Empty;
+
+    [SupplyParameterFromForm]
+    private CreateDonationRequestRequest request { get; set; } = new();
+    /*
+    private async Task ValidateData(EditContext editContext)
+    {
+    
+        if (request.Description == "")
+        {
+            Message = "Descrição inválida!";
+            return;
+        }
+
+        private static HttpClient sharedClient = new(){};
+
+        var content = new StringContent(request.ToString());
+        ListDonationRequestResponse? response = sharedClient.PostAsync(NavigationManager.BaseUri + "DonationRequests", content).Result;
+
+        Message = "Mudanças salvas!";
+    }*/
+}

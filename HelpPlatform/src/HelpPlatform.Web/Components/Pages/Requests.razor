@@ -5,25 +5,27 @@
 @inject HttpClient HttpClient
 @inject NavigationManager NavigationManager
 
-
 <PageTitle>Help Requests</PageTitle>
 <div class="page-title">
 	<h1>Help Requests</h1>
-	<Button Color="ButtonColor.Primary" @onclick="() => OnClick(0)">Create New Request</Button>
+	<Button Color="ButtonColor.Primary" @onclick="() => CreateRequest(0)">Create New Request</Button>
 </div>
 
-<Modal @ref="modal" />
+<Offcanvas @ref="offcanvas" />
 
 <div class="page-container">
 	<div class="content">
 		@* Your existing listing code goes here *@
 		<div class="request-list">
 			<Accordion>
-			@foreach (var request in requests)
+			@foreach (var request in donationRequests)
 			{
 				<AccordionItem Title=@request.description>
 					<Content>
-						<div class="request-details">
+						<Progress Class="mb-3">
+                            <ProgressBar Type="ProgressType.StripedAndAnimated" Color="ProgressColor.Success" Width="10" />
+                        </Progress>
+                        <div class="request-details">
 							<div class="detail"><strong>Deadline:</strong> @request.deadline.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture)</div>
 							<div class="detail"><strong>Location:</strong> @request.location</div>
 							<div class="detail"><strong>Resource Type:</strong> @request.resourceType</div>
@@ -34,9 +36,9 @@
 							<div class="detail"><strong>Created At:</strong> @request.createdAt.ToString("dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture)</div>
 						</div>
 						<div class="action-button">
-							<Button Color="ButtonColor.Primary" @onclick="() => OnClick(request.id)">Claim Request</Button>
+							<Button Color="ButtonColor.Primary" @onclick="() => ClaimRequest(request.id)">Claim Request</Button>
 						</div>
-					</Content>
+                    </Content>
 				</AccordionItem>
 			}
 			</Accordion>
@@ -53,28 +55,27 @@
 @code {
 	int currentPageNumber = 1;
 	int totalPages = 10;
-	private List<DonationRequestRecord> requests = new List<DonationRequestRecord>();
+	private ListDonationRequestResponse response = new ListDonationRequestResponse();
+    private List<DonationRequestRecord> donationRequests = [];
 
-	protected override void OnInitialized()
+	protected override async Task OnInitializedAsync()
 	{
-		//List<DonationRequestRecord> donationRequests = await HttpClient.GetFromJsonAsync<List<DonationRequestRecord>>(NavigationManager.BaseUri + "/donationrequests");
-		//requests = donationRequests;
-		
-		for (int i = 0; i < 10; i++)
-		{
-			DonationRequestRecord donation_mock = new DonationRequestRecord(i, "Solicito doação", DateTime.Parse("10/10/2024"), "Avenida Nilo Peçanha 101", "Água", 50, 10, "Pending", "João", DateTime.Parse("05/10/2024"));
-			requests.Add(donation_mock);
-		}
-		
+		ListDonationRequestResponse? response = await HttpClient.GetFromJsonAsync<ListDonationRequestResponse>(NavigationManager.BaseUri + "DonationRequests");
+
+        donationRequests = response?.DonationRequests ?? [];
 	}
 
-	private Modal modal = default!;
+	private Offcanvas offcanvas = default!;
 
-	protected async Task OnClick(int id)
+	protected async Task ClaimRequest(int id)
 	{
 		var parameters = new Dictionary<string, object>();
 		parameters.Add("RequestId", id);
-		await modal.ShowAsync<DonationRequestRecord>(title: "Donation Request", parameters: parameters);
+		await offcanvas.ShowAsync<Claim>(title: "Donation Request", parameters: parameters);
+	}
+    protected async Task CreateRequest(int id)
+	{
+		await offcanvas.ShowAsync<CreateRequest>(title: "Create Request");
 	}
 
 	private async Task OnPageChangedAsync(int newPageNumber)
