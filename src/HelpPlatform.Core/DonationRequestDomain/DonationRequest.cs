@@ -15,27 +15,33 @@ public class DonationRequest(
 {
     public string? Description { get; private set; } = description;
 
-    public DateTime Deadline { get; private set; } = Guard.Against.Null(deadline, nameof(deadline));
+    public DateTime Deadline { get; private set; } =
+        Guard.Against.Null(deadline, nameof(deadline));
 
-    public string Location { get; private set; } = Guard.Against.NullOrEmpty(location, nameof(location));
+    public string Location { get; private set; } =
+        Guard.Against.NullOrEmpty(location, nameof(location));
 
     // This will become a reference to another entity
-    public string ResourceType { get; private set; } = Guard.Against.NullOrEmpty(resourceType, nameof(resourceType));
+    public string ResourceType { get; private set; } =
+        Guard.Against.NullOrEmpty(resourceType, nameof(resourceType));
 
     // All resources will have a measurement which defines a unit
     // And this will always be a unitary quantity of the resource
-    public int RequestedQuantity { get; private set; } = Guard.Against.NegativeOrZero(requestedQuantity, nameof(requestedQuantity));
+    public int RequestedQuantity { get; private set; } =
+        Guard.Against.NegativeOrZero(requestedQuantity, nameof(requestedQuantity));
 
     public int FulfilledQuantity { get; private set; }
 
     public int RemainingQuantity => RequestedQuantity - FulfilledQuantity;
 
     // All donation requests start in "Open" status
-    public DonationRequestStatusEnum Status { get; private set; } = DonationRequestStatusEnum.Open;
+    public DonationRequestStatusEnum Status { get; private set; } =
+        DonationRequestStatusEnum.Open;
 
     public DateTime CreatedAt { get; private set; } = DateTime.Now;
 
-    public int UserId { get; private set; } = Guard.Against.Negative(userId, nameof(userId));
+    public int UserId { get; private set; } =
+        Guard.Against.Negative(userId, nameof(userId));
 
     public User? User { get; init; }
 
@@ -43,8 +49,14 @@ public class DonationRequest(
 
     public IReadOnlyCollection<DonationRequestClaim> Claims => _claims.AsReadOnly();
 
+    public bool IsEditable => Status is
+        not DonationRequestStatusEnum.Completed
+        and not DonationRequestStatusEnum.Closed;
+
     public Result AddClaim(string? message, int userId, int requestId, int quantity, DateTime? deadline)
     {
+        if (!IsEditable) return Result.Invalid(new ValidationError { ErrorMessage = "Cannot modify a closed request" });
+        
         var hasOpenClaims =
             Claims.Any(claim => claim.UserId == userId && claim.Status == DonationRequestClaimStatusEnum.Waiting);
         if (hasOpenClaims)
@@ -60,7 +72,10 @@ public class DonationRequest(
             Claims.Count(claim => claim.UserId == userId && claim.Status == DonationRequestClaimStatusEnum.Rejected) >= 2;
         if (hasMultipleRejectedClaims)
         {
-            return Result.Invalid(new ValidationError { ErrorMessage = "User with multiple rejected claims on donation request" });
+            return Result.Invalid
+            (
+                new ValidationError { ErrorMessage = "User with multiple rejected claims on donation request" }
+            );
         }
         
         if (DateTime.Now > Deadline)
@@ -79,7 +94,7 @@ public class DonationRequest(
             );
         }
 
-        if (quantity > RequestedQuantity - FulfilledQuantity)
+        if (quantity > RemainingQuantity)
         {
             return Result.Invalid
             (
@@ -94,13 +109,14 @@ public class DonationRequest(
 
     public Result AcceptClaim(int claimId)
     {
+        if (!IsEditable) return Result.Invalid(new ValidationError { ErrorMessage = "Cannot modify a closed request" });
+        
         var claim = Claims.FirstOrDefault(claim => claim.Id == claimId);
-
         if (claim == null) return Result.NotFound("Claim not found");
 
         if (claim.Deadline != null && claim.Deadline < DateTime.Now)
         {
-            Result.Invalid(new ValidationError { ErrorMessage = "Cannot accept claim past its deadline" });
+            return Result.Invalid(new ValidationError { ErrorMessage = "Cannot accept claim past its deadline" });
         }
 
         Guard.Against.OutOfRange(
@@ -149,8 +165,9 @@ public class DonationRequest(
 
     public Result RejectClaim(int claimId)
     {
+        if (!IsEditable) return Result.Invalid(new ValidationError { ErrorMessage = "Cannot modify a closed request" });
+        
         var claim = Claims.FirstOrDefault(claim => claim.Id == claimId);
-
         if (claim == null) return Result.NotFound("Claim not found");
 
         claim.SetRejected();
@@ -160,10 +177,11 @@ public class DonationRequest(
 
     public Result MarkClaimAsFulfilled(int claimId)
     {
+        if (!IsEditable) return Result.Invalid(new ValidationError { ErrorMessage = "Cannot modify a closed request" });
+        
         var claim = Claims.FirstOrDefault(claim => claim.Id == claimId);
-
         if (claim == null) return Result.NotFound("Claim not found");
-
+        
         claim.SetFulfilled();
 
         var hasOtherClaimsToFulfill = Claims.Any(otherClaim => otherClaim.Status == DonationRequestClaimStatusEnum.Accepted);
@@ -175,12 +193,85 @@ public class DonationRequest(
         return Result.Success();
     }
 
+    public Result MarkClaimAsUnfulfilledAndRevertQuantity(int claimId)
+    {
+        if (!IsEditable) return Result.Invalid(new ValidationError { ErrorMessage = "Cannot modify a closed request" });
+        
+        var claim = Claims.FirstOrDefault(claim => claim.Id == claimId);
+        if (claim == null) return Result.NotFound("Claim not found");
+
+        var result = claim.SetUnfulfilled();
+
+        if (!result.IsSuccess) return result;
+        
+        _revertClaimChanges(claim.Quantity);
+
+        return Result.Success();
+    }
+
+    private void _revertClaimChanges(int claimedQuantity)
+    {
+        FulfilledQuantity -= claimedQuantity;
+
+        Status = FulfilledQuantity == 0 ?
+            DonationRequestStatusEnum.Open : DonationRequestStatusEnum.PartiallyClaimed;
+    }
+
+    public Result CancelClaim(int claimId)
+    {
+        if (!IsEditable) return Result.Invalid(new ValidationError { ErrorMessage = "Cannot modify a closed request" });
+        
+        var claim = Claims.FirstOrDefault(claim => claim.Id == claimId);
+        if (claim == null) return Result.NotFound("Claim not found");
+
+        switch (claim.Status)
+        {
+            case DonationRequestClaimStatusEnum.Waiting:
+                claim.SetCancelled();
+                break;
+            case DonationRequestClaimStatusEnum.Rejected:
+                return Result.Invalid(new ValidationError { ErrorMessage = "Cannot cancel a rejected claim" });
+            case DonationRequestClaimStatusEnum.Accepted:
+                claim.SetCancelled();
+                _revertClaimChanges(claim.Quantity);
+                break;
+            case DonationRequestClaimStatusEnum.Fulfilled:
+                return Result.Invalid(new ValidationError { ErrorMessage = "Cannot cancel a fulfilled claim" });
+            case DonationRequestClaimStatusEnum.Unfulfilled:
+                return Result.Invalid(new ValidationError { ErrorMessage = "Cannot cancel an unfulfilled claim" });
+            case DonationRequestClaimStatusEnum.Cancelled:
+                return Result.Invalid(new ValidationError { ErrorMessage = "Cannot cancel a cancelled claim" });
+            case DonationRequestClaimStatusEnum.NotNeeded:
+                return Result.Invalid(new ValidationError { ErrorMessage = "Cannot cancel an unneeded claim" });
+            default:
+                throw new ArgumentOutOfRangeException(nameof(claim.Status));
+        }
+        
+        return Result.Success();
+    }
+
     public Result<int> GetClaimDonorId(int claimId)
     {
         var claim = Claims.FirstOrDefault(claim => claim.Id == claimId);
 
-        if (claim == null) return Result.NotFound("Claim not found");
+        return claim == null ? Result.NotFound("Claim not found") : Result.Success(claim.UserId);
+    }
+    public Result Close()
+    {
+        if (!IsEditable) return Result.Invalid(new ValidationError { ErrorMessage = "Cannot modify a closed request" });
+        
+        var claims = Claims.Where(claim =>
+            claim.Status is
+                not DonationRequestClaimStatusEnum.Fulfilled
+                and not DonationRequestClaimStatusEnum.Rejected
+                and not DonationRequestClaimStatusEnum.Unfulfilled);
+        
+        foreach (var claim in claims) {
+            claim.SetRequestCancelled();
+        }
 
-        return Result.Success(claim.UserId);
+        Status = DonationRequestStatusEnum.Closed;
+
+        return Result.Success();
     }
 }

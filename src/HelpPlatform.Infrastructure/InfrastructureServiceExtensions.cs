@@ -36,6 +36,7 @@ public static class InfrastructureServiceExtensions {
         services.AddScoped<ICreateDonationRequestClaimService, CreateDonationRequestClaimService>();
         services.AddScoped<IAcceptDonationRequestClaimService, AcceptDonationRequestClaimService>();
         services.AddScoped<IFulfillDonationRequestClaimService, FulfillDonationRequestClaimService>();
+        services.AddScoped<IUnfulfillDonationRequestClaimService, UnfulfillDonationRequestClaimService>();
 
         services.Configure<MailserverConfiguration>(config.GetSection("Mailserver"));
 
