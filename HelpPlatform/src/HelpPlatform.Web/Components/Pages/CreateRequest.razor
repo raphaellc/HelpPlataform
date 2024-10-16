@@ -1,38 +1,64 @@
 @using HelpPlatform.Web.DonationRequests
 @inject NavigationManager NavigationManager
+@inject HttpClient HttpClient
 
 <EditForm Model="@request" OnSubmit="ValidateData" FormName="CreateRequest">
-    <label>
-        Description
-        <InputText @bind-Value=request.Description ></InputText>
-    </label>
-    <br />
-    <input type="submit" class="btn btn-primary" value="Save" />
-    <div>@Message</div>
+	<div class="mb-3">
+		<label for="description" class="form-label">Description</label>
+		<InputText id="description" class="form-control" @bind-Value="request.Description" />
+	</div>
+
+	<div class="mb-3">
+		<label for="deadline" class="form-label">Deadline</label>
+		<DateInput id="deadline" class="form-control" TValue="DateTime?" @bind-Value="request.Deadline" EnableMinMax="true" Placeholder="Enter Date" />
+	</div>
+
+	<div class="mb-3">
+		<label for="location" class="form-label">Location</label>
+		<InputText id="location" class="form-control" @bind-Value="request.Location" />
+	</div>
+
+	<div class="mb-3">
+		<label for="resourceType" class="form-label">ResourceType</label>
+		<InputText id="resourceType" class="form-control" @bind-Value="request.ResourceType" />
+	</div>
+
+	<div class="mb-3">
+		<label for="requestedQuantity" class="form-label">Requested Quantity</label>
+		<NumberInput id="requestedQuantity" class="form-control" TValue="int?" @bind-Value="request.RequestedQuantity" Placeholder="Enter amount" />
+	</div>
+
+	<button type="submit" class="btn btn-primary">Save</button>
+
+	<div class="mt-3">@Message</div>
 </EditForm>
 
 @code {
-    [Parameter] public EventCallback OnItemAdded { get; set; }
+	[Parameter] public EventCallback OnRequestCreated { get; set; }
 
-    private string Message = String.Empty;
+	private string Message = String.Empty;
 
-    [SupplyParameterFromForm]
-    private CreateDonationRequestRequest request { get; set; } = new();
-    /*
-    private async Task ValidateData(EditContext editContext)
-    {
-    
-        if (request.Description == "")
-        {
-            Message = "Descrição inválida!";
-            return;
-        }
+	[SupplyParameterFromForm]
+	private CreateDonationRequestRequest request { get; set; } = new();
 
-        private static HttpClient sharedClient = new(){};
+	private async Task ValidateData(EditContext editContext)
+	{
+		Message = "Salvando...";
+		request.UserId = 1;
 
-        var content = new StringContent(request.ToString());
-        ListDonationRequestResponse? response = sharedClient.PostAsync(NavigationManager.BaseUri + "DonationRequests", content).Result;
+		HttpResponseMessage response = await HttpClient.PostAsJsonAsync(NavigationManager.BaseUri + "DonationRequests", request);
 
-        Message = "Mudanças salvas!";
-    }*/
+		if (response.IsSuccessStatusCode)
+		{
+			Message = "Salvo!";
+			if (OnRequestCreated.HasDelegate)
+			{
+				await OnRequestCreated.InvokeAsync(null);
+			}
+		}
+		else
+		{
+			Message = $"Erro: {response.Content}";
+		}
+	}
 }

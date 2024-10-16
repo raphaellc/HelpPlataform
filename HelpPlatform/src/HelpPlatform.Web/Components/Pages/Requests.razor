@@ -11,7 +11,7 @@
 	<Button Color="ButtonColor.Primary" @onclick="() => CreateRequest(0)">Create New Request</Button>
 </div>
 
-<Offcanvas @ref="offcanvas" />
+<Offcanvas @ref="offcanvas" OnRequestCreated="HandleRequestCreated"/>
 
 <div class="page-container">
 	<div class="content">
@@ -81,6 +81,13 @@
 	private async Task OnPageChangedAsync(int newPageNumber)
 	{
 		await Task.Run(() => { currentPageNumber = newPageNumber; });
+	}
+
+	private async Task HandleRequestCreated()
+	{
+		ListDonationRequestResponse? response = await HttpClient.GetFromJsonAsync<ListDonationRequestResponse>(NavigationManager.BaseUri + "DonationRequests");
+
+		donationRequests = response?.DonationRequests ?? [];
 	}
 }
 
