@@ -2,10 +2,9 @@ using System.Data.Common;
 
 namespace HelpPlatform.UseCases.ResourceTypes;
 
-public class ResourceTypeDTO(int id, string name, int quantity, string scale)
+public class ResourceTypeDTO(int id, string name, string scale)
 {
-    int Id { get; set; } = id;
-    string Name { get; set; } = name;
-    int quantity { get; set; } = quantity;
-    string scale { get; set; } = scale;
+    public int Id { get; set; } = id;
+    public string Name { get; set; } = name;
+    public string Scale { get; set; } = scale;
 }

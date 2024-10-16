@@ -12,4 +12,6 @@ public static class DataSchemaConstants {
 
     public const DonationRequestClaimStatusEnum DefaultClaimStatus = DonationRequestClaimStatusEnum.Waiting;
     public const int DefaultClaimMessageLength = 500;
+    
+    public const int DefaultScaleLength = 20;
 }

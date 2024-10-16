@@ -1,6 +1,6 @@
 using Ardalis.Result;
-using Ardalis.SharedKernel;
-using HelpPlatform.Core.ResourceType.Interfaces;
+using HelpPlatform.SharedKernel;
+using HelpPlatform.Core.ResourceTypeDomain.Interfaces;
 
 namespace HelpPlatform.UseCases.ResourceTypes.Delete;
 

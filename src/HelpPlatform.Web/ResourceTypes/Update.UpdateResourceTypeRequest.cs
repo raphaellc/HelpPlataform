@@ -14,8 +14,6 @@ public class UpdateResourceTypeRequest
     [Required]
     public string? Name { get; set; }
     [Required]
-    public int? Quantity { get; set; }
-    [Required]
     public string? Scale { get; set; }
 
 }

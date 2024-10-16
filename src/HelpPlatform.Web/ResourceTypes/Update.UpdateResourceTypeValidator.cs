@@ -14,12 +14,6 @@ public class UpdateResourceTypeValidator : Validator<UpdateResourceTypeRequest>
             .WithMessage("Name is required")
             .MaximumLength(DataSchemaConstants.DefaultNameLength)
             .WithMessage("Name too long");
-
-            RuleFor(request => request.Quantity)
-            .NotEmpty()
-            .WithMessage("Quantity is required")
-            .GreaterThan(DataSchemaConstants.MinimumQuantityRequestable)
-            .WithMessage("Request too small");
         
         RuleFor(request => request.Scale)
             .NotEmpty()

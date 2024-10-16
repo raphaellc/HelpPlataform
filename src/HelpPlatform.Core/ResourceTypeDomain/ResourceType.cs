@@ -1,13 +1,11 @@
 using Ardalis.GuardClauses;
-using Ardalis.SharedKernel;
+using HelpPlatform.SharedKernel;
 
-namespace HelpPlatform.Core.ResourceType;
+namespace HelpPlatform.Core.ResourceTypeDomain;
 
-public class ResourceType(string name, int quantity, string scale) : EntityBase, IAggregateRoot
+public class ResourceType(string name, string scale) : EntityBase, IAggregateRoot
 {
     public string Name { get; private set; } = Guard.Against.NullOrWhiteSpace(name,nameof(name));
-
-    public int Quantity { get; private set; } = quantity;
 
     public string Scale { get; private set; } = Guard.Against.NullOrWhiteSpace(scale,nameof(scale));
 
@@ -18,9 +16,5 @@ public class ResourceType(string name, int quantity, string scale) : EntityBase,
     public void UpdateScale(string scale)
     {
         this.Scale = Guard.Against.NullOrWhiteSpace(scale,nameof(scale));
-    }
-    public void UpdateQuantity(int quantity)
-    {
-        this.Quantity = Guard.Against.Null(quantity,nameof(quantity));
     }
 }

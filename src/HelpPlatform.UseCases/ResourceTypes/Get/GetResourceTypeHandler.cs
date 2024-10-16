@@ -1,11 +1,9 @@
 using Ardalis.Result;
+using HelpPlatform.Core.ResourceTypeDomain;
+using HelpPlatform.Core.ResourceTypeDomain.ResourceTypeAggregate.Specifications;
 using HelpPlatform.SharedKernel;
-using HelpPlatform.Core.ResourceType.ResourceTypeAggregate;
-using HelpPlatform.Core.ResourceType.ResourceTypeAggregate.Specifications;
-using HelpPlatform.UseCases.ResourceTypes;
-using HelpPlatform.UseCases.ResourceTypes.Get;
 
-namespace HelpPlatform.UseCases.ResourceType.Get;
+namespace HelpPlatform.UseCases.ResourceTypes.Get;
 
 /// <summary>
 /// Queries don't necessarily need to use repository methods, but they can if it's convenient
@@ -17,6 +15,6 @@ public class GetResourceTypeHandler(IReadRepository<ResourceType> _repository)
         var entity = await _repository.FirstOrDefaultAsync(spec, cancellationToken);
         if (entity == null) return Result.NotFound();
 
-        return new ResourceTypeDTO(entity.Id, entity.Name, entity.Quantity , entity.Scale);
+        return new ResourceTypeDTO(entity.Id, entity.Name, entity.Scale);
     }
 }

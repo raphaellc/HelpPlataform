@@ -15,6 +15,7 @@ public class Accept(IMediator mediator) : Endpoint<AcceptDonationRequestClaimReq
         {
             s.ExampleRequest = new AcceptDonationRequestClaimRequest { RequestId = 1, ClaimId = 1 };
         });
+        Description(x => x.Accepts<AcceptDonationRequestClaimRequest>());
     }
 
     public override async Task HandleAsync(

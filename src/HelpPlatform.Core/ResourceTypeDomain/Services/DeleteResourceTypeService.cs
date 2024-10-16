@@ -1,8 +1,8 @@
 using Ardalis.Result;
-using Ardalis.SharedKernel;
-using HelpPlatform.Core.ResourceType.Interfaces;
+using HelpPlatform.SharedKernel;
+using HelpPlatform.Core.ResourceTypeDomain.Interfaces;
 
-namespace HelpPlatform.Core.ResourceType.Services;
+namespace HelpPlatform.Core.ResourceTypeDomain.Services;
 
 public class DeleteResourceTypeService(IRepository<ResourceType> _repository) : IDeleteResourceTypeService
 {

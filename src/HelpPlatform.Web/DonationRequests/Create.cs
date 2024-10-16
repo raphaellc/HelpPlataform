@@ -19,8 +19,8 @@ public class Create(IMediator _mediator) : Endpoint<CreateDonationRequestRequest
                 RequestedQuantity = 10,
                 Deadline = DateTime.Now.AddHours(5),
                 Location = "Example Location",
-                ResourceType = "Example Resource",
-                UserId = 0
+                ResourceTypeId = 1,
+                UserId = 1
             };
         });
     }
@@ -32,7 +32,7 @@ public class Create(IMediator _mediator) : Endpoint<CreateDonationRequestRequest
         Description: request.Description,
         Deadline: request.Deadline!.Value,
         Location: request.Location!,
-        ResourceType: request.ResourceType!,
+        ResourceTypeId: request.ResourceTypeId!.Value,
         RequestedQuantity: request.RequestedQuantity!.Value,
         UserId: request.UserId!.Value),
         cancellationToken);

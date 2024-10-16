@@ -1,6 +1,6 @@
 using Ardalis.Specification;
 
-namespace HelpPlatform.Core.ResourceType.ResourceTypeAggregate.Specifications;
+namespace HelpPlatform.Core.ResourceTypeDomain.ResourceTypeAggregate.Specifications;
 
 public class ResourceTypeByIdSpec : Specification<ResourceType> {
     public ResourceTypeByIdSpec(int resourceTypeId) {

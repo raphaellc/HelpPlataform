@@ -1,6 +1,6 @@
 using Ardalis.Result;
 
-namespace HelpPlatform.Core.ResourceType.Interfaces;
+namespace HelpPlatform.Core.ResourceTypeDomain.Interfaces;
 
 public interface IDeleteResourceTypeService 
 {

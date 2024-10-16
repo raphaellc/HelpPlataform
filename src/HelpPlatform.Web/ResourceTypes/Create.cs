@@ -15,7 +15,7 @@ public class Create(IMediator _mediator) : Endpoint<CreateResourceTypeRequest, C
             // XML Docs are used by default but are overridden by these properties:
             //s.Summary = "Create a new Contributor.";
             //s.Description = "Create a new Contributor. A valid name is required.";
-            s.ExampleRequest = new CreateResourceTypeRequest { Name = "TEST", Quantity = 1000000, Scale = "TEST" };
+            s.ExampleRequest = new CreateResourceTypeRequest { Name = "TEST", Scale = "TEST" };
         });
     }
     public override async Task HandleAsync(
@@ -24,7 +24,6 @@ public class Create(IMediator _mediator) : Endpoint<CreateResourceTypeRequest, C
         {
             var result = await _mediator.Send(new CreateResourceTypeCommand(
             request.Name!,
-            request.Quantity.GetValueOrDefault(),
             request.Scale!),
             cancellationToken);
 
@@ -32,7 +31,6 @@ public class Create(IMediator _mediator) : Endpoint<CreateResourceTypeRequest, C
             {
                 Response = new CreateResourceTypeResponse(result.Value,
                 request.Name!,
-                request.Quantity.GetValueOrDefault(),
                 request.Scale!);
             }
             else

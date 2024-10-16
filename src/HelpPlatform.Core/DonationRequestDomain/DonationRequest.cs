@@ -1,5 +1,6 @@
 ﻿using Ardalis.GuardClauses;
 using Ardalis.Result;
+using HelpPlatform.Core.ResourceTypeDomain;
 using HelpPlatform.Core.UserDomain;
 using HelpPlatform.SharedKernel;
 
@@ -9,7 +10,7 @@ public class DonationRequest(
     string? description,
     DateTime deadline,
     string location,
-    string resourceType,
+    int resourceTypeId,
     int requestedQuantity,
     int userId) : EntityBase, IAggregateRoot
 {
@@ -21,9 +22,9 @@ public class DonationRequest(
     public string Location { get; private set; } =
         Guard.Against.NullOrEmpty(location, nameof(location));
 
-    // This will become a reference to another entity
-    public string ResourceType { get; private set; } =
-        Guard.Against.NullOrEmpty(resourceType, nameof(resourceType));
+    public int ResourceTypeId { get; private set; } =
+        Guard.Against.NegativeOrZero(resourceTypeId, nameof(resourceTypeId));
+    public ResourceType? ResourceType { get; private set; }
 
     // All resources will have a measurement which defines a unit
     // And this will always be a unitary quantity of the resource
@@ -42,11 +43,9 @@ public class DonationRequest(
 
     public int UserId { get; private set; } =
         Guard.Against.Negative(userId, nameof(userId));
-
-    public User? User { get; init; }
+    public User? User { get; private set; }
 
     private readonly List<DonationRequestClaim> _claims = [];
-
     public IReadOnlyCollection<DonationRequestClaim> Claims => _claims.AsReadOnly();
 
     public bool IsEditable => Status is
@@ -58,7 +57,9 @@ public class DonationRequest(
         if (!IsEditable) return Result.Invalid(new ValidationError { ErrorMessage = "Cannot modify a closed request" });
         
         var hasOpenClaims =
-            Claims.Any(claim => claim.UserId == userId && claim.Status == DonationRequestClaimStatusEnum.Waiting);
+            Claims.Any(claim => claim.UserId == userId && claim.Status
+                                    is DonationRequestClaimStatusEnum.Waiting
+                                    or DonationRequestClaimStatusEnum.Accepted);
         if (hasOpenClaims)
         {
             return Result.Invalid

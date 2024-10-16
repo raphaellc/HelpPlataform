@@ -27,7 +27,7 @@ public class CreateDonationRequestValidator : Validator<CreateDonationRequestReq
             .GreaterThan(-1)
             .WithMessage("Requested quantity must be a positive number");
 
-        RuleFor(request => request.ResourceType)
+        RuleFor(request => request.ResourceTypeId)
             .NotEmpty()
             .WithMessage("ResourceType is required");
 

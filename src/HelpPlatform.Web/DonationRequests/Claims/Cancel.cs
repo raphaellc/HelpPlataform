@@ -15,6 +15,7 @@ public class Cancel(IMediator mediator) : Endpoint<CancelDonationRequestClaimReq
         {
             s.ExampleRequest = new CancelDonationRequestClaimRequest { RequestId = 1, ClaimId = 1 };
         });
+        Description(x => x.Accepts<AcceptDonationRequestClaimRequest>());
     }
     
     public override async Task HandleAsync(

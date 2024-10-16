@@ -16,7 +16,7 @@ public class Update(IMediator _mediator)
     public override async Task HandleAsync(
         UpdateResourceTypeRequest request,
         CancellationToken cancellationToken) {
-        var result = await _mediator.Send(new UpdateResourceTypeCommand(request.Id, request.Name!), cancellationToken);
+        var result = await _mediator.Send(new UpdateResourceTypeCommand(request.Id, request.Name!, request.Scale!), cancellationToken);
 
         if (result.Status == ResultStatus.NotFound){
             await SendNotFoundAsync(cancellationToken);
@@ -34,7 +34,7 @@ public class Update(IMediator _mediator)
 
         if (queryResult.IsSuccess){
             var dto = queryResult.Value;
-            Response = new UpdateResourceTypeResponse(new ResourceTypeRecord(dto.Id, dto.Name, dto.Quantity, dto.Scale));
+            Response = new UpdateResourceTypeResponse(new ResourceTypeRecord(dto.Id, dto.Name, dto.Scale));
             return;
         }
     }
