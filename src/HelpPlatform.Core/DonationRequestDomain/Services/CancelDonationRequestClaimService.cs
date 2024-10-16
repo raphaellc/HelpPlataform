@@ -24,6 +24,8 @@ public class CancelDonationRequestClaimService(IRepository<DonationRequest> repo
         
         // TODO - Notify request owner
 
+        await repository.UpdateAsync(donationRequest, cancellationToken);
+
         return Result.Success();
     }
 }
