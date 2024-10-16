@@ -22,6 +22,7 @@
 
     <ItemGroup>
         <ProjectReference Include="..\HelpPlatform.Infrastructure\HelpPlatform.Infrastructure.csproj"/>
+        <PackageReference Include="Blazor.Bootstrap" />
         <ProjectReference Include="..\HelpPlatform.UseCases\HelpPlatform.UseCases.csproj"/>
     </ItemGroup>
 
