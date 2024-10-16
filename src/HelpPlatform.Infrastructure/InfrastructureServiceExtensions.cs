@@ -4,6 +4,8 @@ using HelpPlatform.Core.Contributor.Interfaces;
 using HelpPlatform.Core.Contributor.Services;
 using HelpPlatform.Core.DonationRequestDomain.Interfaces;
 using HelpPlatform.Core.DonationRequestDomain.Services;
+using HelpPlatform.Core.ResourceTypeDomain.Interfaces;
+using HelpPlatform.Core.ResourceTypeDomain.Services;
 using HelpPlatform.Core.UserDomain.Interfaces;
 using HelpPlatform.Core.UserDomain.Services;
 using HelpPlatform.Infrastructure.Data;
@@ -35,7 +37,13 @@ public static class InfrastructureServiceExtensions {
         services.AddScoped<IUpdateUserService, UpdateUserService>();
         services.AddScoped<ICreateDonationRequestClaimService, CreateDonationRequestClaimService>();
         services.AddScoped<IAcceptDonationRequestClaimService, AcceptDonationRequestClaimService>();
+        services.AddScoped<IRejectDonationRequestClaimService, RejectDonationRequestClaimService>();
+        services.AddScoped<ICancelDonationRequestClaimService, CancelDonationRequestClaimService>();
         services.AddScoped<IFulfillDonationRequestClaimService, FulfillDonationRequestClaimService>();
+        services.AddScoped<IUnfulfillDonationRequestClaimService, UnfulfillDonationRequestClaimService>();
+        services.AddScoped<ICloseDonationRequestService, CloseDonationRequestService>();
+        services.AddScoped<IDeleteResourceTypeService, DeleteResourceTypeService>();
+        services.AddScoped<IUpdateResourceTypeService, UpdateResourceTypeService>();
 
         services.Configure<MailserverConfiguration>(config.GetSection("Mailserver"));
 

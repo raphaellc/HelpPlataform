@@ -15,6 +15,7 @@ public class Fulfill(IMediator mediator) : Endpoint<FulfillDonationRequestClaimR
         {
             s.ExampleRequest = new FulfillDonationRequestClaimRequest { RequestId = 1, ClaimId = 1 };
         });
+        Description(x => x.Accepts<AcceptDonationRequestClaimRequest>());
     }
     
     public override async Task HandleAsync(

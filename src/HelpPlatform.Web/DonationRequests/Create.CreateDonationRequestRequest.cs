@@ -7,7 +7,7 @@ public class CreateDonationRequestRequest
     public String? Description { get; set; }
     public DateTime? Deadline { get; set; }
     public String? Location { get; set; }
-    public String? ResourceType { get; set; }
+    public int? ResourceTypeId { get; set; }
 
     public int? RequestedQuantity { get; set; }
 

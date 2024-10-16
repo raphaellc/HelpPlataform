@@ -5,7 +5,7 @@ public record DonationRequestRecord(
     string? description,
     DateTime deadline,
     string location,
-    string resourceType,
+    int resourceTypeId,
     int requestedQuantity,
     int fulfilledQuantity,
     string status,

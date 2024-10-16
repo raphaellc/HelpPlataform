@@ -65,10 +65,8 @@ namespace HelpPlatform.Infrastructure.Migrations
                     b.Property<int>("RequestedQuantity")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("ResourceType")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("TEXT");
+                    b.Property<int>("ResourceTypeId")
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("Status")
                         .ValueGeneratedOnAdd()
@@ -79,6 +77,8 @@ namespace HelpPlatform.Infrastructure.Migrations
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ResourceTypeId");
 
                     b.HasIndex("UserId");
 
@@ -91,6 +91,9 @@ namespace HelpPlatform.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<DateTime?>("AcceptedAt")
+                        .HasColumnType("TEXT");
+
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("TEXT");
 
@@ -100,6 +103,9 @@ namespace HelpPlatform.Infrastructure.Migrations
                     b.Property<string>("Message")
                         .HasMaxLength(500)
                         .HasColumnType("TEXT");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("RequestId")
                         .HasColumnType("INTEGER");
@@ -119,6 +125,27 @@ namespace HelpPlatform.Infrastructure.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("DonationRequestClaims");
+                });
+
+            modelBuilder.Entity("HelpPlatform.Core.ResourceTypeDomain.ResourceType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Scale")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ResourceTypes");
                 });
 
             modelBuilder.Entity("HelpPlatform.Core.UserDomain.User", b =>
@@ -176,11 +203,19 @@ namespace HelpPlatform.Infrastructure.Migrations
 
             modelBuilder.Entity("HelpPlatform.Core.DonationRequestDomain.DonationRequest", b =>
                 {
+                    b.HasOne("HelpPlatform.Core.ResourceTypeDomain.ResourceType", "ResourceType")
+                        .WithMany()
+                        .HasForeignKey("ResourceTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("HelpPlatform.Core.UserDomain.User", "User")
                         .WithMany("DonationRequests")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("ResourceType");
 
                     b.Navigation("User");
                 });

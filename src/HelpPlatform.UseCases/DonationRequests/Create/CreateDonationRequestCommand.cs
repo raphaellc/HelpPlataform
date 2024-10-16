@@ -7,7 +7,7 @@ public record CreateDonationRequestCommand(
     string? Description,
     DateTime Deadline,
     string Location,
-    string ResourceType,
+    int ResourceTypeId,
     int RequestedQuantity,
     int UserId
     ) : ICommand<Result<int>>;

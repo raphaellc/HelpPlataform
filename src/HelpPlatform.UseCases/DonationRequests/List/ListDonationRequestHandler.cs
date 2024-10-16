@@ -16,7 +16,7 @@ public class ListDonationRequestHandler(IRepository<DonationRequest> repository)
             description: dr.Description,
             deadline: dr.Deadline,
             location: dr.Location,
-            resourceType: dr.ResourceType,
+            resourceTypeId: dr.ResourceTypeId,
             requestedQuantity: dr.RequestedQuantity,
             fulfilledQuantity: dr.FulfilledQuantity,
             status: dr.Status.ToString(),

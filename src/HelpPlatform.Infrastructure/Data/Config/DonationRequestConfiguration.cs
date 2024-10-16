@@ -18,10 +18,6 @@ public class DonationRequestConfiguration : IEntityTypeConfiguration<DonationReq
             .HasMaxLength(DataSchemaConstants.DefaultLocationLength)
             .IsRequired();
 
-        builder.Property(dr => dr.ResourceType)
-            .HasMaxLength(50)
-            .IsRequired();
-
         builder.Property(dr => dr.RequestedQuantity)
             .IsRequired();
 
@@ -32,6 +28,10 @@ public class DonationRequestConfiguration : IEntityTypeConfiguration<DonationReq
         builder.Property(dr => dr.Status)
             .HasDefaultValue(DataSchemaConstants.DefaultRequestStatus)
             .IsRequired();
+
+        builder.HasOne(dr => dr.ResourceType)
+            .WithMany()
+            .HasForeignKey(dr => dr.ResourceTypeId);
         
         builder.HasOne(dr => dr.User)
             .WithMany(u => u.DonationRequests)

@@ -17,7 +17,7 @@ public class CreateDonationRequestHandler(IRepository<DonationRequest> drReposit
             request.Description,
             request.Deadline,
             request.Location,
-            request.ResourceType,
+            request.ResourceTypeId,
             request.RequestedQuantity,
             user.Id
         );

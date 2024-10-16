@@ -2,6 +2,7 @@
 using HelpPlatform.SharedKernel;
 using HelpPlatform.Core.Contributor.ContributorAggregate;
 using HelpPlatform.Core.DonationRequestDomain;
+using HelpPlatform.Core.ResourceTypeDomain;
 using HelpPlatform.Core.UserDomain;
 using Microsoft.EntityFrameworkCore;
 
@@ -23,6 +24,8 @@ public class AppDbContext : DbContext {
     public DbSet<DonationRequest> DonationRequests => Set<DonationRequest>();
 
     public DbSet<DonationRequestClaim> DonationRequestClaims => Set<DonationRequestClaim>();
+
+    public DbSet<ResourceType> ResourceTypes => Set<ResourceType>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder) {
         base.OnModelCreating(modelBuilder);

@@ -15,6 +15,7 @@ public class Reject(IMediator mediator) : Endpoint<RejectDonationRequestClaimReq
         {
             s.ExampleRequest = new RejectDonationRequestClaimRequest { RequestId = 1, ClaimId = 1 };
         });
+        Description(x => x.Accepts<AcceptDonationRequestClaimRequest>());
     }
 
     public override async Task HandleAsync(

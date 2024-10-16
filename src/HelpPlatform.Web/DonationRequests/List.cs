@@ -23,7 +23,7 @@ public class List(IMediator _mediator) : EndpointWithoutRequest<ListDonationRequ
                 description: dto.Description,
                 deadline: dto.Deadline,
                 location: dto.Location,
-                resourceType: dto.ResourceType,
+                resourceTypeId: dto.ResourceTypeId,
                 requestedQuantity: dto.RequestedQuantity,
                 fulfilledQuantity: dto.FulfilledQuantity,
                 status: dto.Status,
