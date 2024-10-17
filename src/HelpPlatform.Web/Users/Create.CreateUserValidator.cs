@@ -10,13 +10,19 @@ public class CreateUserValidator : Validator<CreateUserRequest>
     {
         RuleFor(request => request.Name)
             .NotEmpty()
-            .WithMessage("Name is required")
+            .WithMessage("Insira o Nome")
             .MaximumLength(DataSchemaConstants.DefaultNameLength);
 
         RuleFor(request => request.Email)
             .NotEmpty()
-            .WithMessage("Email is required")
+            .WithMessage("Insira o Email")
             .EmailAddress()
-            .WithMessage("Email invalid");
+            .WithMessage("Email invalido");
+
+        RuleFor(request => request.Password)
+                .NotEmpty()
+                .WithMessage("Insira a Senha")
+                .MinimumLength(6)
+                .WithMessage("A senha deve ter pelo menos 6 caracteres");
     }
 }
