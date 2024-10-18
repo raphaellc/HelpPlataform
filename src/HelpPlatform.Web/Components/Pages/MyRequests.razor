@@ -1,6 +1,7 @@
-@page "/requests"
+﻿@page "/myrequests"
 @rendermode InteractiveServer
 @using HelpPlatform.Web.DonationRequests
+@using HelpPlatform.Web.DonationRequests.Claims
 @using System.Globalization
 @inject HttpClient HttpClient
 @inject NavigationManager NavigationManager
@@ -11,57 +12,54 @@
 	<Button Color="ButtonColor.Primary" @onclick="() => CreateRequest(0)">Create New Request</Button>
 </div>
 
-<Offcanvas @ref="offcanvas" OnRequestCreated="HandleRequestCreated"/>
+<Offcanvas @ref="offcanvas" OnRequestCreated="HandleRequestCreated" />
 
 <div class="page-container">
 	<div class="content">
 		<div class="request-list">
-			<Accordion>
 			@foreach (var request in donationRequests)
 			{
-				<AccordionItem Title=@CreateTitle(request)>
-					<Content>
-						<Progress Class="mb-3">
-                            <ProgressBar Type="ProgressType.StripedAndAnimated" Color="ProgressColor.Success" Width=CalculateQuantity(request) />
-                        </Progress>
-                        <div class="request-details">
-							<div class="detail"><strong>Deadline:</strong> @request.deadline.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture)</div>
-							<div class="detail"><strong>Location:</strong> @request.location</div>
-							<div class="detail"><strong>Resource Type:</strong> @request.resourceTypeId</div>
-							<div class="detail"><strong>Requested Quantity:</strong> @request.requestedQuantity</div>
-							<div class="detail"><strong>Fulfilled Quantity:</strong> @request.fulfilledQuantity</div>
-							<div class="detail"><strong>Status:</strong> @request.status</div>
-							<div class="detail"><strong>User Name:</strong> @request.userName</div>
-							<div class="detail"><strong>Created At:</strong> @request.createdAt.ToString("dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture)</div>
-						</div>
-						<div class="action-button">
-							<Button Color="ButtonColor.Primary" @onclick="() => ClaimRequest(request.id)">Claim Request</Button>
-						</div>
-                    </Content>
-				</AccordionItem>
+				@CreateTitle(request.resourceTypeId, request.requestedQuantity, request.location, request.deadline)
+				<div class="row">
+					@if (claimsDictionary.TryGetValue(request.id, out var claimsResponse) && claimsResponse?.Claims != null)
+					{
+						@foreach (var claim in claimsResponse.Claims)
+						{
+							<div class="col-md-4 mb-4">
+								<Card Style="width:18rem;">
+									<CardBody>
+										<CardTitle>@CreateTitle(claim.Id, claim.Quantity, "", claim.Deadline)</CardTitle>
+										<CardText>@claim.Message</CardText>
+										<Button Color="ButtonColor.Primary" To="#" Type="ButtonType.Link">Accept</Button>
+										<Button Color="ButtonColor.Primary" To="#" Type="ButtonType.Link">Reject</Button>
+									</CardBody>
+								</Card>
+							</div>
+						}
+					}
+				</div>
 			}
-			</Accordion>
 		</div>
-	</div>
-
-	<div class="pagination">
-		<Pagination ActivePageNumber="@currentPageNumber"
-					TotalPages="@totalPages"
-					PageChanged="OnPageChangedAsync" />
 	</div>
 </div>
 
 @code {
-	int currentPageNumber = 1;
-	int totalPages = 10;
 	private ListDonationRequestResponse response = new ListDonationRequestResponse();
 	private List<DonationRequestRecord> donationRequests = [];
+	private Dictionary<int, ListDonationRequestClaimsResponse?> claimsDictionary = new();
+
 
 	protected override async Task OnInitializedAsync()
 	{
 		ListDonationRequestResponse? response = await HttpClient.GetFromJsonAsync<ListDonationRequestResponse>(NavigationManager.BaseUri + "DonationRequests");
 
 		donationRequests = response?.DonationRequests ?? [];
+
+		foreach (var request in donationRequests)
+		{
+			var claimsResponse = await GetListDonationRequestClaimsResponseAsync(request);
+			claimsDictionary[request.id] = claimsResponse;
+		}
 	}
 
 	private Offcanvas offcanvas = default!;
@@ -77,11 +75,6 @@
 		await offcanvas.ShowAsync<CreateRequest>(title: "Create Request");
 	}
 
-	private async Task OnPageChangedAsync(int newPageNumber)
-	{
-		await Task.Run(() => { currentPageNumber = newPageNumber; });
-	}
-
 	private async Task HandleRequestCreated()
 	{
 		ListDonationRequestResponse? response = await HttpClient.GetFromJsonAsync<ListDonationRequestResponse>(NavigationManager.BaseUri + "DonationRequests");
@@ -94,9 +87,14 @@
 		return request.fulfilledQuantity * 100 / request.requestedQuantity;
 	}
 
-	private string CreateTitle(DonationRequestRecord request)
+	private string CreateTitle(int resource, int quantity, string location, DateTime? deadline)
 	{
-		return request.resourceTypeId + "\t" + request.location + "\t" + request.deadline;
+		return resource + "\t" + quantity + "\t" + location + "\t" + deadline;
+	}
+
+	private async Task<ListDonationRequestClaimsResponse?> GetListDonationRequestClaimsResponseAsync(DonationRequestRecord request)
+	{
+		return await HttpClient.GetFromJsonAsync<ListDonationRequestClaimsResponse>(NavigationManager.BaseUri + "DonationRequests/" + request.id + "/Claims");
 	}
 }
 
