@@ -71,7 +71,12 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment()){
     app.UseDeveloperExceptionPage();
     app.UseShowAllServicesMiddleware(); // see https://github.com/ardalis/AspNetCoreStartupServices
-    //app.ApplyMigrations();
+    using (var scope = app.Services.CreateScope())
+    {
+        var services = scope.ServiceProvider;
+        var context = services.GetRequiredService<ApplicationDbContext>();
+        context.Database.Migrate(); 
+    }
 }
 else{
     app.UseDefaultExceptionHandler(); // from FastEndpoints
@@ -83,8 +88,6 @@ app.UseDefaultExceptionHandler()
     .UseSwaggerGen(); // Includes AddFileServer and static files middleware
 
 app.UseHttpsRedirection();
-
-app.MapIdentityApi<ApplicationUser>();
 
 await SeedDatabase(app);
 
