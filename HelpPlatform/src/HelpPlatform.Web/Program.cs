@@ -13,6 +13,10 @@ using MediatR;
 using Serilog;
 using Serilog.Extensions.Logging;
 
+using HelpPlatform.Infrastructure.Identity;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+
 var logger = Log.Logger = new LoggerConfiguration()
     .Enrich.FromLogContext()
     .WriteTo.Console()
@@ -34,6 +38,16 @@ builder.Services.Configure<CookiePolicyOptions>(options => {
 
 builder.Services.AddFastEndpoints()
     .SwaggerDocument(o => { o.ShortSchemaNames = true; });
+
+builder.Services.AddAuthorization();
+builder.Services.AddAuthentication().AddCookie(IdentityConstants.ApplicationScheme);
+
+builder.Services.AddIdentityCore<ApplicationUser>()
+    .AddEntityFrameworkStores<ApplicationDbContext>()
+    .AddApiEndpoints();
+
+builder.Services.AddDbContext<ApplicationDbContext>(options => 
+    options.UseSqlite(builder.Configuration.GetConnectionString("SqliteConnection")));
 
 ConfigureMediatR();
 
@@ -57,6 +71,7 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment()){
     app.UseDeveloperExceptionPage();
     app.UseShowAllServicesMiddleware(); // see https://github.com/ardalis/AspNetCoreStartupServices
+    //app.ApplyMigrations();
 }
 else{
     app.UseDefaultExceptionHandler(); // from FastEndpoints
@@ -67,6 +82,8 @@ app.UseFastEndpoints()
     .UseSwaggerGen(); // Includes AddFileServer and static files middleware
 
 app.UseHttpsRedirection();
+
+app.MapIdentityApi<ApplicationUser>();
 
 await SeedDatabase(app);
 
