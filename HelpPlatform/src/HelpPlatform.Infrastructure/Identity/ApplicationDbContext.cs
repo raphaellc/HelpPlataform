@@ -12,10 +12,11 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {   
     }
 
-    //protected override void OnModelCreating(ModelBuilder builder)
-    //{
-    //        base.OnModelCreating(builder);
-//
-    //        builder.Entity<ApplicationUser>().Property(uint =>)
-    //}
+    protected override void OnModelCreating(ModelBuilder builder)
+    {
+            base.OnModelCreating(builder);
+            builder.Entity<ApplicationUser>().Property(u => u.Initials).HasMaxLength(5);
+
+            builder.HasDefaultSchema("identity");
+    }
 }
