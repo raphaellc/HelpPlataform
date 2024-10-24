@@ -1,9 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace HelpPlatform.Infrastructure.Identity;
 public class ApplicationDbContext : IdentityDbContext<ApplicationUser>  
@@ -17,6 +14,13 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
             base.OnModelCreating(builder);
             builder.Entity<ApplicationUser>().Property(u => u.Initials).HasMaxLength(5);
 
-            builder.HasDefaultSchema("identity");
+            // Remove schema configuration
+            builder.Entity<ApplicationUser>().ToTable("AspNetUsers");
+            builder.Entity<IdentityRole>().ToTable("AspNetRoles");
+            builder.Entity<IdentityUserClaim<string>>().ToTable("AspNetUserClaims");
+            builder.Entity<IdentityUserLogin<string>>().ToTable("AspNetUserLogins");
+            builder.Entity<IdentityUserRole<string>>().ToTable("AspNetUserRoles");
+            builder.Entity<IdentityUserToken<string>>().ToTable("AspNetUserTokens");
+            builder.Entity<IdentityRoleClaim<string>>().ToTable("AspNetRoleClaims");
     }
 }
