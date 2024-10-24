@@ -19,24 +19,35 @@
 		<div class="request-list">
 			@foreach (var request in donationRequests)
 			{
-				@CreateTitle(request.resourceTypeId, request.requestedQuantity, request.location, request.deadline)
-				<div class="row">
-					@if (claimsDictionary.TryGetValue(request.id, out var claimsResponse) && claimsResponse?.Claims != null)
-					{
-						@foreach (var claim in claimsResponse.Claims)
+				<div class="mb-4">
+					<h3>@CreateTitle(request.resourceTypeId, request.requestedQuantity, request.location, request.deadline)</h3>
+
+					<div class="d-flex flex-wrap">
+						@if (claimsDictionary.TryGetValue(request.id, out var claimsResponse) && claimsResponse?.Claims != null && claimsResponse.Claims.Any())
 						{
-							<div class="col-md-4 mb-4">
-								<Card Style="width:18rem;">
-									<CardBody>
-										<CardTitle>@CreateTitle(claim.Id, claim.Quantity, "", claim.Deadline)</CardTitle>
-										<CardText>@claim.Message</CardText>
-										<Button Color="ButtonColor.Primary" To="#" Type="ButtonType.Link">Accept</Button>
-										<Button Color="ButtonColor.Primary" To="#" Type="ButtonType.Link">Reject</Button>
-									</CardBody>
-								</Card>
-							</div>
+							@foreach (var claim in claimsResponse.Claims)
+							{
+								<div class="card me-3 mb-3" style="width: 18rem;">
+									<div class="card-body">
+										<h5 class="card-title">
+											@CreateTitle(claim.Id, claim.Quantity, "", claim.Deadline)
+										</h5>
+										<p class="card-text">
+											@claim.Message
+										</p>
+										<div class="d-flex justify-content-between">
+											<a href="#" class="btn btn-primary">Accept</a>
+											<a href="#" class="btn btn-secondary">Reject</a>
+										</div>
+									</div>
+								</div>
+							}
 						}
-					}
+						else
+						{
+							<p>No claims available for this request.</p>
+						}
+					</div>
 				</div>
 			}
 		</div>
