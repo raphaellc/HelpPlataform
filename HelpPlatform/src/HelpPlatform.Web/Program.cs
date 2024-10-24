@@ -46,9 +46,10 @@ builder.Services.AddIdentityCore<ApplicationUser>()
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddApiEndpoints();
 
-builder.Services.AddDbContext<ApplicationDbContext>(options => 
-    options.UseSqlite(builder.Configuration.GetConnectionString("SqliteConnection")));
-
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("SqliteConnection"), b => 
+        b.MigrationsAssembly("HelpPlatform.Web")));
+        
 ConfigureMediatR();
 
 builder.Services.AddInfrastructureServices(builder.Configuration, microsoftLogger);
@@ -74,8 +75,8 @@ if (app.Environment.IsDevelopment()){
     using (var scope = app.Services.CreateScope())
     {
         var services = scope.ServiceProvider;
-        var context = services.GetRequiredService<ApplicationDbContext>();
-        context.Database.Migrate(); 
+        var authContext = services.GetRequiredService<ApplicationDbContext>();
+        authContext.Database.Migrate(); 
     }
 }
 else{
