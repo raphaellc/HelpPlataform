@@ -37,10 +37,28 @@ builder.Services.Configure<CookiePolicyOptions>(options => {
 });
 
 builder.Services.AddFastEndpoints()
-    .SwaggerDocument(o => { o.ShortSchemaNames = true; });
+    .SwaggerDocument(o => { 
+        o.ShortSchemaNames = true;
+    });
 
 builder.Services.AddAuthorization();
-builder.Services.AddAuthentication().AddCookie(IdentityConstants.ApplicationScheme);
+builder.Services.AddAuthentication(options => {
+        options.DefaultAuthenticateScheme = IdentityConstants.ApplicationScheme;
+        options.DefaultChallengeScheme = IdentityConstants.ApplicationScheme;
+    }).AddCookie(IdentityConstants.ApplicationScheme, options =>{
+        options.LoginPath = "/login"; // ou o caminho da sua página de login
+        // options.LogoutPath = "/logout"; // ou o caminho da sua página de logout
+        // options.AccessDeniedPath = "/access-denied"; // ou o caminho da sua página de acesso negado
+    })
+    .AddBearerToken(IdentityConstants.BearerScheme);
+
+builder.Services.AddDistributedMemoryCache(); 
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30); // Duração da sessão
+    options.Cookie.HttpOnly = true; // Impede acesso a cookies via JavaScript
+    options.Cookie.IsEssential = true; // Necessário para o funcionamento da sessão
+});
 
 builder.Services.AddIdentityCore<ApplicationUser>()
     .AddEntityFrameworkStores<ApplicationDbContext>()
@@ -69,6 +87,10 @@ else{
 
 var app = builder.Build();
 
+app.UseSession();
+app.UseAuthentication();
+app.UseAuthorization();
+
 if (app.Environment.IsDevelopment()){
     app.UseDeveloperExceptionPage();
     app.UseShowAllServicesMiddleware(); // see https://github.com/ardalis/AspNetCoreStartupServices
@@ -91,6 +113,7 @@ app.UseDefaultExceptionHandler()
 app.UseHttpsRedirection();
 
 await SeedDatabase(app);
+
 
 app.Run();
 
