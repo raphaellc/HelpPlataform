@@ -1,0 +1,942 @@
+2024-10-30 17:45:19.837 -03:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2024-10-30 17:45:19.858 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2024-10-30 17:45:19.865 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2024-10-30 17:45:19.877 -03:00 [INF] No migrations were applied. The database is already up to date.
+2024-10-30 17:45:19.949 -03:00 [INF] User profile is available. Using 'C:\Users\Cristian Fraporti\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-10-30 17:45:19.957 -03:00 [INF] Registered 9 endpoints in 992 milliseconds.
+2024-10-30 17:45:20.136 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2024-10-30 17:45:20.263 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2024-10-30 17:45:20.352 -03:00 [WRN] The ASP.NET Core developer certificate is not trusted. For information about trusting the ASP.NET Core developer certificate, see https://aka.ms/aspnet/https-trust-dev-cert.
+2024-10-30 17:45:20.379 -03:00 [INF] Now listening on: https://localhost:57679
+2024-10-30 17:45:20.380 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-10-30 17:45:20.381 -03:00 [INF] Hosting environment: Development
+2024-10-30 17:45:20.381 -03:00 [INF] Content root path: C:\Users\Cristian Fraporti\Desktop\dotnet\HelpPlatform\HelpPlatform\src\HelpPlatform.Web
+2024-10-30 18:00:42.980 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger - null null
+2024-10-30 18:00:43.015 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger - 302 0 null 36.5886ms
+2024-10-30 18:00:43.022 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/index.html - null null
+2024-10-30 18:00:43.105 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/index.html - 200 null text/html; charset=utf-8 82.5321ms
+2024-10-30 18:00:43.117 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/swagger-ui.css - null null
+2024-10-30 18:00:43.123 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/swagger-ui-bundle.js - null null
+2024-10-30 18:00:43.123 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/swagger-ui-standalone-preset.js - null null
+2024-10-30 18:00:43.123 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/index.css - null null
+2024-10-30 18:00:43.130 -03:00 [INF] Sending file. Request path: '/index.css'. Physical path: 'N/A'
+2024-10-30 18:00:43.132 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/index.css - 200 218 text/css 8.8123ms
+2024-10-30 18:00:43.138 -03:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2024-10-30 18:00:43.139 -03:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2024-10-30 18:00:43.142 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/swagger-ui.css - 200 152073 text/css 24.4672ms
+2024-10-30 18:00:43.142 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/swagger-ui-standalone-preset.js - 200 230294 text/javascript 19.1818ms
+2024-10-30 18:00:43.149 -03:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2024-10-30 18:00:43.150 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/swagger-ui-bundle.js - 200 1452754 text/javascript 27.6357ms
+2024-10-30 18:00:43.812 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/v1/swagger.json - null null
+2024-10-30 18:00:43.828 -03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-10-30 18:00:43.831 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/favicon-32x32.png - null null
+2024-10-30 18:00:43.834 -03:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2024-10-30 18:00:43.835 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/favicon-32x32.png - 200 628 image/png 3.9136ms
+2024-10-30 18:00:44.251 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 439.9283ms
+2024-10-30 18:01:09.865 -03:00 [INF] Request starting HTTP/2 POST https://localhost:57679/login - application/json 62
+2024-10-30 18:01:09.869 -03:00 [INF] Executing endpoint 'HTTP: POST /login'
+2024-10-30 18:01:10.012 -03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedUserName_0='?' (Size = 16)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."Initials", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."NormalizedUserName" = @__normalizedUserName_0
+LIMIT 1
+2024-10-30 18:01:10.121 -03:00 [ERR] Login failed for user user@example.com
+2024-10-30 18:01:10.126 -03:00 [INF] Executed endpoint 'HTTP: POST /login'
+2024-10-30 18:01:10.129 -03:00 [INF] Request finished HTTP/2 POST https://localhost:57679/login - 401 null application/json 263.7084ms
+2024-10-30 18:01:25.291 -03:00 [INF] Request starting HTTP/2 POST https://localhost:57679/login - application/json 63
+2024-10-30 18:01:25.292 -03:00 [INF] Executing endpoint 'HTTP: POST /login'
+2024-10-30 18:01:25.308 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedUserName_0='?' (Size = 16)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."Initials", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."NormalizedUserName" = @__normalizedUserName_0
+LIMIT 1
+2024-10-30 18:01:25.387 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ClaimType", "a"."ClaimValue", "a"."UserId"
+FROM "AspNetUserClaims" AS "a"
+WHERE "a"."UserId" = @__user_Id_0
+2024-10-30 18:01:25.393 -03:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2024-10-30 18:01:25.401 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 16)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."Initials", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."NormalizedEmail" = @__normalizedEmail_0
+LIMIT 2
+2024-10-30 18:01:25.404 -03:00 [INF] Executed endpoint 'HTTP: POST /login'
+2024-10-30 18:01:25.405 -03:00 [INF] Request finished HTTP/2 POST https://localhost:57679/login - 200 null application/json 113.8593ms
+2024-10-30 18:01:39.090 -03:00 [INF] Application is shutting down...
+2024-10-30 18:19:17.854 -03:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2024-10-30 18:19:17.874 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2024-10-30 18:19:17.882 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2024-10-30 18:19:17.893 -03:00 [INF] No migrations were applied. The database is already up to date.
+2024-10-30 18:19:17.963 -03:00 [INF] User profile is available. Using 'C:\Users\Cristian Fraporti\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-10-30 18:19:17.972 -03:00 [INF] Registered 9 endpoints in 786 milliseconds.
+2024-10-30 18:19:18.122 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2024-10-30 18:19:18.256 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2024-10-30 18:19:18.336 -03:00 [WRN] The ASP.NET Core developer certificate is not trusted. For information about trusting the ASP.NET Core developer certificate, see https://aka.ms/aspnet/https-trust-dev-cert.
+2024-10-30 18:19:18.365 -03:00 [INF] Now listening on: https://localhost:57679
+2024-10-30 18:19:18.366 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-10-30 18:19:18.366 -03:00 [INF] Hosting environment: Development
+2024-10-30 18:19:18.367 -03:00 [INF] Content root path: C:\Users\Cristian Fraporti\Desktop\dotnet\HelpPlatform\HelpPlatform\src\HelpPlatform.Web
+2024-10-30 18:19:31.790 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/index.html - null null
+2024-10-30 18:19:31.891 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/index.html - 200 null text/html; charset=utf-8 101.9253ms
+2024-10-30 18:19:31.904 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/swagger-ui.css - null null
+2024-10-30 18:19:31.908 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/swagger-ui-standalone-preset.js - null null
+2024-10-30 18:19:31.908 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/swagger-ui-bundle.js - null null
+2024-10-30 18:19:31.908 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/index.css - null null
+2024-10-30 18:19:31.914 -03:00 [INF] Sending file. Request path: '/index.css'. Physical path: 'N/A'
+2024-10-30 18:19:31.916 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/index.css - 200 218 text/css 7.7766ms
+2024-10-30 18:19:31.921 -03:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2024-10-30 18:19:31.921 -03:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2024-10-30 18:19:31.926 -03:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2024-10-30 18:19:31.926 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/swagger-ui.css - 200 152073 text/css 21.6959ms
+2024-10-30 18:19:31.926 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/swagger-ui-standalone-preset.js - 200 230294 text/javascript 18.3359ms
+2024-10-30 18:19:31.927 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/swagger-ui-bundle.js - 200 1452754 text/javascript 19.3938ms
+2024-10-30 18:19:32.529 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/v1/swagger.json - null null
+2024-10-30 18:19:32.530 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/favicon-32x32.png - null null
+2024-10-30 18:19:32.533 -03:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2024-10-30 18:19:32.534 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/favicon-32x32.png - 200 628 image/png 4.0437ms
+2024-10-30 18:19:32.535 -03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-10-30 18:19:32.948 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 419.1515ms
+2024-10-30 18:23:51.597 -03:00 [INF] Application is shutting down...
+2024-10-30 18:23:55.810 -03:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2024-10-30 18:23:55.831 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2024-10-30 18:23:55.839 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2024-10-30 18:23:55.850 -03:00 [INF] No migrations were applied. The database is already up to date.
+2024-10-30 18:23:55.907 -03:00 [INF] User profile is available. Using 'C:\Users\Cristian Fraporti\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-10-30 18:23:55.915 -03:00 [INF] Registered 9 endpoints in 733 milliseconds.
+2024-10-30 18:23:56.047 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2024-10-30 18:23:56.161 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2024-10-30 18:23:56.231 -03:00 [WRN] The ASP.NET Core developer certificate is not trusted. For information about trusting the ASP.NET Core developer certificate, see https://aka.ms/aspnet/https-trust-dev-cert.
+2024-10-30 18:23:56.252 -03:00 [INF] Now listening on: https://localhost:57679
+2024-10-30 18:23:56.253 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-10-30 18:23:56.254 -03:00 [INF] Hosting environment: Development
+2024-10-30 18:23:56.254 -03:00 [INF] Content root path: C:\Users\Cristian Fraporti\Desktop\dotnet\HelpPlatform\HelpPlatform\src\HelpPlatform.Web
+2024-10-30 18:24:12.293 -03:00 [INF] Request starting HTTP/2 POST https://localhost:57679/register - application/json 63
+2024-10-30 18:24:12.324 -03:00 [INF] Executing endpoint 'HTTP: POST /register'
+2024-10-30 18:24:12.502 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedUserName_0='?' (Size = 16)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."Initials", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."NormalizedUserName" = @__normalizedUserName_0
+LIMIT 1
+2024-10-30 18:24:12.552 -03:00 [ERR] Username 'user@example.com' is already taken.
+2024-10-30 18:24:12.554 -03:00 [INF] Executed endpoint 'HTTP: POST /register'
+2024-10-30 18:24:12.558 -03:00 [INF] Request finished HTTP/2 POST https://localhost:57679/register - 204 null null 266.4722ms
+2024-10-30 18:24:35.444 -03:00 [INF] Request starting HTTP/2 POST https://localhost:57679/login - application/json 62
+2024-10-30 18:24:35.448 -03:00 [INF] Executing endpoint 'HTTP: POST /login'
+2024-10-30 18:24:35.460 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedUserName_0='?' (Size = 16)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."Initials", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."NormalizedUserName" = @__normalizedUserName_0
+LIMIT 1
+2024-10-30 18:24:35.518 -03:00 [ERR] Login failed for user user@example.com
+2024-10-30 18:24:35.521 -03:00 [INF] Executed endpoint 'HTTP: POST /login'
+2024-10-30 18:24:35.523 -03:00 [INF] Request finished HTTP/2 POST https://localhost:57679/login - 401 null application/json 79.1491ms
+2024-10-30 18:24:40.753 -03:00 [INF] Request starting HTTP/2 POST https://localhost:57679/login - application/json 63
+2024-10-30 18:24:40.756 -03:00 [INF] Executing endpoint 'HTTP: POST /login'
+2024-10-30 18:24:40.760 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedUserName_0='?' (Size = 16)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."Initials", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."NormalizedUserName" = @__normalizedUserName_0
+LIMIT 1
+2024-10-30 18:24:40.813 -03:00 [ERR] Login failed for user user@example.com
+2024-10-30 18:24:40.814 -03:00 [INF] Executed endpoint 'HTTP: POST /login'
+2024-10-30 18:24:40.815 -03:00 [INF] Request finished HTTP/2 POST https://localhost:57679/login - 401 null application/json 61.975ms
+2024-10-30 18:25:34.720 -03:00 [INF] Application is shutting down...
+2024-10-30 18:32:24.570 -03:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2024-10-30 18:32:24.591 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2024-10-30 18:32:24.600 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2024-10-30 18:32:24.611 -03:00 [INF] No migrations were applied. The database is already up to date.
+2024-10-30 18:32:24.668 -03:00 [INF] User profile is available. Using 'C:\Users\Cristian Fraporti\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-10-30 18:32:24.676 -03:00 [INF] Registered 9 endpoints in 762 milliseconds.
+2024-10-30 18:32:24.807 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2024-10-30 18:32:24.935 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2024-10-30 18:32:25.005 -03:00 [WRN] The ASP.NET Core developer certificate is not trusted. For information about trusting the ASP.NET Core developer certificate, see https://aka.ms/aspnet/https-trust-dev-cert.
+2024-10-30 18:32:25.030 -03:00 [INF] Now listening on: https://localhost:57679
+2024-10-30 18:32:25.031 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-10-30 18:32:25.032 -03:00 [INF] Hosting environment: Development
+2024-10-30 18:32:25.032 -03:00 [INF] Content root path: C:\Users\Cristian Fraporti\Desktop\dotnet\HelpPlatform\HelpPlatform\src\HelpPlatform.Web
+2024-10-30 18:32:31.574 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/index.html - null null
+2024-10-30 18:32:31.675 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/index.html - 200 null text/html; charset=utf-8 101.0209ms
+2024-10-30 18:32:31.691 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/swagger-ui.css - null null
+2024-10-30 18:32:31.691 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/index.css - null null
+2024-10-30 18:32:31.698 -03:00 [INF] Sending file. Request path: '/index.css'. Physical path: 'N/A'
+2024-10-30 18:32:31.700 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/index.css - 200 218 text/css 8.5453ms
+2024-10-30 18:32:31.705 -03:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2024-10-30 18:32:31.708 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/swagger-ui.css - 200 152073 text/css 16.517ms
+2024-10-30 18:32:32.324 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/v1/swagger.json - null null
+2024-10-30 18:32:32.326 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/favicon-32x32.png - null null
+2024-10-30 18:32:32.329 -03:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2024-10-30 18:32:32.331 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/favicon-32x32.png - 200 628 image/png 5.2505ms
+2024-10-30 18:32:32.332 -03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-10-30 18:32:32.739 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 414.7733ms
+2024-10-30 18:32:34.929 -03:00 [INF] Request starting HTTP/2 POST https://localhost:57679/login - application/json 63
+2024-10-30 18:32:34.933 -03:00 [INF] Executing endpoint 'HTTP: POST /login'
+2024-10-30 18:32:35.055 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedUserName_0='?' (Size = 16)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."Initials", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."NormalizedUserName" = @__normalizedUserName_0
+LIMIT 1
+2024-10-30 18:32:35.190 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ClaimType", "a"."ClaimValue", "a"."UserId"
+FROM "AspNetUserClaims" AS "a"
+WHERE "a"."UserId" = @__user_Id_0
+2024-10-30 18:32:35.194 -03:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2024-10-30 18:32:35.201 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 16)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."Initials", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."NormalizedEmail" = @__normalizedEmail_0
+LIMIT 2
+2024-10-30 18:32:35.206 -03:00 [INF] Executed endpoint 'HTTP: POST /login'
+2024-10-30 18:32:35.207 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: No sign-in authentication handler is registered for the scheme 'Cookies'. The registered sign-in schemes are: Identity.Application. Did you forget to call AddAuthentication().AddCookie("Cookies",...)?
+   at Microsoft.AspNetCore.Authentication.AuthenticationService.SignInAsync(HttpContext context, String scheme, ClaimsPrincipal principal, AuthenticationProperties properties)
+   at HelpPlatform.Web.Identity.Login.HandleAsync(LoginRequest request, CancellationToken cancellationToken) in C:\Users\Cristian Fraporti\Desktop\dotnet\HelpPlatform\HelpPlatform\src\HelpPlatform.Web\Identity\Login.cs:line 80
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Ardalis.ListStartupServices.ShowAllServicesMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-10-30 18:32:35.226 -03:00 [INF] Request finished HTTP/2 POST https://localhost:57679/login - 500 null text/plain; charset=utf-8 297.0205ms
+2024-10-30 18:36:25.043 -03:00 [INF] Application is shutting down...
+2024-10-30 18:36:32.611 -03:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2024-10-30 18:36:32.631 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2024-10-30 18:36:32.639 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2024-10-30 18:36:32.650 -03:00 [INF] No migrations were applied. The database is already up to date.
+2024-10-30 18:36:32.707 -03:00 [INF] User profile is available. Using 'C:\Users\Cristian Fraporti\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-10-30 18:36:32.715 -03:00 [INF] Registered 9 endpoints in 939 milliseconds.
+2024-10-30 18:36:32.847 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2024-10-30 18:36:32.973 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2024-10-30 18:36:33.041 -03:00 [WRN] The ASP.NET Core developer certificate is not trusted. For information about trusting the ASP.NET Core developer certificate, see https://aka.ms/aspnet/https-trust-dev-cert.
+2024-10-30 18:36:33.063 -03:00 [INF] Now listening on: https://localhost:57679
+2024-10-30 18:36:33.063 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-10-30 18:36:33.064 -03:00 [INF] Hosting environment: Development
+2024-10-30 18:36:33.065 -03:00 [INF] Content root path: C:\Users\Cristian Fraporti\Desktop\dotnet\HelpPlatform\HelpPlatform\src\HelpPlatform.Web
+2024-10-30 18:36:38.118 -03:00 [INF] Application is shutting down...
+2024-10-30 18:36:58.738 -03:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2024-10-30 18:36:58.758 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2024-10-30 18:36:58.767 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2024-10-30 18:36:58.778 -03:00 [INF] No migrations were applied. The database is already up to date.
+2024-10-30 18:36:58.834 -03:00 [INF] User profile is available. Using 'C:\Users\Cristian Fraporti\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-10-30 18:36:58.843 -03:00 [INF] Registered 9 endpoints in 746 milliseconds.
+2024-10-30 18:36:58.988 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2024-10-30 18:36:59.106 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2024-10-30 18:36:59.179 -03:00 [WRN] The ASP.NET Core developer certificate is not trusted. For information about trusting the ASP.NET Core developer certificate, see https://aka.ms/aspnet/https-trust-dev-cert.
+2024-10-30 18:36:59.201 -03:00 [INF] Now listening on: https://localhost:57679
+2024-10-30 18:36:59.202 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-10-30 18:36:59.202 -03:00 [INF] Hosting environment: Development
+2024-10-30 18:36:59.203 -03:00 [INF] Content root path: C:\Users\Cristian Fraporti\Desktop\dotnet\HelpPlatform\HelpPlatform\src\HelpPlatform.Web
+2024-10-30 18:37:53.241 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/index.html - null null
+2024-10-30 18:37:53.339 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/index.html - 200 null text/html; charset=utf-8 98.6435ms
+2024-10-30 18:37:53.968 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/v1/swagger.json - null null
+2024-10-30 18:37:53.968 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/favicon-32x32.png - null null
+2024-10-30 18:37:53.975 -03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-10-30 18:37:53.978 -03:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2024-10-30 18:37:53.979 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/favicon-32x32.png - 200 628 image/png 11.1876ms
+2024-10-30 18:37:54.397 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 429.3476ms
+2024-10-30 18:37:58.848 -03:00 [INF] Request starting HTTP/2 POST https://localhost:57679/login - application/json 63
+2024-10-30 18:37:58.852 -03:00 [INF] Executing endpoint 'HTTP: POST /login'
+2024-10-30 18:37:58.974 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedUserName_0='?' (Size = 16)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."Initials", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."NormalizedUserName" = @__normalizedUserName_0
+LIMIT 1
+2024-10-30 18:37:59.100 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ClaimType", "a"."ClaimValue", "a"."UserId"
+FROM "AspNetUserClaims" AS "a"
+WHERE "a"."UserId" = @__user_Id_0
+2024-10-30 18:37:59.105 -03:00 [INF] Executed endpoint 'HTTP: POST /login'
+2024-10-30 18:37:59.106 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: No sign-in authentication handler is registered for the scheme 'Identity.Application'. The registered sign-in schemes are: Cookies. Did you forget to call AddAuthentication().AddCookie("Identity.Application",...)?
+   at Microsoft.AspNetCore.Authentication.AuthenticationService.SignInAsync(HttpContext context, String scheme, ClaimsPrincipal principal, AuthenticationProperties properties)
+   at Microsoft.AspNetCore.Identity.SignInManager`1.SignInWithClaimsAsync(TUser user, AuthenticationProperties authenticationProperties, IEnumerable`1 additionalClaims)
+   at Microsoft.AspNetCore.Identity.SignInManager`1.SignInOrTwoFactorAsync(TUser user, Boolean isPersistent, String loginProvider, Boolean bypassTwoFactor)
+   at Microsoft.AspNetCore.Identity.SignInManager`1.PasswordSignInAsync(TUser user, String password, Boolean isPersistent, Boolean lockoutOnFailure)
+   at Microsoft.AspNetCore.Identity.SignInManager`1.PasswordSignInAsync(String userName, String password, Boolean isPersistent, Boolean lockoutOnFailure)
+   at HelpPlatform.Web.Identity.Login.HandleAsync(LoginRequest request, CancellationToken cancellationToken) in C:\Users\Cristian Fraporti\Desktop\dotnet\HelpPlatform\HelpPlatform\src\HelpPlatform.Web\Identity\Login.cs:line 49
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Ardalis.ListStartupServices.ShowAllServicesMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-10-30 18:37:59.123 -03:00 [INF] Request finished HTTP/2 POST https://localhost:57679/login - 500 null text/plain; charset=utf-8 275.0114ms
+2024-10-30 18:38:14.867 -03:00 [INF] Application is shutting down...
+2024-10-30 18:40:07.219 -03:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2024-10-30 18:40:07.242 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2024-10-30 18:40:07.251 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2024-10-30 18:40:07.261 -03:00 [INF] No migrations were applied. The database is already up to date.
+2024-10-30 18:40:07.318 -03:00 [INF] User profile is available. Using 'C:\Users\Cristian Fraporti\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-10-30 18:40:07.326 -03:00 [INF] Registered 9 endpoints in 837 milliseconds.
+2024-10-30 18:40:07.458 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2024-10-30 18:40:07.570 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2024-10-30 18:40:07.637 -03:00 [WRN] The ASP.NET Core developer certificate is not trusted. For information about trusting the ASP.NET Core developer certificate, see https://aka.ms/aspnet/https-trust-dev-cert.
+2024-10-30 18:40:07.659 -03:00 [INF] Now listening on: https://localhost:57679
+2024-10-30 18:40:07.660 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-10-30 18:40:07.660 -03:00 [INF] Hosting environment: Development
+2024-10-30 18:40:07.661 -03:00 [INF] Content root path: C:\Users\Cristian Fraporti\Desktop\dotnet\HelpPlatform\HelpPlatform\src\HelpPlatform.Web
+2024-10-30 18:41:25.028 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/index.html - null null
+2024-10-30 18:41:25.129 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/index.html - 200 null text/html; charset=utf-8 101.9084ms
+2024-10-30 18:41:25.764 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/v1/swagger.json - null null
+2024-10-30 18:41:25.764 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/favicon-32x32.png - null null
+2024-10-30 18:41:25.771 -03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-10-30 18:41:25.774 -03:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2024-10-30 18:41:25.776 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/favicon-32x32.png - 200 628 image/png 11.8183ms
+2024-10-30 18:41:26.192 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 428.2484ms
+2024-10-30 18:41:28.441 -03:00 [INF] Request starting HTTP/2 POST https://localhost:57679/login - application/json 63
+2024-10-30 18:41:28.446 -03:00 [INF] Executing endpoint 'HTTP: POST /login'
+2024-10-30 18:41:28.574 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedUserName_0='?' (Size = 16)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."Initials", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."NormalizedUserName" = @__normalizedUserName_0
+LIMIT 1
+2024-10-30 18:41:28.702 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ClaimType", "a"."ClaimValue", "a"."UserId"
+FROM "AspNetUserClaims" AS "a"
+WHERE "a"."UserId" = @__user_Id_0
+2024-10-30 18:41:28.707 -03:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2024-10-30 18:41:28.714 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 16)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."Initials", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."NormalizedEmail" = @__normalizedEmail_0
+LIMIT 2
+2024-10-30 18:41:28.717 -03:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2024-10-30 18:41:28.722 -03:00 [INF] Executed endpoint 'HTTP: POST /login'
+2024-10-30 18:41:28.724 -03:00 [INF] Session started; Key:271d2283-ca93-0539-0421-e5bc2c4fcaa9, Id:ad308bcf-460d-cb30-34c8-8e31bdbbaa46
+2024-10-30 18:41:28.727 -03:00 [INF] Request finished HTTP/2 POST https://localhost:57679/login - 200 null application/json 286.1865ms
+2024-10-30 18:42:54.702 -03:00 [INF] Application is shutting down...
+2024-10-30 18:52:33.161 -03:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2024-10-30 18:52:33.182 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2024-10-30 18:52:33.189 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2024-10-30 18:52:33.199 -03:00 [INF] No migrations were applied. The database is already up to date.
+2024-10-30 18:52:33.257 -03:00 [INF] User profile is available. Using 'C:\Users\Cristian Fraporti\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-10-30 18:52:33.264 -03:00 [INF] Registered 9 endpoints in 724 milliseconds.
+2024-10-30 18:52:33.393 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2024-10-30 18:52:33.502 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2024-10-30 18:52:33.572 -03:00 [WRN] The ASP.NET Core developer certificate is not trusted. For information about trusting the ASP.NET Core developer certificate, see https://aka.ms/aspnet/https-trust-dev-cert.
+2024-10-30 18:52:33.594 -03:00 [INF] Now listening on: https://localhost:57679
+2024-10-30 18:52:33.595 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-10-30 18:52:33.595 -03:00 [INF] Hosting environment: Development
+2024-10-30 18:52:33.596 -03:00 [INF] Content root path: C:\Users\Cristian Fraporti\Desktop\dotnet\HelpPlatform\HelpPlatform\src\HelpPlatform.Web
+2024-10-30 18:52:52.280 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/index.html - null null
+2024-10-30 18:52:52.379 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/index.html - 200 null text/html; charset=utf-8 99.735ms
+2024-10-30 18:52:53.007 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/favicon-32x32.png - null null
+2024-10-30 18:52:53.007 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/v1/swagger.json - null null
+2024-10-30 18:52:53.015 -03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-10-30 18:52:53.018 -03:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2024-10-30 18:52:53.020 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/favicon-32x32.png - 200 628 image/png 13.0942ms
+2024-10-30 18:52:53.432 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 425.4762ms
+2024-10-30 18:52:55.611 -03:00 [INF] Request starting HTTP/2 POST https://localhost:57679/login - application/json 63
+2024-10-30 18:52:55.614 -03:00 [INF] Executing endpoint 'HTTP: POST /login'
+2024-10-30 18:52:55.738 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedUserName_0='?' (Size = 16)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."Initials", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."NormalizedUserName" = @__normalizedUserName_0
+LIMIT 1
+2024-10-30 18:52:55.862 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ClaimType", "a"."ClaimValue", "a"."UserId"
+FROM "AspNetUserClaims" AS "a"
+WHERE "a"."UserId" = @__user_Id_0
+2024-10-30 18:52:55.867 -03:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2024-10-30 18:52:55.875 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 16)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."Initials", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."NormalizedEmail" = @__normalizedEmail_0
+LIMIT 2
+2024-10-30 18:52:55.878 -03:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2024-10-30 18:52:55.880 -03:00 [INF] Accessing expired session, Key:271d2283-ca93-0539-0421-e5bc2c4fcaa9
+2024-10-30 18:52:55.885 -03:00 [INF] Executed endpoint 'HTTP: POST /login'
+2024-10-30 18:52:55.887 -03:00 [INF] Session started; Key:271d2283-ca93-0539-0421-e5bc2c4fcaa9, Id:a3f35a89-6163-4c61-da4b-60c68083047a
+2024-10-30 18:52:55.890 -03:00 [INF] Request finished HTTP/2 POST https://localhost:57679/login - 200 null application/json 279.1046ms
+2024-10-30 18:53:07.485 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/swagger-ui.css.map - null null
+2024-10-30 18:53:07.487 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/swagger-ui.css.map - 404 0 null 1.9894ms
+2024-10-30 18:53:07.489 -03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:57679/swagger/swagger-ui.css.map, Response status code: 404
+2024-10-30 18:53:10.709 -03:00 [INF] Request starting HTTP/2 POST https://localhost:57679/login - application/json 63
+2024-10-30 18:53:10.711 -03:00 [INF] Executing endpoint 'HTTP: POST /login'
+2024-10-30 18:53:10.718 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedUserName_0='?' (Size = 16)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."Initials", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."NormalizedUserName" = @__normalizedUserName_0
+LIMIT 1
+2024-10-30 18:53:10.775 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ClaimType", "a"."ClaimValue", "a"."UserId"
+FROM "AspNetUserClaims" AS "a"
+WHERE "a"."UserId" = @__user_Id_0
+2024-10-30 18:53:10.776 -03:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2024-10-30 18:53:10.777 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 16)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."Initials", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."NormalizedEmail" = @__normalizedEmail_0
+LIMIT 2
+2024-10-30 18:53:10.779 -03:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2024-10-30 18:53:10.780 -03:00 [INF] Executed endpoint 'HTTP: POST /login'
+2024-10-30 18:53:10.782 -03:00 [INF] Request finished HTTP/2 POST https://localhost:57679/login - 200 null application/json 72.1515ms
+2024-10-30 18:56:45.731 -03:00 [INF] Application is shutting down...
+2024-10-30 18:56:51.655 -03:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2024-10-30 18:56:51.677 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2024-10-30 18:56:51.685 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2024-10-30 18:56:51.695 -03:00 [INF] No migrations were applied. The database is already up to date.
+2024-10-30 18:56:51.751 -03:00 [INF] User profile is available. Using 'C:\Users\Cristian Fraporti\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-10-30 18:56:51.760 -03:00 [INF] Registered 9 endpoints in 788 milliseconds.
+2024-10-30 18:56:51.901 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2024-10-30 18:56:52.014 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2024-10-30 18:56:52.084 -03:00 [WRN] The ASP.NET Core developer certificate is not trusted. For information about trusting the ASP.NET Core developer certificate, see https://aka.ms/aspnet/https-trust-dev-cert.
+2024-10-30 18:56:52.106 -03:00 [INF] Now listening on: https://localhost:57679
+2024-10-30 18:56:52.106 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-10-30 18:56:52.107 -03:00 [INF] Hosting environment: Development
+2024-10-30 18:56:52.108 -03:00 [INF] Content root path: C:\Users\Cristian Fraporti\Desktop\dotnet\HelpPlatform\HelpPlatform\src\HelpPlatform.Web
+2024-10-30 18:57:00.735 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/index.html - null null
+2024-10-30 18:57:00.869 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/index.html - 200 null text/html; charset=utf-8 136.5285ms
+2024-10-30 18:57:00.966 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/swagger-ui.css.map - null null
+2024-10-30 18:57:00.972 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/swagger-ui.css.map - 404 0 null 5.773ms
+2024-10-30 18:57:00.977 -03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:57679/swagger/swagger-ui.css.map, Response status code: 404
+2024-10-30 18:57:01.562 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/v1/swagger.json - null null
+2024-10-30 18:57:01.565 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/favicon-32x32.png - null null
+2024-10-30 18:57:01.570 -03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-10-30 18:57:01.573 -03:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2024-10-30 18:57:01.574 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/favicon-32x32.png - 200 628 image/png 8.9922ms
+2024-10-30 18:57:02.011 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 449.0967ms
+2024-10-30 18:57:03.286 -03:00 [INF] Request starting HTTP/2 POST https://localhost:57679/login - application/json 114
+2024-10-30 18:57:03.289 -03:00 [INF] Executing endpoint 'HTTP: POST /login'
+2024-10-30 18:57:03.423 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedUserName_0='?' (Size = 16)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."Initials", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."NormalizedUserName" = @__normalizedUserName_0
+LIMIT 1
+2024-10-30 18:57:03.554 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ClaimType", "a"."ClaimValue", "a"."UserId"
+FROM "AspNetUserClaims" AS "a"
+WHERE "a"."UserId" = @__user_Id_0
+2024-10-30 18:57:03.559 -03:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2024-10-30 18:57:03.567 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 16)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."Initials", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."NormalizedEmail" = @__normalizedEmail_0
+LIMIT 2
+2024-10-30 18:57:03.570 -03:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2024-10-30 18:57:03.571 -03:00 [INF] Accessing expired session, Key:271d2283-ca93-0539-0421-e5bc2c4fcaa9
+2024-10-30 18:57:03.577 -03:00 [INF] Executed endpoint 'HTTP: POST /login'
+2024-10-30 18:57:03.578 -03:00 [INF] Session started; Key:271d2283-ca93-0539-0421-e5bc2c4fcaa9, Id:22a11823-77b8-272d-5074-2c6fbbe470df
+2024-10-30 18:57:03.582 -03:00 [INF] Request finished HTTP/2 POST https://localhost:57679/login - 200 null application/json 296.0739ms
+2024-10-30 18:58:41.482 -03:00 [INF] Application is shutting down...
+2024-10-30 19:06:02.866 -03:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2024-10-30 19:06:02.887 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2024-10-30 19:06:02.896 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2024-10-30 19:06:02.905 -03:00 [INF] No migrations were applied. The database is already up to date.
+2024-10-30 19:06:02.962 -03:00 [INF] User profile is available. Using 'C:\Users\Cristian Fraporti\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-10-30 19:07:56.733 -03:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2024-10-30 19:07:56.754 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2024-10-30 19:07:56.761 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2024-10-30 19:07:56.772 -03:00 [INF] No migrations were applied. The database is already up to date.
+2024-10-30 19:07:56.830 -03:00 [INF] User profile is available. Using 'C:\Users\Cristian Fraporti\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-10-30 19:07:56.842 -03:00 [INF] Registered 9 endpoints in 760 milliseconds.
+2024-10-30 19:07:56.985 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2024-10-30 19:07:57.103 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2024-10-30 19:07:57.171 -03:00 [WRN] The ASP.NET Core developer certificate is not trusted. For information about trusting the ASP.NET Core developer certificate, see https://aka.ms/aspnet/https-trust-dev-cert.
+2024-10-30 19:07:57.192 -03:00 [INF] Now listening on: https://localhost:57679
+2024-10-30 19:07:57.193 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-10-30 19:07:57.193 -03:00 [INF] Hosting environment: Development
+2024-10-30 19:07:57.194 -03:00 [INF] Content root path: C:\Users\Cristian Fraporti\Desktop\dotnet\HelpPlatform\HelpPlatform\src\HelpPlatform.Web
+2024-10-30 19:08:02.422 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/index.html - null null
+2024-10-30 19:08:02.523 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/index.html - 200 null text/html; charset=utf-8 101.3929ms
+2024-10-30 19:08:02.543 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/swagger-ui.css - null null
+2024-10-30 19:08:02.552 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/index.css - null null
+2024-10-30 19:08:02.552 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/swagger-ui-standalone-preset.js - null null
+2024-10-30 19:08:02.552 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/swagger-ui-bundle.js - null null
+2024-10-30 19:08:02.561 -03:00 [INF] Sending file. Request path: '/index.css'. Physical path: 'N/A'
+2024-10-30 19:08:02.563 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/index.css - 200 218 text/css 10.8553ms
+2024-10-30 19:08:02.573 -03:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2024-10-30 19:08:02.573 -03:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2024-10-30 19:08:02.580 -03:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2024-10-30 19:08:02.581 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/swagger-ui.css - 200 152073 text/css 38.0349ms
+2024-10-30 19:08:02.581 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/swagger-ui-bundle.js - 200 1452754 text/javascript 28.8451ms
+2024-10-30 19:08:02.581 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/swagger-ui-standalone-preset.js - 200 230294 text/javascript 29.2301ms
+2024-10-30 19:08:02.621 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/swagger-ui.css.map - null null
+2024-10-30 19:08:02.624 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/swagger-ui.css.map - 404 0 null 2.4396ms
+2024-10-30 19:08:02.627 -03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:57679/swagger/swagger-ui.css.map, Response status code: 404
+2024-10-30 19:08:03.065 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/v1/swagger.json - null null
+2024-10-30 19:08:03.070 -03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-10-30 19:08:03.092 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/favicon-32x32.png - null null
+2024-10-30 19:08:03.095 -03:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2024-10-30 19:08:03.096 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/favicon-32x32.png - 200 628 image/png 4.1ms
+2024-10-30 19:08:03.493 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 427.8276ms
+2024-10-30 19:10:57.171 -03:00 [INF] Application is shutting down...
+2024-10-30 19:11:01.629 -03:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2024-10-30 19:11:01.651 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2024-10-30 19:11:01.658 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2024-10-30 19:11:01.670 -03:00 [INF] No migrations were applied. The database is already up to date.
+2024-10-30 19:11:01.727 -03:00 [INF] User profile is available. Using 'C:\Users\Cristian Fraporti\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-10-30 19:11:54.390 -03:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2024-10-30 19:11:54.411 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2024-10-30 19:11:54.418 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2024-10-30 19:11:54.428 -03:00 [INF] No migrations were applied. The database is already up to date.
+2024-10-30 19:11:54.483 -03:00 [INF] User profile is available. Using 'C:\Users\Cristian Fraporti\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-10-30 19:14:58.774 -03:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2024-10-30 19:14:58.794 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2024-10-30 19:14:58.802 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2024-10-30 19:14:58.812 -03:00 [INF] No migrations were applied. The database is already up to date.
+2024-10-30 19:14:58.868 -03:00 [INF] User profile is available. Using 'C:\Users\Cristian Fraporti\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-10-30 19:14:58.876 -03:00 [INF] Registered 9 endpoints in 748 milliseconds.
+2024-10-30 19:14:59.006 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2024-10-30 19:14:59.120 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2024-10-30 19:14:59.189 -03:00 [WRN] The ASP.NET Core developer certificate is not trusted. For information about trusting the ASP.NET Core developer certificate, see https://aka.ms/aspnet/https-trust-dev-cert.
+2024-10-30 19:14:59.211 -03:00 [INF] Now listening on: https://localhost:57679
+2024-10-30 19:14:59.212 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-10-30 19:14:59.212 -03:00 [INF] Hosting environment: Development
+2024-10-30 19:14:59.213 -03:00 [INF] Content root path: C:\Users\Cristian Fraporti\Desktop\dotnet\HelpPlatform\HelpPlatform\src\HelpPlatform.Web
+2024-10-30 19:18:25.754 -03:00 [INF] Application is shutting down...
+2024-10-30 19:18:30.188 -03:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2024-10-30 19:18:30.208 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2024-10-30 19:18:30.215 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2024-10-30 19:18:30.226 -03:00 [INF] No migrations were applied. The database is already up to date.
+2024-10-30 19:18:30.279 -03:00 [INF] User profile is available. Using 'C:\Users\Cristian Fraporti\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-10-30 19:18:30.286 -03:00 [INF] Registered 9 endpoints in 706 milliseconds.
+2024-10-30 19:18:30.411 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2024-10-30 19:18:30.518 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2024-10-30 19:18:30.589 -03:00 [WRN] The ASP.NET Core developer certificate is not trusted. For information about trusting the ASP.NET Core developer certificate, see https://aka.ms/aspnet/https-trust-dev-cert.
+2024-10-30 19:18:30.611 -03:00 [INF] Now listening on: https://localhost:57679
+2024-10-30 19:18:30.612 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-10-30 19:18:30.612 -03:00 [INF] Hosting environment: Development
+2024-10-30 19:18:30.613 -03:00 [INF] Content root path: C:\Users\Cristian Fraporti\Desktop\dotnet\HelpPlatform\HelpPlatform\src\HelpPlatform.Web
+2024-10-30 19:18:37.142 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/index.html - null null
+2024-10-30 19:18:37.244 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/index.html - 200 null text/html; charset=utf-8 102.9174ms
+2024-10-30 19:18:37.422 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/swagger-ui.css.map - null null
+2024-10-30 19:18:37.426 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/swagger-ui.css.map - 404 0 null 3.6904ms
+2024-10-30 19:18:37.429 -03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:57679/swagger/swagger-ui.css.map, Response status code: 404
+2024-10-30 19:18:37.764 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/v1/swagger.json - null null
+2024-10-30 19:18:37.767 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/favicon-32x32.png - null null
+2024-10-30 19:18:37.771 -03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-10-30 19:18:37.774 -03:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2024-10-30 19:18:37.775 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/favicon-32x32.png - 200 628 image/png 8.2581ms
+2024-10-30 19:18:38.172 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 407.9758ms
+2024-10-30 19:18:45.344 -03:00 [INF] Request starting HTTP/2 POST https://localhost:57679/login?useCookies=true&useSessionCookies=true - application/json 63
+2024-10-30 19:18:45.348 -03:00 [INF] Executing endpoint 'HTTP: POST /login'
+2024-10-30 19:18:45.499 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedUserName_0='?' (Size = 16)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."Initials", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."NormalizedUserName" = @__normalizedUserName_0
+LIMIT 1
+2024-10-30 19:18:45.652 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ClaimType", "a"."ClaimValue", "a"."UserId"
+FROM "AspNetUserClaims" AS "a"
+WHERE "a"."UserId" = @__user_Id_0
+2024-10-30 19:18:45.656 -03:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2024-10-30 19:18:45.664 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 16)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."Initials", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."NormalizedEmail" = @__normalizedEmail_0
+LIMIT 2
+2024-10-30 19:18:45.668 -03:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2024-10-30 19:18:45.670 -03:00 [INF] Accessing expired session, Key:271d2283-ca93-0539-0421-e5bc2c4fcaa9
+2024-10-30 19:18:45.675 -03:00 [INF] Executed endpoint 'HTTP: POST /login'
+2024-10-30 19:18:45.677 -03:00 [INF] Session started; Key:271d2283-ca93-0539-0421-e5bc2c4fcaa9, Id:10049d58-c1b0-8eb1-eb9a-44adcdc49b15
+2024-10-30 19:18:45.681 -03:00 [INF] Request finished HTTP/2 POST https://localhost:57679/login?useCookies=true&useSessionCookies=true - 200 null application/json 336.6551ms
+2024-10-30 19:18:56.586 -03:00 [INF] Request starting HTTP/2 POST https://localhost:57679/login?useCookies=false&useSessionCookies=false - application/json 63
+2024-10-30 19:18:56.589 -03:00 [INF] Executing endpoint 'HTTP: POST /login'
+2024-10-30 19:18:56.597 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedUserName_0='?' (Size = 16)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."Initials", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."NormalizedUserName" = @__normalizedUserName_0
+LIMIT 1
+2024-10-30 19:18:56.652 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ClaimType", "a"."ClaimValue", "a"."UserId"
+FROM "AspNetUserClaims" AS "a"
+WHERE "a"."UserId" = @__user_Id_0
+2024-10-30 19:18:56.654 -03:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2024-10-30 19:18:56.655 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 16)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."Initials", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."NormalizedEmail" = @__normalizedEmail_0
+LIMIT 2
+2024-10-30 19:18:56.657 -03:00 [INF] Executed endpoint 'HTTP: POST /login'
+2024-10-30 19:18:56.658 -03:00 [INF] Request finished HTTP/2 POST https://localhost:57679/login?useCookies=false&useSessionCookies=false - 200 null application/json 71.3849ms
+2024-10-30 19:19:09.219 -03:00 [INF] Application is shutting down...
+2024-10-30 19:33:52.542 -03:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2024-10-30 19:33:52.565 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2024-10-30 19:33:52.574 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2024-10-30 19:33:52.585 -03:00 [INF] No migrations were applied. The database is already up to date.
+2024-10-30 19:33:52.648 -03:00 [INF] User profile is available. Using 'C:\Users\Cristian Fraporti\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-10-30 19:37:18.461 -03:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2024-10-30 19:37:18.514 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2024-10-30 19:37:18.556 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2024-10-30 19:37:18.575 -03:00 [INF] No migrations were applied. The database is already up to date.
+2024-10-30 19:37:18.645 -03:00 [INF] User profile is available. Using 'C:\Users\Cristian Fraporti\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-10-30 19:37:18.654 -03:00 [INF] Registered 9 endpoints in 907 milliseconds.
+2024-10-30 19:37:18.802 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2024-10-30 19:37:18.921 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2024-10-30 19:37:18.998 -03:00 [WRN] The ASP.NET Core developer certificate is not trusted. For information about trusting the ASP.NET Core developer certificate, see https://aka.ms/aspnet/https-trust-dev-cert.
+2024-10-30 19:37:19.023 -03:00 [INF] Now listening on: https://localhost:57679
+2024-10-30 19:37:19.024 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-10-30 19:37:19.024 -03:00 [INF] Hosting environment: Development
+2024-10-30 19:37:19.025 -03:00 [INF] Content root path: C:\Users\Cristian Fraporti\Desktop\dotnet\HelpPlatform\HelpPlatform\src\HelpPlatform.Web
+2024-10-30 19:37:38.243 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/index.html - null null
+2024-10-30 19:37:38.350 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/index.html - 200 null text/html; charset=utf-8 107.7732ms
+2024-10-30 19:37:38.369 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/swagger-ui-standalone-preset.js - null null
+2024-10-30 19:37:38.369 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/index.css - null null
+2024-10-30 19:37:38.369 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/swagger-ui.css - null null
+2024-10-30 19:37:38.369 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/swagger-ui-bundle.js - null null
+2024-10-30 19:37:38.379 -03:00 [INF] Sending file. Request path: '/index.css'. Physical path: 'N/A'
+2024-10-30 19:37:38.381 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/index.css - 200 218 text/css 11.9941ms
+2024-10-30 19:37:38.387 -03:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2024-10-30 19:37:38.387 -03:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2024-10-30 19:37:38.391 -03:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2024-10-30 19:37:38.392 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/swagger-ui-standalone-preset.js - 200 230294 text/javascript 22.7375ms
+2024-10-30 19:37:38.392 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/swagger-ui.css - 200 152073 text/css 22.8497ms
+2024-10-30 19:37:38.393 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/swagger-ui-bundle.js - 200 1452754 text/javascript 24.0302ms
+2024-10-30 19:37:38.993 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/v1/swagger.json - null null
+2024-10-30 19:37:38.997 -03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-10-30 19:37:39.409 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 415.9644ms
+2024-10-30 19:37:47.233 -03:00 [INF] Request starting HTTP/2 POST https://localhost:57679/login?useCookies=true&useSessionCookies=true - application/json 63
+2024-10-30 19:37:47.237 -03:00 [INF] Executing endpoint 'HTTP: POST /login'
+2024-10-30 19:37:47.357 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedUserName_0='?' (Size = 16)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."Initials", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."NormalizedUserName" = @__normalizedUserName_0
+LIMIT 1
+2024-10-30 19:37:47.479 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ClaimType", "a"."ClaimValue", "a"."UserId"
+FROM "AspNetUserClaims" AS "a"
+WHERE "a"."UserId" = @__user_Id_0
+2024-10-30 19:37:47.483 -03:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2024-10-30 19:37:47.491 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 16)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."Initials", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."NormalizedEmail" = @__normalizedEmail_0
+LIMIT 2
+2024-10-30 19:37:47.493 -03:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2024-10-30 19:37:47.494 -03:00 [INF] Accessing expired session, Key:271d2283-ca93-0539-0421-e5bc2c4fcaa9
+2024-10-30 19:37:47.499 -03:00 [INF] Executed endpoint 'HTTP: POST /login'
+2024-10-30 19:37:47.500 -03:00 [INF] Session started; Key:271d2283-ca93-0539-0421-e5bc2c4fcaa9, Id:1c5ed5d9-de0e-4c4c-4633-ec2081437b2c
+2024-10-30 19:37:47.504 -03:00 [INF] Request finished HTTP/2 POST https://localhost:57679/login?useCookies=true&useSessionCookies=true - 200 null application/json 271.2408ms
+2024-10-30 19:40:06.219 -03:00 [INF] Application is shutting down...
+2024-10-30 19:40:54.658 -03:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2024-10-30 19:40:54.687 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2024-10-30 19:40:54.696 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2024-10-30 19:40:54.708 -03:00 [INF] No migrations were applied. The database is already up to date.
+2024-10-30 19:40:54.772 -03:00 [INF] User profile is available. Using 'C:\Users\Cristian Fraporti\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-10-30 19:40:54.780 -03:00 [INF] Registered 9 endpoints in 855 milliseconds.
+2024-10-30 19:40:54.917 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2024-10-30 19:40:55.031 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2024-10-30 19:40:55.104 -03:00 [WRN] The ASP.NET Core developer certificate is not trusted. For information about trusting the ASP.NET Core developer certificate, see https://aka.ms/aspnet/https-trust-dev-cert.
+2024-10-30 19:40:55.126 -03:00 [INF] Now listening on: https://localhost:57679
+2024-10-30 19:40:55.127 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-10-30 19:40:55.128 -03:00 [INF] Hosting environment: Development
+2024-10-30 19:40:55.129 -03:00 [INF] Content root path: C:\Users\Cristian Fraporti\Desktop\dotnet\HelpPlatform\HelpPlatform\src\HelpPlatform.Web
+2024-10-30 19:41:08.886 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/index.html - null null
+2024-10-30 19:41:08.983 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/index.html - 200 null text/html; charset=utf-8 97.6853ms
+2024-10-30 19:41:09.109 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/v1/swagger.json - null null
+2024-10-30 19:41:09.115 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/favicon-32x32.png - null null
+2024-10-30 19:41:09.116 -03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-10-30 19:41:09.124 -03:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2024-10-30 19:41:09.126 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/favicon-32x32.png - 200 628 image/png 10.2809ms
+2024-10-30 19:41:09.523 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 414.6854ms
+2024-10-30 19:41:14.358 -03:00 [INF] Request starting HTTP/2 POST https://localhost:57679/login?useCookies=true&useSessionCookies=true - application/json 63
+2024-10-30 19:41:14.362 -03:00 [INF] Executing endpoint 'HTTP: POST /login'
+2024-10-30 19:41:14.499 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedUserName_0='?' (Size = 16)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."Initials", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."NormalizedUserName" = @__normalizedUserName_0
+LIMIT 1
+2024-10-30 19:41:14.625 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ClaimType", "a"."ClaimValue", "a"."UserId"
+FROM "AspNetUserClaims" AS "a"
+WHERE "a"."UserId" = @__user_Id_0
+2024-10-30 19:41:14.631 -03:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2024-10-30 19:41:14.638 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 16)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."Initials", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."NormalizedEmail" = @__normalizedEmail_0
+LIMIT 2
+2024-10-30 19:41:14.641 -03:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2024-10-30 19:41:14.642 -03:00 [INF] Accessing expired session, Key:271d2283-ca93-0539-0421-e5bc2c4fcaa9
+2024-10-30 19:41:14.655 -03:00 [INF] Executed endpoint 'HTTP: POST /login'
+2024-10-30 19:41:14.657 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.TypeInitializationException: The type initializer for 'System.IdentityModel.Tokens.Jwt.JsonExtensions' threw an exception.
+ ---> System.TypeLoadException: Could not load type 'Microsoft.IdentityModel.Json.JsonConvert' from assembly 'Microsoft.IdentityModel.Tokens, Version=8.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'.
+   at System.IdentityModel.Tokens.Jwt.JsonExtensions..cctor()
+   --- End of inner exception stack trace ---
+   at System.IdentityModel.Tokens.Jwt.JsonExtensions.get_Serializer()
+   at System.IdentityModel.Tokens.Jwt.JsonExtensions.SerializeToJson(Object value)
+   at System.IdentityModel.Tokens.Jwt.JwtPayload.SerializeToJson()
+   at System.IdentityModel.Tokens.Jwt.JwtPayload.Base64UrlEncode()
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityToken.get_EncodedPayload()
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.WriteToken(SecurityToken token)
+   at HelpPlatform.Web.Identity.Login.HandleAsync(LoginRequest request, CancellationToken cancellationToken) in C:\Users\Cristian Fraporti\Desktop\dotnet\HelpPlatform\HelpPlatform\src\HelpPlatform.Web\Identity\Login.cs:line 109
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Ardalis.ListStartupServices.ShowAllServicesMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-10-30 19:41:14.671 -03:00 [INF] Session started; Key:271d2283-ca93-0539-0421-e5bc2c4fcaa9, Id:edd15a13-abc1-9c53-eb63-3e725a19ed6a
+2024-10-30 19:41:14.675 -03:00 [INF] Request finished HTTP/2 POST https://localhost:57679/login?useCookies=true&useSessionCookies=true - 500 null text/plain; charset=utf-8 316.5269ms
+2024-10-30 19:41:41.087 -03:00 [INF] Application is shutting down...
+2024-10-30 19:42:17.921 -03:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2024-10-30 19:42:17.943 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2024-10-30 19:42:17.952 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2024-10-30 19:42:17.963 -03:00 [INF] No migrations were applied. The database is already up to date.
+2024-10-30 19:42:18.017 -03:00 [INF] User profile is available. Using 'C:\Users\Cristian Fraporti\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-10-30 19:42:18.024 -03:00 [INF] Registered 9 endpoints in 710 milliseconds.
+2024-10-30 19:42:18.150 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2024-10-30 19:42:18.267 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2024-10-30 19:42:18.333 -03:00 [WRN] The ASP.NET Core developer certificate is not trusted. For information about trusting the ASP.NET Core developer certificate, see https://aka.ms/aspnet/https-trust-dev-cert.
+2024-10-30 19:42:18.354 -03:00 [INF] Now listening on: https://localhost:57679
+2024-10-30 19:42:18.355 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-10-30 19:42:18.356 -03:00 [INF] Hosting environment: Development
+2024-10-30 19:42:18.356 -03:00 [INF] Content root path: C:\Users\Cristian Fraporti\Desktop\dotnet\HelpPlatform\HelpPlatform\src\HelpPlatform.Web
+2024-10-30 19:42:21.875 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/index.html - null null
+2024-10-30 19:42:21.968 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/index.html - 200 null text/html; charset=utf-8 94.1551ms
+2024-10-30 19:42:22.063 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/favicon-32x32.png - null null
+2024-10-30 19:42:22.063 -03:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/v1/swagger.json - null null
+2024-10-30 19:42:22.071 -03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-10-30 19:42:22.072 -03:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2024-10-30 19:42:22.074 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/favicon-32x32.png - 200 628 image/png 10.3066ms
+2024-10-30 19:42:22.460 -03:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 396.6377ms
+2024-10-30 19:42:26.294 -03:00 [INF] Request starting HTTP/2 POST https://localhost:57679/login?useCookies=true&useSessionCookies=true - application/json 63
+2024-10-30 19:42:26.298 -03:00 [INF] Executing endpoint 'HTTP: POST /login'
+2024-10-30 19:42:26.428 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedUserName_0='?' (Size = 16)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."Initials", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."NormalizedUserName" = @__normalizedUserName_0
+LIMIT 1
+2024-10-30 19:42:26.553 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ClaimType", "a"."ClaimValue", "a"."UserId"
+FROM "AspNetUserClaims" AS "a"
+WHERE "a"."UserId" = @__user_Id_0
+2024-10-30 19:42:26.557 -03:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2024-10-30 19:42:26.565 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 16)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."Initials", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."NormalizedEmail" = @__normalizedEmail_0
+LIMIT 2
+2024-10-30 19:42:26.568 -03:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2024-10-30 19:42:26.569 -03:00 [INF] Accessing expired session, Key:271d2283-ca93-0539-0421-e5bc2c4fcaa9
+2024-10-30 19:42:26.590 -03:00 [INF] Executed endpoint 'HTTP: POST /login'
+2024-10-30 19:42:26.591 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentOutOfRangeException: IDX10720: Unable to create KeyedHashAlgorithm for algorithm 'HS256', the key size must be greater than: '256' bits, key has '136' bits. (Parameter 'keyBytes')
+   at Microsoft.IdentityModel.Tokens.CryptoProviderFactory.ValidateKeySize(Byte[] keyBytes, String algorithm, Int32 expectedNumberOfBytes)
+   at Microsoft.IdentityModel.Tokens.CryptoProviderFactory.CreateKeyedHashAlgorithm(Byte[] keyBytes, String algorithm)
+   at Microsoft.IdentityModel.Tokens.SymmetricSignatureProvider.CreateKeyedHashAlgorithm()
+   at Microsoft.IdentityModel.Tokens.DisposableObjectPool`1.CreateInstance()
+   at Microsoft.IdentityModel.Tokens.DisposableObjectPool`1.Allocate()
+   at Microsoft.IdentityModel.Tokens.SymmetricSignatureProvider.GetKeyedHashAlgorithm(Byte[] keyBytes, String algorithm)
+   at Microsoft.IdentityModel.Tokens.SymmetricSignatureProvider.Sign(Byte[] input)
+   at Microsoft.IdentityModel.JsonWebTokens.JwtTokenUtilities.CreateEncodedSignature(String input, SigningCredentials signingCredentials)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.WriteToken(SecurityToken token)
+   at HelpPlatform.Web.Identity.Login.HandleAsync(LoginRequest request, CancellationToken cancellationToken) in C:\Users\Cristian Fraporti\Desktop\dotnet\HelpPlatform\HelpPlatform\src\HelpPlatform.Web\Identity\Login.cs:line 109
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Ardalis.ListStartupServices.ShowAllServicesMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-10-30 19:42:26.607 -03:00 [INF] Session started; Key:271d2283-ca93-0539-0421-e5bc2c4fcaa9, Id:52b1a27c-e092-3d16-ba69-8797b914fe8f
+2024-10-30 19:42:26.611 -03:00 [INF] Request finished HTTP/2 POST https://localhost:57679/login?useCookies=true&useSessionCookies=true - 500 null text/plain; charset=utf-8 316.6978ms
+2024-10-30 19:43:17.500 -03:00 [INF] Application is shutting down...
+2024-10-30 19:43:22.268 -03:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2024-10-30 19:43:22.290 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2024-10-30 19:43:22.298 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2024-10-30 19:43:22.307 -03:00 [INF] No migrations were applied. The database is already up to date.
+2024-10-30 19:43:22.381 -03:00 [INF] User profile is available. Using 'C:\Users\Cristian Fraporti\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-10-30 19:43:22.388 -03:00 [INF] Registered 9 endpoints in 731 milliseconds.
+2024-10-30 19:43:22.522 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2024-10-30 19:43:22.632 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2024-10-30 19:43:22.702 -03:00 [WRN] The ASP.NET Core developer certificate is not trusted. For information about trusting the ASP.NET Core developer certificate, see https://aka.ms/aspnet/https-trust-dev-cert.
+2024-10-30 19:43:22.723 -03:00 [INF] Now listening on: https://localhost:57679
+2024-10-30 19:43:22.724 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-10-30 19:43:22.724 -03:00 [INF] Hosting environment: Development
+2024-10-30 19:43:22.725 -03:00 [INF] Content root path: C:\Users\Cristian Fraporti\Desktop\dotnet\HelpPlatform\HelpPlatform\src\HelpPlatform.Web
+2024-10-30 19:43:31.556 -03:00 [INF] Request starting HTTP/2 POST https://localhost:57679/login?useCookies=true&useSessionCookies=true - application/json 63
+2024-10-30 19:43:31.587 -03:00 [INF] Executing endpoint 'HTTP: POST /login'
+2024-10-30 19:43:31.718 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedUserName_0='?' (Size = 16)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."Initials", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."NormalizedUserName" = @__normalizedUserName_0
+LIMIT 1
+2024-10-30 19:43:31.843 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ClaimType", "a"."ClaimValue", "a"."UserId"
+FROM "AspNetUserClaims" AS "a"
+WHERE "a"."UserId" = @__user_Id_0
+2024-10-30 19:43:31.847 -03:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2024-10-30 19:43:31.855 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 16)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."Initials", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."NormalizedEmail" = @__normalizedEmail_0
+LIMIT 2
+2024-10-30 19:43:31.858 -03:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2024-10-30 19:43:31.860 -03:00 [INF] Accessing expired session, Key:271d2283-ca93-0539-0421-e5bc2c4fcaa9
+2024-10-30 19:43:31.884 -03:00 [INF] Executed endpoint 'HTTP: POST /login'
+2024-10-30 19:43:31.887 -03:00 [INF] Session started; Key:271d2283-ca93-0539-0421-e5bc2c4fcaa9, Id:8c4e7f95-1747-168b-f5a0-9247ac0965bc
+2024-10-30 19:43:31.891 -03:00 [INF] Request finished HTTP/2 POST https://localhost:57679/login?useCookies=true&useSessionCookies=true - 200 null application/json 335.4776ms
+2024-10-30 19:43:51.915 -03:00 [INF] Application is shutting down...
