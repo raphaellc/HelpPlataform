@@ -9,7 +9,13 @@ public class ListDonationRequestHandler(IRepository<DonationRequest> repository)
 {
     public async Task<Result<IEnumerable<DonationRequestDto>>> Handle(ListDonationRequestsQuery request, CancellationToken cancellationToken)
     {
-        var donationRequests = await repository.ListAsync(new DonationRequestWithUserSpecification(), cancellationToken);
+        int skip = (request.Size ?? 0) * (request.Index ?? 0);
+        int take = request.Size is null or 0 ? int.MaxValue : request.Size.Value;
+        
+        var donationRequests = await repository.ListAsync
+        (
+            new PaginatedDonationRequestsWithUserSpecification(skip, take), cancellationToken
+        );
 
         var donationRequestDtos = donationRequests.Select(dr => new DonationRequestDto(
             id: dr.Id,

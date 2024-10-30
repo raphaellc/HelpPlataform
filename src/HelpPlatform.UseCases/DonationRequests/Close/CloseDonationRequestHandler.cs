@@ -1,12 +1,13 @@
 ﻿using Ardalis.Result;
+using HelpPlatform.Core.DonationRequestDomain.Interfaces;
 using HelpPlatform.SharedKernel;
 
 namespace HelpPlatform.UseCases.DonationRequests.Close;
 
-public class CloseDonationRequestHandler : ICommandHandler<CloseDonationRequestCommand, Result>
+public class CloseDonationRequestHandler(ICloseDonationRequestService service) : ICommandHandler<CloseDonationRequestCommand, Result>
 {
-    public Task<Result> Handle(CloseDonationRequestCommand request, CancellationToken cancellationToken)
+    public async Task<Result> Handle(CloseDonationRequestCommand request, CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        return await service.CloseRequest(request.requestId, request.cancellationToken);
     }
 }

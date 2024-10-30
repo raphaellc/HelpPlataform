@@ -11,8 +11,12 @@ public class CreateDonationRequestHandler(IRepository<DonationRequest> drReposit
     public async Task<Result<int>> Handle(CreateDonationRequestCommand request, CancellationToken cancellationToken)
     {
         var user = await userRepository.GetByIdAsync(request.UserId, cancellationToken);
-        Guard.Against.Null(user, nameof(user), "User not found.");
 
+        if (user is null)
+        {
+            return Result.NotFound(UserErrors.UserNotFound);
+        }
+        
         var donationRequest = new DonationRequest(
             request.Description,
             request.Deadline,
