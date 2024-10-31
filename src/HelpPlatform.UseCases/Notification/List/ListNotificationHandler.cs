@@ -1,8 +1,8 @@
 using Ardalis.Result;
 using HelpPlatform.Core.NotificationDomain;
-using HelpPlatform.Core.NotificationDomain.Dtos;
-using HelpPlatform.Core.NotificationDomain.Interfaces;
+using HelpPlatform.UseCases.NotificationDomain.Dtos;
 using HelpPlatform.SharedKernel;
+
 namespace HelpPlatform.UseCases.Notifications.List;
 
 public class ListNotificationHandler(IRepository<Notification> repository) : IQueryHandler<ListNotificationsQuery, Result<IEnumerable<NotificationDto>>>

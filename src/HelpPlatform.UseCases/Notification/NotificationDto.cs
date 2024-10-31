@@ -1,4 +1,4 @@
-namespace HelpPlatform.Core.NotificationDomain.Dtos;
+namespace HelpPlatform.UseCases.NotificationDomain.Dtos;
 
 public class NotificationDto(int userId, string message, bool read, DateTime createdAt)
 {

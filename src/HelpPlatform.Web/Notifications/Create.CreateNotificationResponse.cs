@@ -1,4 +1,4 @@
-namespace HelpPlatform.Web.Notifications
+namespace HelpPlatform.Web.Notifications;
 public class CreateNotificationResponse
 {
     public int NotificationId { get; set; }
