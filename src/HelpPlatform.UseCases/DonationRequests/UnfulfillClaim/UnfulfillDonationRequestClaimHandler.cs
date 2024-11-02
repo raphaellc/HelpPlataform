@@ -1,5 +1,5 @@
 ﻿using Ardalis.Result;
-using HelpPlatform.Core.DonationRequestDomain.Interfaces;
+using HelpPlatform.Core.RequestDomain.Interfaces;
 
 namespace HelpPlatform.UseCases.DonationRequests.UnfulfillClaim;
 

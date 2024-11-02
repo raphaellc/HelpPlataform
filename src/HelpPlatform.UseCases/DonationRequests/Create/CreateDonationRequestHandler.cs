@@ -1,6 +1,7 @@
 ﻿using Ardalis.GuardClauses;
 using Ardalis.Result;
-using HelpPlatform.Core.DonationRequestDomain;
+using HelpPlatform.Core.RequestDomain;
+using HelpPlatform.Core.RequestDomain.DonationRequestDomain;
 using HelpPlatform.Core.UserDomain;
 using HelpPlatform.SharedKernel;
 

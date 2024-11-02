@@ -1,6 +1,7 @@
 ﻿using Ardalis.Result;
-using HelpPlatform.Core.DonationRequestDomain;
-using HelpPlatform.Core.DonationRequestDomain.Specifications;
+using HelpPlatform.Core.RequestDomain;
+using HelpPlatform.Core.RequestDomain.DonationRequestDomain;
+using HelpPlatform.Core.RequestDomain.Specifications;
 using HelpPlatform.SharedKernel;
 
 namespace HelpPlatform.UseCases.DonationRequests.List;

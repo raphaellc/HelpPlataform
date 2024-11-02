@@ -1,10 +1,9 @@
-﻿using System.Runtime.InteropServices.JavaScript;
-using Ardalis.GuardClauses;
+﻿using Ardalis.GuardClauses;
 using Ardalis.Result;
-using HelpPlatform.SharedKernel;
 using HelpPlatform.Core.UserDomain;
+using HelpPlatform.SharedKernel;
 
-namespace HelpPlatform.Core.DonationRequestDomain;
+namespace HelpPlatform.Core.RequestDomain.DonationRequestDomain;
 
 public class DonationRequestClaim(
     string? message,

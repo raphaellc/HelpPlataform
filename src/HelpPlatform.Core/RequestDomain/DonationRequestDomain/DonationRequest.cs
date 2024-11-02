@@ -4,7 +4,7 @@ using HelpPlatform.Core.ResourceTypeDomain;
 using HelpPlatform.Core.UserDomain;
 using HelpPlatform.SharedKernel;
 
-namespace HelpPlatform.Core.DonationRequestDomain;
+namespace HelpPlatform.Core.RequestDomain.DonationRequestDomain;
 
 public class DonationRequest(
     string? description,
@@ -12,7 +12,7 @@ public class DonationRequest(
     string location,
     int resourceTypeId,
     int requestedQuantity,
-    int userId) : EntityBase, IAggregateRoot
+    int userId) : EntityBase, IAggregateRoot, IRequest
 {
     public string? Description { get; private set; } = description;
 

@@ -1,6 +1,6 @@
 ﻿using Ardalis.Result;
 
-namespace HelpPlatform.Core.DonationRequestDomain;
+namespace HelpPlatform.Core.RequestDomain.DonationRequestDomain;
 
 public static class DonationRequestErrors
 {

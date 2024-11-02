@@ -1,5 +1,5 @@
 ﻿using Ardalis.Result;
-using HelpPlatform.Core.DonationRequestDomain.Interfaces;
+using HelpPlatform.Core.RequestDomain.Interfaces;
 using HelpPlatform.SharedKernel;
 
 namespace HelpPlatform.UseCases.DonationRequests.Close;

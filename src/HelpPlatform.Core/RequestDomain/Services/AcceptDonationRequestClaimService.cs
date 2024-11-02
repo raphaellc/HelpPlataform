@@ -1,17 +1,17 @@
-﻿
-using Ardalis.Result;
-using HelpPlatform.Core.DonationRequestDomain.Interfaces;
-using HelpPlatform.Core.DonationRequestDomain.Specifications;
+﻿using Ardalis.Result;
+using HelpPlatform.Core.RequestDomain.DonationRequestDomain;
+using HelpPlatform.Core.RequestDomain.Interfaces;
+using HelpPlatform.Core.RequestDomain.Specifications;
 using HelpPlatform.SharedKernel;
 
-namespace HelpPlatform.Core.DonationRequestDomain.Services;
+namespace HelpPlatform.Core.RequestDomain.Services;
 
-public class AcceptDonationRequestClaimService(IRepository<DonationRequest> repository) : IAcceptDonationRequestClaimService
+public class AcceptDonationRequestClaimService<TRequest>(IRepository<TRequest> repository) : IAcceptDonationRequestClaimService where TRequest : class, IRequest
 {
     public async Task<Result> AcceptClaim(int requestId, int claimId, CancellationToken cancellationToken)
     {
         var donationRequest = await repository
-            .FirstOrDefaultAsync(new DonationRequestWithClaimsSpecification(requestId), cancellationToken);
+            .FirstOrDefaultAsync(new DonationRequestTestSpecification<TRequest>(requestId), cancellationToken);
 
         if (donationRequest == null)
         {

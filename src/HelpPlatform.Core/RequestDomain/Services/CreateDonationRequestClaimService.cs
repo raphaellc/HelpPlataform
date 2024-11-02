@@ -1,10 +1,11 @@
 ﻿using Ardalis.Result;
-using HelpPlatform.Core.DonationRequestDomain.Interfaces;
-using HelpPlatform.Core.DonationRequestDomain.Specifications;
+using HelpPlatform.Core.RequestDomain.DonationRequestDomain;
+using HelpPlatform.Core.RequestDomain.Interfaces;
+using HelpPlatform.Core.RequestDomain.Specifications;
 using HelpPlatform.Core.UserDomain;
 using HelpPlatform.SharedKernel;
 
-namespace HelpPlatform.Core.DonationRequestDomain.Services;
+namespace HelpPlatform.Core.RequestDomain.Services;
 
 public class CreateDonationRequestClaimService(
     IRepository<DonationRequest> repository,

@@ -1,6 +1,7 @@
 ﻿using Ardalis.Result;
 using FastEndpoints;
-using HelpPlatform.Core.DonationRequestDomain;
+using HelpPlatform.Core.RequestDomain;
+using HelpPlatform.Core.RequestDomain.DonationRequestDomain;
 using HelpPlatform.SharedKernel;
 using HelpPlatform.UseCases.DonationRequests;
 using HelpPlatform.UseCases.DonationRequests.List;

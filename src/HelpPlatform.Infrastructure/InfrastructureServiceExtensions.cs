@@ -2,8 +2,9 @@
 using HelpPlatform.SharedKernel;
 using HelpPlatform.Core.Contributor.Interfaces;
 using HelpPlatform.Core.Contributor.Services;
-using HelpPlatform.Core.DonationRequestDomain.Interfaces;
-using HelpPlatform.Core.DonationRequestDomain.Services;
+using HelpPlatform.Core.RequestDomain.DonationRequestDomain;
+using HelpPlatform.Core.RequestDomain.Interfaces;
+using HelpPlatform.Core.RequestDomain.Services;
 using HelpPlatform.Core.ResourceTypeDomain.Interfaces;
 using HelpPlatform.Core.ResourceTypeDomain.Services;
 using HelpPlatform.Core.UserDomain.Interfaces;
@@ -38,7 +39,7 @@ public static class InfrastructureServiceExtensions {
         services.AddScoped<IDeleteUserService, DeleteUserService>();
         services.AddScoped<IUpdateUserService, UpdateUserService>();
         services.AddScoped<ICreateDonationRequestClaimService, CreateDonationRequestClaimService>();
-        services.AddScoped<IAcceptDonationRequestClaimService, AcceptDonationRequestClaimService>();
+        services.AddScoped<IAcceptDonationRequestClaimService, AcceptDonationRequestClaimService<DonationRequest>>();
         services.AddScoped<IRejectDonationRequestClaimService, RejectDonationRequestClaimService>();
         services.AddScoped<ICancelDonationRequestClaimService, CancelDonationRequestClaimService>();
         services.AddScoped<IFulfillDonationRequestClaimService, FulfillDonationRequestClaimService>();

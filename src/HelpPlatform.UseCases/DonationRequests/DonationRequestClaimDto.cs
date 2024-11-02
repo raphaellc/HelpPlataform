@@ -1,4 +1,5 @@
-﻿using HelpPlatform.Core.DonationRequestDomain;
+﻿using HelpPlatform.Core.RequestDomain;
+using HelpPlatform.Core.RequestDomain.DonationRequestDomain;
 
 namespace HelpPlatform.UseCases.DonationRequests;
 

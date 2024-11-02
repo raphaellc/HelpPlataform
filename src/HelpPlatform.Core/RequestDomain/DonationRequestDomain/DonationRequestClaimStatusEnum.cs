@@ -1,4 +1,4 @@
-﻿namespace HelpPlatform.Core.DonationRequestDomain;
+﻿namespace HelpPlatform.Core.RequestDomain.DonationRequestDomain;
 
 public enum DonationRequestClaimStatusEnum
 {

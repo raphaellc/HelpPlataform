@@ -1,7 +1,8 @@
 ﻿using System.Reflection;
 using HelpPlatform.SharedKernel;
 using HelpPlatform.Core.Contributor.ContributorAggregate;
-using HelpPlatform.Core.DonationRequestDomain;
+using HelpPlatform.Core.RequestDomain;
+using HelpPlatform.Core.RequestDomain.DonationRequestDomain;
 using HelpPlatform.Core.ResourceTypeDomain;
 using HelpPlatform.Core.UserDomain;
 using Microsoft.EntityFrameworkCore;

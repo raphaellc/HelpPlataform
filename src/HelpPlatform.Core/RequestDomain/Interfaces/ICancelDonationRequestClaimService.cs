@@ -1,6 +1,6 @@
 ﻿using Ardalis.Result;
 
-namespace HelpPlatform.Core.DonationRequestDomain.Interfaces;
+namespace HelpPlatform.Core.RequestDomain.Interfaces;
 
 public interface ICancelDonationRequestClaimService
 {
