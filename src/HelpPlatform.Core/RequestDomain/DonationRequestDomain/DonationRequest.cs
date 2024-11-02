@@ -25,9 +25,7 @@ public class DonationRequest(
     public int ResourceTypeId { get; private set; } =
         Guard.Against.NegativeOrZero(resourceTypeId, nameof(resourceTypeId));
     public ResourceType? ResourceType { get; private set; }
-
-    // All resources will have a measurement which defines a unit
-    // And this will always be a unitary quantity of the resource
+    
     public int RequestedQuantity { get; private set; } =
         Guard.Against.NegativeOrZero(requestedQuantity, nameof(requestedQuantity));
 
