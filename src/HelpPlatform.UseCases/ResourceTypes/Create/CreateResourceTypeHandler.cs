@@ -4,7 +4,7 @@ using HelpPlatform.Core.ResourceTypeDomain;
 
 namespace HelpPlatform.UseCases.ResourceTypes.Create;
 
-public class CreateUserCommandHandler(IRepository<ResourceType> repository) : ICommandHandler<CreateResourceTypeCommand, Result<int>>
+public class CreateResourceTypeHandler(IRepository<ResourceType> repository) : ICommandHandler<CreateResourceTypeCommand, Result<int>>
 {
   public async Task<Result<int>> Handle(CreateResourceTypeCommand request, CancellationToken cancellationToken)
   {
