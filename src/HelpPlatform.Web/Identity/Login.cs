@@ -11,12 +11,6 @@ using System.IdentityModel.Tokens.Jwt;
 
 namespace HelpPlatform.Web.Identity;
 
-/// <summary>
-/// Login an existing user
-/// </summary>
-/// <remarks>
-/// Authenticates a user with the provided credentials.
-/// </remarks>
 public class Login : Endpoint<LoginRequest, LoginResponse>
 {
     private readonly UserManager<ApplicationUser> _userManager;
@@ -78,9 +72,29 @@ public class Login : Endpoint<LoginRequest, LoginResponse>
                 ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(30) // Duração do cookie
             };
 
+
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("sua-chave-secreta-com-32-caracteres")); // TODO - Insira uma chave secreta segura
+            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+
+            var token = new JwtSecurityToken(
+                issuer: "seu_emissor",  // TODO-Altere para seu emissor
+                audience: "sua_audiencia",  // TODO-Altere para sua audiência
+                claims: claims,
+                expires: DateTime.Now.AddMinutes(30),
+                signingCredentials: creds);
+
+            var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
+
             if (useCookies)
             {
                 await HttpContext.SignInAsync(IdentityConstants.ApplicationScheme, new ClaimsPrincipal(claimsIdentity), authProperties);
+                
+                HttpContext.Response.Cookies.Append("access_token", tokenString, new CookieOptions{
+                    HttpOnly = true, // Garantir que o cookie só seja acessado pelo servidor
+                    Expires = DateTime.UtcNow.AddMinutes(30),
+                    Secure = true, // Use 'Secure' para produção (HTTPS)
+                    SameSite = SameSiteMode.Strict
+                }); 
             }
 
             if (useSessionCookies)
@@ -95,19 +109,6 @@ public class Login : Endpoint<LoginRequest, LoginResponse>
                     HttpContext.Session.SetString("UserEmail", user.Email); 
                 }
             }
-
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("sua-chave-secreta-com-32-caracteres")); // Insira uma chave secreta segura
-            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-
-            var token = new JwtSecurityToken(
-                issuer: "seu_emissor",  // Altere para seu emissor
-                audience: "sua_audiencia",  // Altere para sua audiência
-                claims: claims,
-                expires: DateTime.Now.AddMinutes(30),
-                signingCredentials: creds);
-
-            var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
-
             var response = new LoginResponse { Message = "Login successful!",
                                                UserId = user.Id ?? string.Empty,
                                                Token = tokenString};

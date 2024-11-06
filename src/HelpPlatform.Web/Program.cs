@@ -46,8 +46,8 @@ builder.Services.AddAuthentication(options => {
         options.DefaultAuthenticateScheme = IdentityConstants.ApplicationScheme;
         options.DefaultChallengeScheme = IdentityConstants.ApplicationScheme;
     }).AddCookie(IdentityConstants.ApplicationScheme, options =>{
-        options.LoginPath = "/login"; // ou o caminho da sua página de login
-        // options.LogoutPath = "/logout"; // ou o caminho da sua página de logout
+        options.LoginPath = "/login";
+        options.LogoutPath = "/logout"; 
         // options.AccessDeniedPath = "/access-denied"; // ou o caminho da sua página de acesso negado
     })
     .AddBearerToken(IdentityConstants.BearerScheme);
