@@ -8,57 +8,84 @@
 
 <PageTitle>Help Requests</PageTitle>
 <div class="page-title">
-	<h1>Help Requests</h1>
+	<h1>My Requests</h1>
 	<Button Color="ButtonColor.Primary" @onclick="() => CreateRequest(0)">Create New Request</Button>
 </div>
 
 <Offcanvas @ref="offcanvas" OnRequestCreated="HandleRequestCreated" />
 
 <div class="page-container">
-	<div class="content">
-		<div class="request-list">
-			@foreach (var request in donationRequests)
-			{
-				<div class="mb-4">
-					<h3>@CreateTitle(request.resourceTypeId, request.requestedQuantity, request.location, request.deadline)</h3>
 
-					<div class="d-flex flex-wrap">
-						@if (claimsDictionary.TryGetValue(request.id, out var claimsResponse) && claimsResponse?.Claims != null && claimsResponse.Claims.Any())
-						{
-							@foreach (var claim in claimsResponse.Claims)
-							{
-								<div class="card me-3 mb-3" style="width: 18rem;">
-									<div class="card-body">
-										<h5 class="card-title">
-											@CreateTitle(claim.Id, claim.Quantity, "", claim.Deadline)
-										</h5>
-										<p class="card-text">
-											@claim.Message
-										</p>
-										<div class="d-flex justify-content-between">
-											<a href="#" class="btn btn-primary">Accept</a>
-											<a href="#" class="btn btn-secondary">Reject</a>
+	@if (isLoading)
+	{
+		<p>Loading...</p>
+	}
+	else
+	{
+		<div class="content">
+			<Tabs EnableFadeEffect="true">
+				@foreach (String status in statusList)
+				{
+					<Tab Title=@status Disabled=DisabledTab(status)>
+						<Content>
+							<div class="request-list">
+								@foreach (var request in donationRequests)
+								{
+									@if (request.status == status)
+									{
+										<div class="mb-4">
+											<h3>@CreateTitle(request.resourceTypeId, request.requestedQuantity, request.location, request.deadline)</h3>
+											<div class="d-flex flex-wrap">
+												@if (claimsDictionary.TryGetValue(request.id, out var claimsResponse) && claimsResponse?.Claims != null && claimsResponse.Claims.Any())
+												{
+													@foreach (var claim in claimsResponse.Claims)
+													{
+														<div class="card me-3 mb-3" style="width: 18rem;">
+															<div class="card-body">
+																<h5 class="card-title">
+																	@CreateTitle(claim.Id, claim.Quantity, "", claim.Deadline)
+																</h5>
+																<p class="card-text">
+																	@claim.Message
+																</p>
+																<div class="d-flex justify-content-between">
+																	<a href="#" class="btn btn-primary">Accept</a>
+																	<a href="#" class="btn btn-secondary">Reject</a>
+																</div>
+															</div>
+														</div>
+													}
+												}
+												else
+												{
+													<p>No claims available for this request.</p>
+												}
+											</div>
 										</div>
-									</div>
-								</div>
-							}
-						}
-						else
-						{
-							<p>No claims available for this request.</p>
-						}
-					</div>
-				</div>
-			}
+									}
+								}
+							</div>
+							<div class="pagination">
+								<Pagination ActivePageNumber="@currentPageNumber"
+												TotalPages="@totalPages"
+												PageChanged="OnPageChangedAsync" />
+							</div>
+						</Content>
+					</Tab>
+				}
+			</Tabs>
 		</div>
-	</div>
+	}
 </div>
 
 @code {
+	int currentPageNumber = 1;
+	int totalPages = 10;
 	private ListDonationRequestResponse response = new ListDonationRequestResponse();
 	private List<DonationRequestRecord> donationRequests = [];
 	private Dictionary<int, ListDonationRequestClaimsResponse?> claimsDictionary = new();
-
+	private String[] statusList = ["Open", "PartiallyClaimed", "Claimed", "Completed", "Closed"];
+	private bool isLoading = true;
 
 	protected override async Task OnInitializedAsync()
 	{
@@ -71,6 +98,8 @@
 			var claimsResponse = await GetListDonationRequestClaimsResponseAsync(request);
 			claimsDictionary[request.id] = claimsResponse;
 		}
+
+		isLoading = false;
 	}
 
 	private Offcanvas offcanvas = default!;
@@ -103,9 +132,19 @@
 		return resource + "\t" + quantity + "\t" + location + "\t" + deadline;
 	}
 
+	private bool DisabledTab(String status)
+	{
+		return !donationRequests.Any(request => request.status == status);
+	}
+
 	private async Task<ListDonationRequestClaimsResponse?> GetListDonationRequestClaimsResponseAsync(DonationRequestRecord request)
 	{
 		return await HttpClient.GetFromJsonAsync<ListDonationRequestClaimsResponse>(NavigationManager.BaseUri + "DonationRequests/" + request.id + "/Claims");
+	}
+
+	private async Task OnPageChangedAsync(int newPageNumber)
+	{
+		await Task.Run(() => { currentPageNumber = newPageNumber; });
 	}
 }
 
