@@ -1,0 +1,93 @@
+@page "/register"
+
+@using HelpPlatform.Web.Users
+@inject HttpClient HttpClient
+
+<h1>Register</h1>
+<div class="row">
+    <div class="col-md-4">
+
+        @if (!string.IsNullOrEmpty(AlertMessage))
+        {
+            <div class="alert @AlertClass" role="alert">
+                @AlertMessage
+            </div>
+        }
+
+        <section>
+            <EditForm Model="createUserRequest" method="post" OnValidSubmit="RegisterUser">
+                <DataAnnotationsValidator />
+                <hr />
+                <div class="form-floating mb-3">
+                    <InputText @bind-Value="createUserRequest.Name" class="form-control" aria-required="true" />
+                    <label for="name" class="form-label">Name</label>
+                    <ValidationMessage For="() => createUserRequest.Name" class="text-danger" />
+                </div>
+                <div class="form-floating mb-3">
+                    <InputText @bind-Value="createUserRequest.Email" class="form-control" aria-required="true" />
+                    <label for="email" class="form-label">Email</label>
+                    <ValidationMessage For="() => createUserRequest.Email" class="text-danger" />
+                </div>
+                <div class="form-floating mb-3">
+                    <InputText @bind-Value="createUserRequest.Password" type="password" class="form-control" aria-required="true" />
+                    <label for="password" class="form-label">Password</label>
+                    <ValidationMessage For="() => createUserRequest.Password" class="text-danger" />
+                </div>
+                <div class="form-floating mb-3">
+                    <InputSelect class="form-select" @bind-Value="createUserRequest.Role" aria-required="true">
+                        <option value="Voluntario">Voluntario</option>
+                        <option value="Abrigo">Abrigo</option>
+                    </InputSelect>
+                    <label for="role" class="form-label">Role</label>
+                    <ValidationMessage For="() => createUserRequest.Role" class="text-danger" />
+                </div>
+                <div>
+                    <button type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
+                </div>
+            </EditForm>
+        </section>
+    </div>
+</div>
+
+@code {
+    private string AlertMessage = string.Empty;
+    private string AlertClass = string.Empty;
+
+    private CreateUserRequest createUserRequest = new CreateUserRequest();
+    private CreateUserValidator createUserValidator = new CreateUserValidator();
+
+    private async Task RegisterUser()
+    {
+        var validationResult = createUserValidator.Validate(createUserRequest);
+
+        if (!validationResult.IsValid)
+        {
+            AlertMessage = string.Join("<br/>", validationResult.Errors.Select(e => e.ErrorMessage));
+            AlertClass = "alert-danger";
+            return;
+        }
+
+        try
+        {
+            
+            HttpResponseMessage response = await HttpClient.PostAsJsonAsync("api/users/register", createUserRequest);
+
+            if (response.IsSuccessStatusCode)
+            {
+                AlertMessage = "Sucesso no Cadastro!";
+                AlertClass = "alert-success";
+                createUserRequest = new CreateUserRequest(); 
+            }
+            else
+            {
+                AlertMessage = "Erro no Cadastro. Por favor, tente novamente.";
+                AlertClass = "alert-danger";
+            }
+        }
+        catch (Exception ex)
+        {
+            AlertMessage = $"Erro no Cadastro: {ex.Message}";
+            AlertClass = "alert-danger";
+        }
+    }
+}
