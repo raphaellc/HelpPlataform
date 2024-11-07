@@ -1,23 +1,36 @@
 using Ardalis.Result;
 using HelpPlatform.Core.NotificationDomain;
+using HelpPlatform.Core.NotificationDomain.Services;
+using HelpPlatform.Core.NotificationDomain.Interfaces;
 using HelpPlatform.UseCases.NotificationDomain.Dtos;
 using HelpPlatform.SharedKernel;
+using MediatR;
 
 namespace HelpPlatform.UseCases.Notifications.List;
 
-public class ListNotificationHandler(IRepository<Notification> repository) : IQueryHandler<ListNotificationsQuery, Result<IEnumerable<NotificationDto>>>
+public class ListNotificationHandler(INotificationService notificationService) : IQueryHandler<ListNotificationsQuery, Result<IEnumerable<NotificationDto>>>
 {
     public async Task<Result<IEnumerable<NotificationDto>>> Handle(ListNotificationsQuery request, CancellationToken cancellationToken)
     {
-        var notifications = await repository.ListAsync(cancellationToken);
+        var result = await notificationService.ListNotificationsByUserAsync(request.UserId,cancellationToken);
+        if(result.IsSuccess){
+            var notifications = result.Value;
+        
+            var notificationDtos = notifications.Select(n => new NotificationDto(
+                userId: n.UserId,
+                message: n.Message,
+                read: n.Read,
+                createdAt: n.CreatedAt
+            )).ToList();
 
-        var notificationDtos = notifications.Select(n => new NotificationDto(
-            userId: n.UserId,
-            message: n.Message,
-            read: n.Read,
-            createdAt: n.CreatedAt
-        )).ToList();
+            return Result.Success(notificationDtos.AsEnumerable());
+        }else{
+            return result.Error(result.Errors);
+        }
+    }
 
-        return notificationDtos;
+    Task<Result<IEnumerable<NotificationDto>>> IRequestHandler<ListNotificationsQuery, Result<IEnumerable<NotificationDto>>>.Handle(ListNotificationsQuery request, CancellationToken cancellationToken)
+    {
+        throw new NotImplementedException();
     }
 }
