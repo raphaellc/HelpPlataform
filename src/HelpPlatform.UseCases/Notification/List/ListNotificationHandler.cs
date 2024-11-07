@@ -1,3 +1,4 @@
+using System.Collections.ObjectModel;
 using Ardalis.Result;
 using HelpPlatform.Core.NotificationDomain;
 using HelpPlatform.Core.NotificationDomain.Services;
@@ -13,20 +14,13 @@ public class ListNotificationHandler(INotificationService notificationService) :
     public async Task<Result<IEnumerable<NotificationDto>>> Handle(ListNotificationsQuery request, CancellationToken cancellationToken)
     {
         var result = await notificationService.ListNotificationsByUserAsync(request.UserId,cancellationToken);
-        if(result.IsSuccess){
-            var notifications = result.Value;
         
-            var notificationDtos = notifications.Select(n => new NotificationDto(
-                userId: n.UserId,
-                message: n.Message,
-                read: n.Read,
-                createdAt: n.CreatedAt
-            )).ToList();
-
-            return Result.Success(notificationDtos.AsEnumerable());
-        }else{
-            return result.Error(result.Errors);
-        }
+        return result.Map(notifications => notifications.Select(n => new NotificationDto(
+            userId: n.UserId,
+            message: n.Message,
+            read: n.Read,
+            createdAt: n.CreatedAt
+        )));
     }
 
     Task<Result<IEnumerable<NotificationDto>>> IRequestHandler<ListNotificationsQuery, Result<IEnumerable<NotificationDto>>>.Handle(ListNotificationsQuery request, CancellationToken cancellationToken)
