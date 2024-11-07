@@ -1,11 +1,12 @@
 ﻿using Ardalis.Result;
 using FastEndpoints;
 using HelpPlatform.UseCases.DonationRequests.RejectClaim;
+using HelpPlatform.Web.Extensions;
 using MediatR;
 
 namespace HelpPlatform.Web.DonationRequests.Claims;
 
-public class Reject(IMediator mediator) : Endpoint<RejectDonationRequestClaimRequest, Result>
+public class Reject(IMediator mediator) : Endpoint<RejectDonationRequestClaimRequest>
 {
     public override void Configure()
     {
@@ -24,22 +25,6 @@ public class Reject(IMediator mediator) : Endpoint<RejectDonationRequestClaimReq
     {
         var result = await mediator.Send(new RejectDonationRequestClaimCommand(request.RequestId, request.ClaimId), cancellationToken);
 
-        if (result.IsSuccess)
-        {
-            Response = Result.NoContent();
-        }
-        else
-        {
-            foreach (var resultError in result.Errors)
-            {
-                AddError(resultError);
-            }
-            foreach (var resultError in result.ValidationErrors)
-            {
-                AddError(resultError.ErrorMessage);
-            }
-
-            ThrowIfAnyErrors();
-        }
+        await this.SendNoContent(result);
     }
 }

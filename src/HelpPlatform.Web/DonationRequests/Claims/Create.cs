@@ -2,11 +2,12 @@
 using Ardalis.Result.AspNetCore;
 using FastEndpoints;
 using HelpPlatform.UseCases.DonationRequests.CreateClaim;
+using HelpPlatform.Web.Extensions;
 using MediatR;
 
 namespace HelpPlatform.Web.DonationRequests.Claims;
 
-public class Create(IMediator mediator) : Endpoint<CreateDonationRequestClaimRequest, Result>
+public class Create(IMediator mediator) : Endpoint<CreateDonationRequestClaimRequest>
 {
     public override void Configure()
     {
@@ -21,6 +22,10 @@ public class Create(IMediator mediator) : Endpoint<CreateDonationRequestClaimReq
                 UserId = 1
             };
         });
+        Description(x => x
+            .Accepts<CreateDonationRequestClaimRequest>()
+            .Produces(204)
+            .ClearDefaultProduces(200));
     }
 
     public override async Task HandleAsync(
@@ -36,22 +41,6 @@ public class Create(IMediator mediator) : Endpoint<CreateDonationRequestClaimReq
             cancellationToken
         );
 
-        if (result.IsSuccess)
-        {
-            Response = Result.NoContent();
-        }
-        else
-        {
-            foreach (var resultError in result.Errors)
-            {
-                AddError(resultError);
-            }
-            foreach (var resultError in result.ValidationErrors)
-            {
-                AddError(resultError.ErrorMessage);
-            }
-
-            ThrowIfAnyErrors();
-        }
+        await this.SendNoContent(result);
     }
 }
