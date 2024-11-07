@@ -14,8 +14,6 @@
 	<Button Color="ButtonColor.Primary" @onclick="() => CreateRequest(0)">Create New Request</Button>
 </div>
 
-
-
 <Offcanvas @ref="offcanvas" OnRequestCreated="HandleRequestCreated" />
 
 <div class="page-container">
@@ -29,72 +27,61 @@
 	else
 	{
 		<div class="content">
-			<Tabs EnableFadeEffect="true">
-				@foreach (String status in statusList)
+			<div class="request-list">
+				@foreach (var request in donationRequests)
 				{
-					<Tab Title=@status Disabled=DisabledTab(status)>
-						<Content>
-							<div class="request-list">
-								@foreach (var request in donationRequests)
+					<Card Style="margin: 20px;">
+							<CardBody>
+							<h3>@CreateTitle(request.resourceTypeId, request.requestedQuantity, request.location, request.deadline)</h3>
+							<div class="d-flex flex-wrap">
+								@if (claimsDictionary.TryGetValue(request.id, out var claimsResponse) && claimsResponse?.Claims != null && claimsResponse.Claims.Any())
 								{
-									@if (request.status == status)
+									@foreach (var claim in claimsResponse.Claims)
 									{
-										<Card Style="margin: 20px;">
-											<CardBody>
-											<h3>@CreateTitle(request.resourceTypeId, request.requestedQuantity, request.location, request.deadline)</h3>
-											<div class="d-flex flex-wrap">
-												@if (claimsDictionary.TryGetValue(request.id, out var claimsResponse) && claimsResponse?.Claims != null && claimsResponse.Claims.Any())
-												{
-													@foreach (var claim in claimsResponse.Claims)
-													{
-														<Card Style="width:18rem;margin:3px;min-height: 20rem;position: relative;">
-															<CardBody Style="padding-bottom: 3rem;">
-																<CardTitle>@CreateTitle(claim.Id, claim.Quantity, "", claim.Deadline)</CardTitle>
-																<CardText>@claim.Message.</CardText>
-
-																<div class="d-flex justify-content-between" style="position: absolute; width: 90%;bottom: 10px;">
-																	<a href="#" class="btn btn-primary">Accept</a>
-																	<a href="#" class="btn btn-danger">Reject</a>
-																</div>
-															</CardBody>
-														</Card>
-													}
+										<Card Style="width:18rem;margin:3px;min-height: 20rem;position: relative;">
+											<CardBody Style="padding-bottom: 3rem;">
+												<CardTitle>@CreateTitle(claim.Id, claim.Quantity, "", claim.Deadline)</CardTitle>
+												<CardText>@claim.Message.</CardText>
+												
+												@if (request.status == "Open" || request.status == "PartiallyClaimed" ) {
+													<div class="d-flex justify-content-between" style="position: absolute; width: 90%;bottom: 10px;">
+														<Button Color="ButtonColor.Primary" @onclick="() => AcceptClaim(claim.Id, request.id)">Accept</Button>
+														<Button Color="ButtonColor.Danger" @onclick="() => RejectClaim(claim.Id, request.id)">Reject</Button>
+													</div>
 												}
-												else
-												{
-													<p>No claims available for this request.</p>
-												}
-											</div>
 											</CardBody>
 										</Card>
 									}
 								}
+								else
+								{
+									<p>No claims available for this request.</p>
+								}
 							</div>
-							<div class="pagination">
-								<Pagination ActivePageNumber="@currentPageNumber"
-												TotalPages="@totalPages"
-												PageChanged="OnPageChangedAsync" />
-							</div>
-						</Content>
-					</Tab>
+							</CardBody>
+					</Card>
 				}
-			</Tabs>
+			</div>
+			<div class="pagination">
+				<Pagination ActivePageNumber="@currentPageNumber"
+								TotalPages="@totalPages"
+								PageChanged="OnPageChangedAsync" />
+			</div>
 		</div>
 	}
 </div>
 
 @code {
 	int currentPageNumber = 1;
-	int totalPages = 10;
+	int totalPages = 1;
 	private ListDonationRequestResponse response = new ListDonationRequestResponse();
 	private List<DonationRequestRecord> donationRequests = [];
 	private Dictionary<int, ListDonationRequestClaimsResponse?> claimsDictionary = new();
-	private String[] statusList = ["Open", "PartiallyClaimed", "Claimed", "Completed", "Closed"];
 	private bool isLoading = true;
 
 	protected override async Task OnInitializedAsync()
 	{
-		ListDonationRequestResponse? response = await HttpClient.GetFromJsonAsync<ListDonationRequestResponse>(NavigationManager.BaseUri + "DonationRequests");
+		ListDonationRequestResponse? response = await HttpClient.GetFromJsonAsync<ListDonationRequestResponse>(NavigationManager.BaseUri + "DonationRequests?pageSize=10&pageIndex=" +  (currentPageNumber - 1));
 
 		donationRequests = response?.DonationRequests ?? [];
 
@@ -103,6 +90,8 @@
 			var claimsResponse = await GetListDonationRequestClaimsResponseAsync(request);
 			claimsDictionary[request.id] = claimsResponse;
 		}
+
+		totalPages = response?.PageCount ?? 1;
 
 		isLoading = false;
 	}
@@ -122,7 +111,7 @@
 
 	private async Task HandleRequestCreated()
 	{
-		ListDonationRequestResponse? response = await HttpClient.GetFromJsonAsync<ListDonationRequestResponse>(NavigationManager.BaseUri + "DonationRequests");
+		ListDonationRequestResponse? response = await HttpClient.GetFromJsonAsync<ListDonationRequestResponse>(NavigationManager.BaseUri + "DonationRequests?pageSize=10&pageIndex=" + (currentPageNumber - 1));
 
 		donationRequests = response?.DonationRequests ?? [];
 	}
@@ -137,11 +126,6 @@
 		return resource + "\t" + quantity + "\t" + location + "\t" + deadline;
 	}
 
-	private bool DisabledTab(String status)
-	{
-		return !donationRequests.Any(request => request.status == status);
-	}
-
 	private async Task<ListDonationRequestClaimsResponse?> GetListDonationRequestClaimsResponseAsync(DonationRequestRecord request)
 	{
 		return await HttpClient.GetFromJsonAsync<ListDonationRequestClaimsResponse>(NavigationManager.BaseUri + "DonationRequests/" + request.id + "/Claims");
@@ -150,5 +134,16 @@
 	private async Task OnPageChangedAsync(int newPageNumber)
 	{
 		await Task.Run(() => { currentPageNumber = newPageNumber; });
+		ListDonationRequestResponse? response = await HttpClient.GetFromJsonAsync<ListDonationRequestResponse>(NavigationManager.BaseUri + "DonationRequests?pageSize=10&pageIndex=" +  (currentPageNumber - 1));
+	}
+
+	protected async Task AcceptClaim(int ClaimId, int RequestId)
+	{
+		HttpResponseMessage response = await HttpClient.PatchAsync(NavigationManager.BaseUri + "DonationRequests/" + RequestId + "/Claims/" + ClaimId + "/Accept", null);
+	}
+
+	protected async Task RejectClaim(int ClaimId, int RequestId)
+	{
+		HttpResponseMessage response = await HttpClient.PatchAsync(NavigationManager.BaseUri + "DonationRequests/" + RequestId + "/Claims/" + ClaimId + "/Reject", null);
 	}
 }

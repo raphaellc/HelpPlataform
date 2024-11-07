@@ -25,68 +25,57 @@
 	else
 	{
 		<div class="content">
-			<Tabs EnableFadeEffect="true">
-				@foreach (String status in statusList)
-				{
-					<Tab Title=@status Disabled=DisabledTab(status)>
-						<Content>
-							<div class="request-list">
-								<Accordion>
-									@foreach (var request in donationRequests)
-									{
-										@if (request.status == status)
-										{
-											<AccordionItem Title=@CreateTitle(request)>
-												<Content>
-													<Progress Class="mb-3">
-														<ProgressBar Type="ProgressType.StripedAndAnimated" Color="ProgressColor.Success" Width=CalculateQuantity(request) />
-													</Progress>
-													<div class="request-details">
-														<div class="detail"><strong>Deadline:</strong> @request.deadline.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture)</div>
-														<div class="detail"><strong>Location:</strong> @request.location</div>
-														<div class="detail"><strong>Resource Type:</strong> @request.resourceTypeId</div>
-														<div class="detail"><strong>Requested Quantity:</strong> @request.requestedQuantity</div>
-														<div class="detail"><strong>Fulfilled Quantity:</strong> @request.fulfilledQuantity</div>
-														<div class="detail"><strong>Status:</strong> @request.status</div>
-														<div class="detail"><strong>User Name:</strong> @request.userName</div>
-														<div class="detail"><strong>Created At:</strong> @request.createdAt.ToString("dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture)</div>
-													</div>
-													<div class="action-button">
-														<Button Color="ButtonColor.Primary" @onclick="() => ClaimRequest(request.id)">Claim Request</Button>
-													</div>
-												</Content>
-											</AccordionItem>
-										}
-									}
-								</Accordion>
-								<div class="pagination">
-									<Pagination ActivePageNumber="@currentPageNumber"
-												TotalPages="@totalPages"
-												PageChanged="OnPageChangedAsync" />
+			<div class="request-list">
+				<Accordion>
+					@foreach (var request in donationRequests)
+					{
+						<AccordionItem Title=@CreateTitle(request)>
+							<Content>
+								<Progress Class="mb-3">
+									<ProgressBar Type="ProgressType.StripedAndAnimated" Color="ProgressColor.Success" Width=CalculateQuantity(request) />
+								</Progress>
+								<div class="request-details">
+									<div class="detail"><strong>Deadline:</strong> @request.deadline.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture)</div>
+									<div class="detail"><strong>Location:</strong> @request.location</div>
+									<div class="detail"><strong>Resource Type:</strong> @request.resourceTypeId</div>
+									<div class="detail"><strong>Requested Quantity:</strong> @request.requestedQuantity</div>
+									<div class="detail"><strong>Fulfilled Quantity:</strong> @request.fulfilledQuantity</div>
+									<div class="detail"><strong>Status:</strong> @request.status</div>
+									<div class="detail"><strong>User Name:</strong> @request.userName</div>
+									<div class="detail"><strong>Created At:</strong> @request.createdAt.ToString("dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture)</div>
 								</div>
-							</div>
-						</Content>
-					</Tab>
-				}
-			</Tabs>
+								<div class="action-button">
+									<Button Color="ButtonColor.Primary" @onclick="() => ClaimRequest(request.id)">Claim Request</Button>
+								</div>
+							</Content>
+						</AccordionItem>
+					}
+				</Accordion>
+				<div class="pagination">
+					<Pagination ActivePageNumber="@currentPageNumber"
+								TotalPages="@totalPages"
+								PageChanged="OnPageChangedAsync" />
+				</div>
+			</div>
 		</div>
 	}
 </div>
 
 @code {
 	int currentPageNumber = 1;
-	int totalPages = 10;
+	int totalPages = 1;
 	private ListDonationRequestResponse response = new ListDonationRequestResponse();
 	private List<DonationRequestRecord> donationRequests = [];
-	private String[] statusList = ["Open", "PartiallyClaimed", "Claimed", "Completed", "Closed"];
 	private bool isLoading = true;
 
 	protected override async Task OnInitializedAsync()
 	{
-		ListDonationRequestResponse? response = await HttpClient.GetFromJsonAsync<ListDonationRequestResponse>(NavigationManager.BaseUri + "DonationRequests");
+		ListDonationRequestResponse? response = await HttpClient.GetFromJsonAsync<ListDonationRequestResponse>(NavigationManager.BaseUri + "DonationRequests?pageSize=10&pageIndex=" + (currentPageNumber - 1));
 
 		donationRequests = response?.DonationRequests ?? [];
 		isLoading = false;
+
+		totalPages = response?.PageCount ?? 1;
 	}
 
 	private Offcanvas offcanvas = default!;
@@ -105,12 +94,13 @@
 	private async Task OnPageChangedAsync(int newPageNumber)
 	{
 		await Task.Run(() => { currentPageNumber = newPageNumber; });
+		ListDonationRequestResponse? response = await HttpClient.GetFromJsonAsync<ListDonationRequestResponse>(NavigationManager.BaseUri + "DonationRequests?pageSize=10&pageIndex=" + (currentPageNumber - 1));
+		donationRequests = response?.DonationRequests ?? [];
 	}
 
 	private async Task HandleRequestCreated()
 	{
-		ListDonationRequestResponse? response = await HttpClient.GetFromJsonAsync<ListDonationRequestResponse>(NavigationManager.BaseUri + "DonationRequests");
-
+		ListDonationRequestResponse? response = await HttpClient.GetFromJsonAsync<ListDonationRequestResponse>(NavigationManager.BaseUri + "DonationRequests?pageSize=10&pageIndex=" + (currentPageNumber - 1));
 		donationRequests = response?.DonationRequests ?? [];
 	}
 
@@ -124,8 +114,4 @@
 		return request.resourceTypeId + "\t" + request.location + "\t" + request.deadline;
 	}
 
-	private bool DisabledTab(String status)
-	{
-		return !donationRequests.Any(request => request.status == status);
-	}
 }
