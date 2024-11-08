@@ -4,6 +4,7 @@ using HelpPlatform.Core.DonationRequestDomain;
 using HelpPlatform.SharedKernel;
 using HelpPlatform.UseCases.DonationRequests;
 using HelpPlatform.UseCases.DonationRequests.List;
+using HelpPlatform.Web.Extensions;
 using MediatR;
 
 namespace HelpPlatform.Web.DonationRequests;
@@ -31,10 +32,9 @@ public class List(IMediator mediator, IRepository<DonationRequest> repository) :
             pageCount = itemCount > 0 ? 1 : 0;
         }
 
-        if (result.IsSuccess){
-            Response = new ListDonationRequestResponse
-            {
-                DonationRequests = result.Value.Select(dto => new DonationRequestRecord(
+        await this.SendResponse(result, r => new ListDonationRequestResponse
+        {
+            DonationRequests = result.Value.Select(dto => new DonationRequestRecord(
                 id: dto.Id,
                 description: dto.Description,
                 deadline: dto.Deadline,
@@ -45,16 +45,6 @@ public class List(IMediator mediator, IRepository<DonationRequest> repository) :
                 status: dto.Status,
                 userName: dto.UserName,
                 createdAt: dto.CreatedAt)).ToList(),
-                PageCount = pageCount
-            };
-            return;
-        }
-        
-        foreach (var resultError in result.Errors)
-        {
-            AddError(resultError);
-        }
-
-        ThrowIfAnyErrors();
+            PageCount = pageCount});
     }
 }

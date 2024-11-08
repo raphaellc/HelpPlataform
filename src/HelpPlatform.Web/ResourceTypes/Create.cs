@@ -1,5 +1,6 @@
 using FastEndpoints;
 using HelpPlatform.UseCases.ResourceTypes.Create;
+using HelpPlatform.Web.Extensions;
 using MediatR;
 
 namespace HelpPlatform.Web.ResourceTypes;
@@ -23,15 +24,8 @@ public class Create(IMediator _mediator) : Endpoint<CreateResourceTypeRequest, C
             request.Scale!),
             cancellationToken);
 
-            if (result.IsSuccess)
-            {
-                Response = new CreateResourceTypeResponse(result.Value,
+            await this.SendResponse(result, r => new CreateResourceTypeResponse(result.Value,
                 request.Name!,
-                request.Scale!);
-            }
-            else
-            {
-                Console.WriteLine("Error");
-            }
+                request.Scale!));
         }
 }

@@ -1,5 +1,4 @@
-﻿using Ardalis.Result;
-using FastEndpoints;
+﻿using FastEndpoints;
 using HelpPlatform.UseCases.DonationRequests.AcceptClaim;
 using HelpPlatform.Web.Extensions;
 using MediatR;
@@ -17,7 +16,7 @@ public class Accept(IMediator mediator) : Endpoint<AcceptDonationRequestClaimReq
             s.ExampleRequest = new AcceptDonationRequestClaimRequest { RequestId = 1, ClaimId = 1 };
         });
         Description(x => x
-            .Accepts<FulfillDonationRequestClaimRequest>()
+            .Accepts<AcceptDonationRequestClaimRequest>()
             .Produces(204)
             .ClearDefaultProduces(200));
     }
