@@ -1,5 +1,5 @@
 ﻿using FastEndpoints;
-using HelpPlatform.UseCases.DonationRequests.ListClaim;
+using HelpPlatform.UseCases.DonationRequests.ListClaimByRequest;
 using MediatR;
 
 namespace HelpPlatform.Web.DonationRequests.Claims;
@@ -29,7 +29,7 @@ public class List(IMediator mediator) : Endpoint<ListDonationRequestClaimsReques
                 (
                     claim.Id,
                     claim.Message,
-                    claim.Quantity,
+                    claim.Quantity, 
                     claim.CreatedAt,
                     claim.Deadline,
                     claim.Status,
