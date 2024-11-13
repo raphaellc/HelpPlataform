@@ -1,0 +1,54 @@
+﻿.page-title {
+    display: flex; /* Enable flexbox for layout */
+    justify-content: space-between; /* Space between items */
+    align-items: center; /* Center items vertically */
+    padding: 20px; /* Add padding for the container */
+    border-bottom: 1px solid #ddd; /* Optional border for visual separation */
+}
+
+.page-title h1 {
+    margin: 0; /* Remove default margin from h1 */
+}
+
+.page-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    flex: 1; /* This allows content to grow and take available space */
+    padding: 20px; /* Add padding for the content */
+}
+
+.pagination {
+    padding-left: 10px; /* Add padding for the pagination */
+    padding-top: 5px;
+}
+
+.action-button {
+    margin-top: 5px;
+    display: flex; /* Enable flexbox for alignment */
+}
+
+.request-details {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap */
+}
+
+.detail {
+    flex: 1 1 50%; /* Two-column layout */
+    padding: 5px;
+}
+
+.page-title {
+    display: flex;
+    flex: 1; /* This allows content to grow and take available space */
+    flex-wrap: wrap; /* Allow items to wrap */
+}
+
+.spinner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}

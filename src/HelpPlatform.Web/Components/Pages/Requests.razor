@@ -1,0 +1,117 @@
+@page "/requests"
+@rendermode InteractiveServer
+@using HelpPlatform.Web.DonationRequests
+@using System.Globalization
+@inject HttpClient HttpClient
+@inject NavigationManager NavigationManager
+
+<link href="css/StyleSheet.css" rel="stylesheet" />
+
+<PageTitle>Help Requests</PageTitle>
+<div class="page-title">
+	<h1>Help Requests</h1>
+	<Button Color="ButtonColor.Primary" @onclick="() => CreateRequest(0)">Create New Request</Button>
+</div>
+
+<Offcanvas @ref="offcanvas" OnRequestCreated="HandleRequestCreated"/>
+
+<div class="page-container">
+	@if (isLoading)
+	{
+		<div class="spinner-container">
+			<Spinner Color="SpinnerColor.Primary" Size="SpinnerSize.ExtraLarge" />
+		</div>
+	}
+	else
+	{
+		<div class="content">
+			<div class="request-list">
+				<Accordion>
+					@foreach (var request in donationRequests)
+					{
+						<AccordionItem Title=@CreateTitle(request)>
+							<Content>
+								<Progress Class="mb-3">
+									<ProgressBar Type="ProgressType.StripedAndAnimated" Color="ProgressColor.Success" Width=CalculateQuantity(request) />
+								</Progress>
+								<div class="request-details">
+									<div class="detail"><strong>Deadline:</strong> @request.deadline.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture)</div>
+									<div class="detail"><strong>Location:</strong> @request.location</div>
+									<div class="detail"><strong>Resource Type:</strong> @request.resourceTypeId</div>
+									<div class="detail"><strong>Requested Quantity:</strong> @request.requestedQuantity</div>
+									<div class="detail"><strong>Fulfilled Quantity:</strong> @request.fulfilledQuantity</div>
+									<div class="detail"><strong>Status:</strong> @request.status</div>
+									<div class="detail"><strong>User Name:</strong> @request.userName</div>
+									<div class="detail"><strong>Created At:</strong> @request.createdAt.ToString("dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture)</div>
+								</div>
+								<div class="action-button">
+									<Button Color="ButtonColor.Primary" @onclick="() => ClaimRequest(request.id)">Claim Request</Button>
+								</div>
+							</Content>
+						</AccordionItem>
+					}
+				</Accordion>
+				<div class="pagination">
+					<Pagination ActivePageNumber="@currentPageNumber"
+								TotalPages="@totalPages"
+								PageChanged="OnPageChangedAsync" />
+				</div>
+			</div>
+		</div>
+	}
+</div>
+
+@code {
+	int currentPageNumber = 1;
+	int totalPages = 1;
+	private ListDonationRequestResponse response = new ListDonationRequestResponse();
+	private List<DonationRequestRecord> donationRequests = [];
+	private bool isLoading = true;
+
+	protected override async Task OnInitializedAsync()
+	{
+		ListDonationRequestResponse? response = await HttpClient.GetFromJsonAsync<ListDonationRequestResponse>(NavigationManager.BaseUri + "DonationRequests?pageSize=10&pageIndex=" + (currentPageNumber - 1));
+
+		donationRequests = response?.DonationRequests ?? [];
+		isLoading = false;
+
+		totalPages = response?.PageCount ?? 1;
+	}
+
+	private Offcanvas offcanvas = default!;
+
+	protected async Task ClaimRequest(int id)
+	{
+		var parameters = new Dictionary<string, object>();
+		parameters.Add("RequestId", id);
+		await offcanvas.ShowAsync<Claim>(title: "Donation Request", parameters: parameters);
+	}
+	protected async Task CreateRequest(int id)
+	{
+		await offcanvas.ShowAsync<CreateRequest>(title: "Create Request");
+	}
+
+	private async Task OnPageChangedAsync(int newPageNumber)
+	{
+		await Task.Run(() => { currentPageNumber = newPageNumber; });
+		ListDonationRequestResponse? response = await HttpClient.GetFromJsonAsync<ListDonationRequestResponse>(NavigationManager.BaseUri + "DonationRequests?pageSize=10&pageIndex=" + (currentPageNumber - 1));
+		donationRequests = response?.DonationRequests ?? [];
+	}
+
+	private async Task HandleRequestCreated()
+	{
+		ListDonationRequestResponse? response = await HttpClient.GetFromJsonAsync<ListDonationRequestResponse>(NavigationManager.BaseUri + "DonationRequests?pageSize=10&pageIndex=" + (currentPageNumber - 1));
+		donationRequests = response?.DonationRequests ?? [];
+	}
+
+	private int CalculateQuantity(DonationRequestRecord request)
+	{
+		return request.fulfilledQuantity * 100 / request.requestedQuantity;
+	}
+
+	private string CreateTitle(DonationRequestRecord request)
+	{
+		return request.resourceTypeId + "\t" + request.location + "\t" + request.deadline;
+	}
+
+}
