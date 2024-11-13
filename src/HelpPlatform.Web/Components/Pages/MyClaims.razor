@@ -1,0 +1,62 @@
+<PageTitle>My Claims</PageTitle>
+<div class="page-title">
+    <h1>My Claims</h1>
+</div>
+
+<div class="page-container">
+
+    @if (isLoading)
+    {
+        <div class="spinner-container">
+            <Spinner Color="SpinnerColor.Primary" Size="SpinnerSize.ExtraLarge" />
+        </div>
+    }
+    else
+    {
+        <div class="content">
+            <div class="request-list">
+                @foreach (var request in donationRequests)
+                {
+                    <Card Style="margin: 20px;">
+                        <CardBody>
+                            <h3>@CreateTitle(request.resourceTypeId, request.requestedQuantity, request.location, request.deadline)</h3>
+                            <div class="d-flex flex-wrap">
+                                @if (claimsDictionary.TryGetValue(request.id, out var claimsResponse) && claimsResponse?.Claims != null && claimsResponse.Claims.Any())
+                                {
+                                    @foreach (var claim in claimsResponse.Claims)
+                                    {
+                                        <Card Style="width:18rem;margin:3px;min-height: 20rem;position: relative;">
+                                            <CardBody Style="padding-bottom: 3rem;">
+                                                <CardTitle>@CreateTitle(claim.Id, claim.Quantity, "", claim.Deadline)</CardTitle>
+                                                <CardText>@claim.Message.</CardText>
+												
+                                                @if (request.status == "Open" || request.status == "PartiallyClaimed" ) {
+                                                    <div class="d-flex justify-content-between" style="position: absolute; width: 90%;bottom: 10px;">
+                                                        <Button Color="ButtonColor.Primary" @onclick="() => AcceptClaim(claim.Id, request.id)">Accept</Button>
+                                                        <Button Color="ButtonColor.Danger" @onclick="() => RejectClaim(claim.Id, request.id)">Reject</Button>
+                                                    </div>
+                                                }
+                                            </CardBody>
+                                        </Card>
+                                    }
+                                }
+                                else
+                                {
+                                    <p>No claims available for this request.</p>
+                                }
+                            </div>
+                        </CardBody>
+                    </Card>
+                }
+            </div>
+            <div class="pagination">
+                <Pagination ActivePageNumber="@currentPageNumber"
+                            TotalPages="@totalPages"
+                            PageChanged="OnPageChangedAsync" />
+            </div>
+        </div>
+    }
+
+    @code {
+    
+}
