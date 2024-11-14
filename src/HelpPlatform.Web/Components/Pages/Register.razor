@@ -1,0 +1,65 @@
+@page "/register"
+@inject HttpClient Http
+@using HelpPlatform.Web.Identity
+
+<h3>Register New User</h3>
+
+<EditForm Model="registerRequest" OnValidSubmit="HandleRegister">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="form-group">
+        <label for="email">Email</label>
+        <InputText id="email" class="form-control" @bind-Value="registerRequest.Email" />
+        <ValidationMessage For="@(() => registerRequest.Email)" />
+    </div>
+
+    <div class="form-group">
+        <label for="password">Password</label>
+        <InputText id="password" class="form-control" type="password" @bind-Value="registerRequest.Password" />
+        <ValidationMessage For="@(() => registerRequest.Password)" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Register</button>
+</EditForm>
+
+@if (!string.IsNullOrEmpty(registerResponse.Message))
+{
+    <div class="alert alert-success mt-3">
+        @registerResponse.Message
+    </div>
+}
+
+@if (!string.IsNullOrEmpty(errorMessage))
+{
+    <div class="alert alert-danger mt-3">
+        @errorMessage
+    </div>
+}
+
+@code {
+    private RegisterRequest registerRequest = new RegisterRequest();
+    private RegisterResponse registerResponse = new RegisterResponse();
+    private string errorMessage = string.Empty;
+
+    private async Task HandleRegister()
+    {
+        try
+        {
+            var response = await Http.PostAsJsonAsync("register", registerRequest);
+            if (response.IsSuccessStatusCode)
+            {
+                registerResponse = await response.Content.ReadFromJsonAsync<RegisterResponse>();
+                errorMessage = string.Empty;
+            }
+            else
+            {
+                errorMessage = "Registration failed. Please try again.";
+            }
+        }
+        catch (Exception ex)
+        {
+            errorMessage = $"An error occurred: {ex.Message}";
+        }
+    }
+}
