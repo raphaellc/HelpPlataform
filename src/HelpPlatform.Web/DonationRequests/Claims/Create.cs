@@ -4,6 +4,10 @@ using FastEndpoints;
 using HelpPlatform.UseCases.DonationRequests.CreateClaim;
 using HelpPlatform.Web.Extensions;
 using MediatR;
+using Microsoft.DotNet.Scaffolding.Shared.Messaging;
+using Namotion.Reflection;
+using NuGet.Protocol.Plugins;
+using Org.BouncyCastle.Bcpg;
 
 namespace HelpPlatform.Web.DonationRequests.Claims;
 
@@ -18,14 +22,11 @@ public class Create(IMediator mediator) : Endpoint<CreateDonationRequestClaimReq
             {
                 Message = "Example donation request claim.",
                 Deadline = DateTime.Now.AddHours(8),
+                Quantity = 1,
                 RequestId = 1,
                 UserId = 1
             };
         });
-        Description(x => x
-            .Accepts<CreateDonationRequestClaimRequest>()
-            .Produces(204)
-            .ClearDefaultProduces(200));
     }
 
     public override async Task HandleAsync(

@@ -19,6 +19,7 @@ public static class EndpointResultExtension
                 {
                     ep.ValidationFailures.Add(new ValidationFailure
                     {
+                        PropertyName = "ERROR",
                         ErrorCode = error.ErrorCode,
                         ErrorMessage = error.ErrorMessage
                     });
@@ -57,10 +58,13 @@ public static class EndpointResultExtension
                 break;
 
             case ResultStatus.Invalid:
+                Console.WriteLine(string.Join(";", result.ValidationErrors.Select(err => err.ErrorMessage)));
+                
                 foreach (var error in result.ValidationErrors)
                 {
                     ep.ValidationFailures.Add(new ValidationFailure
                     {
+                        PropertyName = "ERROR",
                         ErrorCode = error.ErrorCode,
                         ErrorMessage = error.ErrorMessage
                     });
