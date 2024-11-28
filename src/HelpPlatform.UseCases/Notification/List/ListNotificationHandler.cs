@@ -1,4 +1,4 @@
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using Ardalis.Result;
 using HelpPlatform.Core.NotificationDomain;
 using HelpPlatform.Core.NotificationDomain.Services;
@@ -21,10 +21,5 @@ public class ListNotificationHandler(INotificationService notificationService) :
             read: n.Read,
             createdAt: n.CreatedAt
         )));
-    }
-
-    Task<Result<IEnumerable<NotificationDto>>> IRequestHandler<ListNotificationsQuery, Result<IEnumerable<NotificationDto>>>.Handle(ListNotificationsQuery request, CancellationToken cancellationToken)
-    {
-        throw new NotImplementedException();
     }
 }

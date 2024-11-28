@@ -1,4 +1,5 @@
-using Ardalis.Result;
+﻿using Ardalis.Result;
+using Ardalis.Specification;
 using HelpPlatform.SharedKernel;
  
 namespace HelpPlatform.Core.NotificationDomain.Interfaces;
@@ -7,5 +8,6 @@ public interface INotificationRepository : IRepository<Notification>
 {   
    new Task AddAsync(Notification notification,
                       CancellationToken cancellationToken);
-    // Se necessário, adicione métodos específicos para o repositório de notificações aqui
+ //new Task<List<Notification>> ListAsync(ISpecification<Notification> spec, CancellationToken cancellationToken = default);
+
 }

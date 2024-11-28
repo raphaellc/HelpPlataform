@@ -1,4 +1,4 @@
-using FastEndpoints;
+﻿using FastEndpoints;
 using HelpPlatform.UseCases.Notifications.List;
 using MediatR;
 
@@ -31,6 +31,7 @@ public class ListByUser : Endpoint<ListNotificationsByUserRequest, ListNotificat
         public override async Task HandleAsync(ListNotificationsByUserRequest request, CancellationToken cancellationToken)
         {
             var result = await _mediator.Send(new ListNotificationsQuery(request.UserId!.Value), cancellationToken);
+            Console.WriteLine(result);
 
             if (result.IsSuccess)
             {
