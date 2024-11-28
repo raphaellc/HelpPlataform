@@ -32,9 +32,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HelpPlatform.IntegrationTes
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HelpPlatform.UnitTests", "tests\HelpPlatform.UnitTests\HelpPlatform.UnitTests.csproj", "{1DC7F5A0-DDF7-4975-84EB-05F4FC1B6AB5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelpPlatform.UseCases", "src\HelpPlatform.UseCases\HelpPlatform.UseCases.csproj", "{B74A78FF-B79E-4C38-A9C7-084A90990CAD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HelpPlatform.UseCases", "src\HelpPlatform.UseCases\HelpPlatform.UseCases.csproj", "{B74A78FF-B79E-4C38-A9C7-084A90990CAD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelpPlatform.SharedKernel", "src\HelpPlatform.SharedKernel\HelpPlatform.SharedKernel.csproj", "{D603C997-E929-4E5B-A98B-E94DA325E770}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HelpPlatform.SharedKernel", "src\HelpPlatform.SharedKernel\HelpPlatform.SharedKernel.csproj", "{D603C997-E929-4E5B-A98B-E94DA325E770}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
