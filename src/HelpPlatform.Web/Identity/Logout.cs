@@ -46,8 +46,6 @@ public class Logout : Endpoint<LogoutRequest, LogoutResponse>
         catch (Exception ex)
         {
             _logger.LogError(ex, "An error occurred while logging out.");
-
-            // Return a failure response
             await SendAsync(new LogoutResponse { Message = "Logout failed." }, 500); // 500 Internal Server Error
         }
     }

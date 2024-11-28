@@ -41,6 +41,7 @@ builder.Services.AddFastEndpoints()
         o.ShortSchemaNames = true;
     });
 
+
 builder.Services.AddAuthorization();
 builder.Services.AddAuthentication(options => {
         options.DefaultAuthenticateScheme = IdentityConstants.ApplicationScheme;
