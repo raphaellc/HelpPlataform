@@ -3,6 +3,8 @@ using HelpPlatform.UseCases.ResourceTypes.Get;
 using HelpPlatform.UseCases.ResourceTypes.Update;
 using FastEndpoints;
 using MediatR;
+using HelpPlatform.Web.Extensions;
+using System.Security.AccessControl;
 
 namespace HelpPlatform.Web.ResourceTypes;
 
@@ -32,10 +34,13 @@ public class Update(IMediator _mediator)
             return;
         }
 
-        if (queryResult.IsSuccess){
-            var dto = queryResult.Value;
-            Response = new UpdateResourceTypeResponse(new ResourceTypeRecord(dto.Id, dto.Name, dto.Scale));
-            return;
-        }
+        var dto = queryResult.Value;
+
+        await this.SendResponse(result, r => new UpdateResourceTypeResponse(
+            new ResourceTypeRecord(
+                dto.Id,
+                dto.Name,
+                dto.Scale
+            )));
     }
 }

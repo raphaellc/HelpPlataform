@@ -2,11 +2,16 @@
 using Ardalis.Result.AspNetCore;
 using FastEndpoints;
 using HelpPlatform.UseCases.DonationRequests.CreateClaim;
+using HelpPlatform.Web.Extensions;
 using MediatR;
+using Microsoft.DotNet.Scaffolding.Shared.Messaging;
+using Namotion.Reflection;
+using NuGet.Protocol.Plugins;
+using Org.BouncyCastle.Bcpg;
 
 namespace HelpPlatform.Web.DonationRequests.Claims;
 
-public class Create(IMediator mediator) : Endpoint<CreateDonationRequestClaimRequest, Result>
+public class Create(IMediator mediator) : Endpoint<CreateDonationRequestClaimRequest>
 {
     public override void Configure()
     {
@@ -17,6 +22,7 @@ public class Create(IMediator mediator) : Endpoint<CreateDonationRequestClaimReq
             {
                 Message = "Example donation request claim.",
                 Deadline = DateTime.Now.AddHours(8),
+                Quantity = 1,
                 RequestId = 1,
                 UserId = 1
             };
@@ -36,22 +42,6 @@ public class Create(IMediator mediator) : Endpoint<CreateDonationRequestClaimReq
             cancellationToken
         );
 
-        if (result.IsSuccess)
-        {
-            Response = Result.NoContent();
-        }
-        else
-        {
-            foreach (var resultError in result.Errors)
-            {
-                AddError(resultError);
-            }
-            foreach (var resultError in result.ValidationErrors)
-            {
-                AddError(resultError.ErrorMessage);
-            }
-
-            ThrowIfAnyErrors();
-        }
+        await this.SendNoContent(result);
     }
 }

@@ -1,11 +1,11 @@
-﻿using Ardalis.Result;
-using FastEndpoints;
+﻿using FastEndpoints;
 using HelpPlatform.UseCases.DonationRequests.Close;
+using HelpPlatform.Web.Extensions;
 using MediatR;
 
 namespace HelpPlatform.Web.DonationRequests;
 
-public class Close(IMediator mediator) : Endpoint<CloseDonationRequestRequest, Result>
+public class Close(IMediator mediator) : Endpoint<CloseDonationRequestRequest>
 {
     public override void Configure()
     {
@@ -15,6 +15,9 @@ public class Close(IMediator mediator) : Endpoint<CloseDonationRequestRequest, R
         {
             s.ExampleRequest = new CloseDonationRequestRequest { RequestId = 1 };
         });
+        Description(x => x.Accepts<CloseDonationRequestRequest>()
+        .Produces(204)
+        .ClearDefaultProduces(200));
     }
     
     public override async Task HandleAsync(
@@ -23,22 +26,6 @@ public class Close(IMediator mediator) : Endpoint<CloseDonationRequestRequest, R
     {
         var result = await mediator.Send(new CloseDonationRequestCommand(request.RequestId, cancellationToken));
 
-        if (result.IsSuccess)
-        {
-            Response = Result.NoContent();
-        }
-        else
-        {
-            foreach (var resultError in result.Errors)
-            {
-                AddError(resultError);
-            }
-            foreach (var resultError in result.ValidationErrors)
-            {
-                AddError(resultError.ErrorMessage);
-            }
-
-            ThrowIfAnyErrors();
-        }
+        await this.SendNoContent(result);
     }
 }

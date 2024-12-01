@@ -1,5 +1,6 @@
 ﻿using FastEndpoints;
 using HelpPlatform.UseCases.Users.Create;
+using HelpPlatform.Web.Extensions;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 
@@ -11,9 +12,6 @@ public class Create(IMediator _mediator) : Endpoint<CreateUserRequest, CreateUse
     {
         Post(CreateUserRequest.Route);
         Summary(s => {
-            // XML Docs are used by default but are overridden by these properties:
-            //s.Summary = "Create a new Contributor.";
-            //s.Description = "Create a new Contributor. A valid name is required.";
             s.ExampleRequest = new CreateUserRequest { Name = "User Name", Email = "email@email.com" };
         });
     }
@@ -22,23 +20,11 @@ public class Create(IMediator _mediator) : Endpoint<CreateUserRequest, CreateUse
         CreateUserRequest request,
         CancellationToken cancellationToken) {
         var result = await _mediator.Send(new CreateUserCommand(request.Name!, request.Email!), cancellationToken);
-        
-        var token = 
 
-        if (result.IsSuccess) {
-            Response = new CreateUserResponse(id: result.Value, name: request.Name!, email: request.Email);
-        } else
-        {
-            foreach (var resultError in result.Errors)
-            {
-                AddError(resultError);
-            }
-            foreach (var resultError in result.ValidationErrors)
-            {
-                AddError(resultError.ErrorMessage);
-            }
-
-            ThrowIfAnyErrors();
-        }
+        await this.SendResponse(result, r => new CreateUserResponse(
+            result.Value,
+            request.Name!,
+            request.Email
+        ));
     }
 }
