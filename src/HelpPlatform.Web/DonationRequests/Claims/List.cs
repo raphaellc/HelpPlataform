@@ -1,5 +1,6 @@
 ﻿using FastEndpoints;
 using HelpPlatform.UseCases.DonationRequests.ListClaim;
+using HelpPlatform.Web.Extensions;
 using MediatR;
 
 namespace HelpPlatform.Web.DonationRequests.Claims;
@@ -21,22 +22,18 @@ public class List(IMediator mediator) : Endpoint<ListDonationRequestClaimsReques
         CancellationToken cancellationToken)
     {
         var result = await mediator.Send(new ListDonationRequestClaimQuery(request.RequestId), cancellationToken);
-        if (result.IsSuccess)
+        
+        await this.SendResponse(result, r => new ListDonationRequestClaimsResponse
         {
-            Response = new ListDonationRequestClaimsResponse
-            {
-                Claims = result.Value.Select(claim => new DonationRequestClaimRecord
-                (
-                    claim.Id,
-                    claim.Message,
-                    claim.Quantity,
-                    claim.CreatedAt,
-                    claim.Deadline,
-                    claim.Status,
-                    claim.UserId,
-                    claim.RequestId
-                )).ToList()
-            };
-        }
+            Claims = r.Value.Select(claim => new DonationRequestClaimRecord(
+                claim.Id,
+                claim.Message,
+                claim.Quantity,
+                claim.CreatedAt,
+                claim.Deadline,
+                claim.Status,
+                claim.UserId,
+                claim.RequestId)).ToList()
+        });
     }
 }

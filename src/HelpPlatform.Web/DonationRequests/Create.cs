@@ -1,5 +1,6 @@
 ﻿using FastEndpoints;
 using HelpPlatform.UseCases.DonationRequests.Create;
+using HelpPlatform.Web.Extensions;
 using MediatR;
 
 namespace HelpPlatform.Web.DonationRequests;
@@ -10,9 +11,6 @@ public class Create(IMediator _mediator) : Endpoint<CreateDonationRequestRequest
         Post(CreateDonationRequestRequest.Route);
         AllowAnonymous();
         Summary(s => {
-            // XML Docs are used by default but are overridden by these properties:
-            //s.Summary = "Create a new Contributor.";
-            //s.Description = "Create a new Contributor. A valid name is required.";
             s.ExampleRequest = new CreateDonationRequestRequest
             {
                 Description = "Donation Request Example",
@@ -25,9 +23,8 @@ public class Create(IMediator _mediator) : Endpoint<CreateDonationRequestRequest
         });
     }
     
-    public override async Task HandleAsync(
-        CreateDonationRequestRequest request,
-        CancellationToken cancellationToken) {
+    public override async Task HandleAsync(CreateDonationRequestRequest request, CancellationToken cancellationToken)
+    {
         var result = await _mediator.Send(new CreateDonationRequestCommand(
         Description: request.Description,
         Deadline: request.Deadline!.Value,
@@ -37,16 +34,6 @@ public class Create(IMediator _mediator) : Endpoint<CreateDonationRequestRequest
         UserId: request.UserId!.Value),
         cancellationToken);
 
-        if (result.IsSuccess){
-            Response = new CreateDonationRequestResponse(result.Value);
-            return;
-        }
-        
-        foreach (var resultError in result.Errors)
-        {
-            AddError(resultError);
-        }
-
-        ThrowIfAnyErrors();
+        await this.SendResponse(result, r => new CreateDonationRequestResponse(result.Value));
     }
 }
