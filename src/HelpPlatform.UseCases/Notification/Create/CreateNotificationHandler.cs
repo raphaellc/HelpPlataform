@@ -1,4 +1,3 @@
-using Ardalis.GuardClauses;
 using Ardalis.Result;
 using HelpPlatform.Core.NotificationDomain;
 using HelpPlatform.SharedKernel;
@@ -10,7 +9,6 @@ public class CreateNotificationHandler(IRepository<Notification> repository) : I
     public async Task<Result<int>> Handle(CreateNotificationCommand request, CancellationToken cancellationToken)
     {
         var notification = new Notification(request.UserId, request.Message);
-
         var createdNotification = await repository.AddAsync(notification, cancellationToken);
 
         return createdNotification.Id;

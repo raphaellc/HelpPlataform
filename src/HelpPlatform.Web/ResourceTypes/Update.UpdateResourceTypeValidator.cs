@@ -1,7 +1,6 @@
 using HelpPlatform.Infrastructure.Data.Config;
 using FastEndpoints;
 using FluentValidation;
-using HelpPlatform.Web.Contributors;
 
 namespace HelpPlatform.Web.ResourceTypes;
 
