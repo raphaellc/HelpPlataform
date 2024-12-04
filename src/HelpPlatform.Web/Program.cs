@@ -3,6 +3,7 @@ using Ardalis.ListStartupServices;
 using HelpPlatform.SharedKernel;
 using FastEndpoints;
 using FastEndpoints.Swagger;
+using FastEndpoints.Security;
 using HelpPlatform.Core.Contributor.ContributorAggregate;
 using HelpPlatform.Core.Contributor.Interfaces;
 using HelpPlatform.Infrastructure;
@@ -36,22 +37,19 @@ builder.Services.Configure<CookiePolicyOptions>(options => {
     options.MinimumSameSitePolicy = SameSiteMode.None;
 });
 
-builder.Services.AddFastEndpoints()
+builder.Services
+    .AddAuthenticationJwtBearer(s => s.SigningKey = "The secret used to sign tokens") //add this
+    .AddAuthorization()
+    .AddFastEndpoints()
     .SwaggerDocument(o => { 
         o.ShortSchemaNames = true;
     });
 
 
-builder.Services.AddAuthorization();
-builder.Services.AddAuthentication(options => {
-        options.DefaultAuthenticateScheme = IdentityConstants.ApplicationScheme;
-        options.DefaultChallengeScheme = IdentityConstants.ApplicationScheme;
-    }).AddBearerToken(IdentityConstants.BearerScheme);
-
-
 builder.Services.AddIdentityCore<ApplicationUser>()
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddApiEndpoints();
+
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("SqliteConnection"), b => 
@@ -76,8 +74,6 @@ else{
 
 var app = builder.Build();
 
-app.UseAuthentication();
-app.UseAuthorization();
 
 if (app.Environment.IsDevelopment()){
     app.UseDeveloperExceptionPage();
@@ -95,6 +91,8 @@ else{
 }
 
 app.UseDefaultExceptionHandler()
+    .UseAuthentication()
+    .UseAuthorization()
     .UseFastEndpoints()
     .UseSwaggerGen(); // Includes AddFileServer and static files middleware
 

@@ -1,11 +1,9 @@
 using FastEndpoints;
+using FastEndpoints.Security;
 using Microsoft.AspNetCore.Identity;
-using System.Security.Claims;
-using System.Text;
+
 
 using HelpPlatform.Infrastructure.Identity;
-using Microsoft.IdentityModel.Tokens;
-using System.IdentityModel.Tokens.Jwt;
 
 namespace HelpPlatform.Web.Identity;
 
@@ -37,40 +35,31 @@ public class Login : Endpoint<LoginRequest, LoginResponse>
 
     public override async Task HandleAsync(LoginRequest request, CancellationToken cancellationToken)
     {
-        var result = await _signInManager.PasswordSignInAsync(request.Email, request.Password, isPersistent: false, lockoutOnFailure: false);
+        var user = await _userManager.FindByEmailAsync(request.Email);
 
-        if (result.Succeeded)
+        if (user == null)
         {
-            var user = await _userManager.FindByEmailAsync(request.Email);
-            
-            if (user == null)
+            _logger.LogError("Login failed for user {Email}. User not found.", request.Email);
+            await SendAsync(new LoginResponse { Message = "Invalid login attempt." }, 401);
+            return;
+        }
+        var valid = await _userManager.CheckPasswordAsync(user, request.Password);
+
+        if (valid)
+        {
+            var jwtToken = JwtBearer.CreateToken(
+            o =>
             {
-                _logger.LogError("User not found after successful login for email {Email}", request.Email);
-                await SendAsync(new LoginResponse { Message = "User not found." }, 404); // 404 Not Found
-                return;
-            }
-
-             var claims = new List<Claim>
-            {
-                new Claim(ClaimTypes.NameIdentifier, user.Id ?? string.Empty), // Usando string.Empty se user.Id for nulo
-                new Claim(ClaimTypes.Email, user.Email ?? string.Empty) // Usando string.Empty se user.Email for nulo
-            };
-
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("sua-chave-secreta-com-32-caracteres")); // TODO - Insira uma chave secreta segura
-            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-            
-            var token = new JwtSecurityToken(
-                issuer: "seu_emissor",  // TODO-Altere para seu emissor
-                audience: "sua_audiencia",  // TODO-Altere para sua audiência
-                claims: claims,
-                expires: DateTime.Now.AddMinutes(30),
-                signingCredentials: creds);
-
-            var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
+                o.SigningKey = "sua-chave-secreta-com-32-caracteres"; // TODO - Insira uma chave secreta segur
+                o.ExpireAt = DateTime.UtcNow.AddDays(1);
+                o.User.Roles.Add("Manager", "Auditor");
+                o.User.Claims.Add(("Email", request.Email));
+                o.User["UserId"] = "001"; //indexer based claim setting
+            });
 
             var response = new LoginResponse { Message = "Login successful!",
-                                               UserId = user.Id ?? string.Empty,
-                                               Token = tokenString};
+                                               Email = request.Email ?? string.Empty,
+                                               Token = jwtToken};
             await SendAsync(response, 200); 
         }
         else
