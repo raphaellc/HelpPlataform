@@ -1,8 +1,6 @@
 using FastEndpoints;
 using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
-using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authentication;
 using System.Text;
 
 using HelpPlatform.Infrastructure.Identity;

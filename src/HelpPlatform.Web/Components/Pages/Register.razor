@@ -49,7 +49,7 @@
             var response = await Http.PostAsJsonAsync("register", registerRequest);
             if (response.IsSuccessStatusCode)
             {
-                registerResponse = await response.Content.ReadFromJsonAsync<RegisterResponse>();
+                registerResponse = await response.Content.ReadFromJsonAsync<RegisterResponse>() ?? new RegisterResponse();
                 errorMessage = string.Empty;
             }
             else

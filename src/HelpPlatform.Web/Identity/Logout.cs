@@ -24,7 +24,7 @@ public class Logout : Endpoint<LogoutRequest, LogoutResponse>
         Summary(s =>
         {
             s.Summary = "Logout an existing user.";
-            s.Description = "Logs out the user by clearing session and authentication cookies.";
+            s.Description = "Logs out the user by clearing session";
         });
     }
 
@@ -37,16 +37,15 @@ public class Logout : Endpoint<LogoutRequest, LogoutResponse>
             await HttpContext.SignOutAsync(IdentityConstants.ApplicationScheme);
 
             HttpContext.Session.Clear();
-            HttpContext.Response.Cookies.Delete("access_token");
 
             _logger.LogInformation("User logged out successfully.");
 
-            await SendAsync(new LogoutResponse { Message = "Logout Successful."}, 200); // 200 OK
+            await SendAsync(new LogoutResponse { Message = "Logout Successful."}, 200);
         }
         catch (Exception ex)
         {
             _logger.LogError(ex, "An error occurred while logging out.");
-            await SendAsync(new LogoutResponse { Message = "Logout failed." }, 500); // 500 Internal Server Error
+            await SendAsync(new LogoutResponse { Message = "Logout failed." }, 500);
         }
     }
 }

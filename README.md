@@ -8,6 +8,11 @@
     <img src="https://img.shields.io/twitter/follow/nimblepros.svg?label=Follow%20@nimblepros" alt="Follow @nimblepros" />
 </a>
 
+# REMOVE
+
+dotnet ef migrations add InitialCreate --context AppDbContext  --project HelpPlatform.Infrastructure --startup-project HelpPlatform.Web
+dotnet ef database update --context AppDbContext --project HelpPlatform.Infrastructure --startup-project HelpPlatform.Web
+
 # Clean Architecture
 
 A starting point for Clean Architecture with ASP.NET Core. [Clean Architecture](https://8thlight.com/blog/uncle-bob/2012/08/13/the-clean-architecture.html) is just the latest in a series of names for the same loosely-coupled, dependency-inverted architecture. You will also find it named [hexagonal](http://alistair.cockburn.us/Hexagonal+architecture), [ports-and-adapters](http://www.dossier-andreas.net/software_architecture/ports_and_adapters.html), or [onion architecture](http://jeffreypalermo.com/blog/the-onion-architecture-part-1/).

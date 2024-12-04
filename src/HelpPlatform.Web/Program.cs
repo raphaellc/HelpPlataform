@@ -46,20 +46,8 @@ builder.Services.AddAuthorization();
 builder.Services.AddAuthentication(options => {
         options.DefaultAuthenticateScheme = IdentityConstants.ApplicationScheme;
         options.DefaultChallengeScheme = IdentityConstants.ApplicationScheme;
-    }).AddCookie(IdentityConstants.ApplicationScheme, options =>{
-        options.LoginPath = "/login";
-        options.LogoutPath = "/logout"; 
-        // options.AccessDeniedPath = "/access-denied"; // ou o caminho da sua página de acesso negado
-    })
-    .AddBearerToken(IdentityConstants.BearerScheme);
+    }).AddBearerToken(IdentityConstants.BearerScheme);
 
-builder.Services.AddDistributedMemoryCache(); 
-builder.Services.AddSession(options =>
-{
-    options.IdleTimeout = TimeSpan.FromMinutes(30); // Duração da sessão
-    options.Cookie.HttpOnly = true; // Impede acesso a cookies via JavaScript
-    options.Cookie.IsEssential = true; // Necessário para o funcionamento da sessão
-});
 
 builder.Services.AddIdentityCore<ApplicationUser>()
     .AddEntityFrameworkStores<ApplicationDbContext>()
@@ -88,7 +76,6 @@ else{
 
 var app = builder.Build();
 
-app.UseSession();
 app.UseAuthentication();
 app.UseAuthorization();
 
