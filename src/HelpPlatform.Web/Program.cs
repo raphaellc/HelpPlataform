@@ -3,6 +3,7 @@ using Ardalis.ListStartupServices;
 using HelpPlatform.SharedKernel;
 using FastEndpoints;
 using FastEndpoints.Swagger;
+using FastEndpoints.Security;
 using HelpPlatform.Core.Contributor.ContributorAggregate;
 using HelpPlatform.Core.Contributor.Interfaces;
 using HelpPlatform.Infrastructure;
@@ -12,6 +13,10 @@ using HelpPlatform.UseCases.Contributors.Create;
 using MediatR;
 using Serilog;
 using Serilog.Extensions.Logging;
+
+using HelpPlatform.Infrastructure.Identity;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using HelpPlatform.Web.Components;
 
 var logger = Log.Logger = new LoggerConfiguration()
@@ -31,6 +36,7 @@ builder.Services.AddServerSideBlazor();
 builder.Services.AddHttpClient();
 builder.Services.AddBlazorBootstrap();
 
+
 builder.Host.UseSerilog((_, config) => config.ReadFrom.Configuration(builder.Configuration));
 var microsoftLogger = new SerilogLoggerFactory(logger)
     .CreateLogger<HelpPlatform.Web.Program>();
@@ -41,9 +47,24 @@ builder.Services.Configure<CookiePolicyOptions>(options => {
     options.MinimumSameSitePolicy = SameSiteMode.None;
 });
 
-builder.Services.AddFastEndpoints()
-    .SwaggerDocument(o => { o.ShortSchemaNames = true; });
+builder.Services
+    .AddAuthenticationJwtBearer(s => s.SigningKey = "The secret used to sign tokens") //add this
+    .AddAuthorization()
+    .AddFastEndpoints()
+    .SwaggerDocument(o => { 
+        o.ShortSchemaNames = true;
+    });
 
+
+builder.Services.AddIdentityCore<ApplicationUser>()
+    .AddEntityFrameworkStores<ApplicationDbContext>()
+    .AddApiEndpoints();
+
+
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("SqliteConnection"), b => 
+        b.MigrationsAssembly("HelpPlatform.Web")));
+        
 ConfigureMediatR();
 
 builder.Services.AddInfrastructureServices(builder.Configuration, microsoftLogger);
@@ -63,9 +84,16 @@ else{
 
 var app = builder.Build();
 
+
 if (app.Environment.IsDevelopment()){
     app.UseDeveloperExceptionPage();
     app.UseShowAllServicesMiddleware(); // see https://github.com/ardalis/AspNetCoreStartupServices
+    using (var scope = app.Services.CreateScope())
+    {
+        var services = scope.ServiceProvider;
+        var authContext = services.GetRequiredService<ApplicationDbContext>();
+        authContext.Database.Migrate(); 
+    }
 }
 else{
     app.UseDefaultExceptionHandler(); // from FastEndpoints
@@ -73,6 +101,8 @@ else{
 }
 
 app.UseDefaultExceptionHandler()
+    .UseAuthentication()
+    .UseAuthorization()
     .UseFastEndpoints()
     .UseSwaggerGen(); // Includes AddFileServer and static files middleware
 
@@ -86,6 +116,7 @@ app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
 
 app.UseAntiforgery();
+
 app.MapRazorPages();
 
 app.Run();
