@@ -47,12 +47,17 @@ public class Login : Endpoint<LoginRequest, LoginResponse>
 
         if (valid)
         {
+            var roles = await _userManager.GetRolesAsync(user);
+
             var jwtToken = JwtBearer.CreateToken(
             o =>
             {
                 o.SigningKey = "sua-chave-secreta-com-32-caracteres"; // TODO - Configurar chave secreta
                 o.ExpireAt = DateTime.UtcNow.AddDays(1);
-                o.User.Roles.Add("User", "Admin");
+                foreach (var role in roles)
+                {
+                    o.User.Roles.Add(role);
+                }
                 o.User.Claims.Add(("Email", request.Email));
                 o.User["UserId"] = "001"; //indexer based claim setting
             });
