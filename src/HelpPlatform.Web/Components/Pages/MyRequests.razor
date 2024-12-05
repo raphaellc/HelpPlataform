@@ -42,13 +42,15 @@
 											<CardBody Style="padding-bottom: 3rem;">
 												<CardTitle>@CreateTitle(claim.Id, claim.Quantity, "", claim.Deadline)</CardTitle>
 												<CardText>@claim.Message.</CardText>
-												
-												@if (request.status == "Open" || request.status == "PartiallyClaimed" ) {
-													<div class="d-flex justify-content-between" style="position: absolute; width: 90%;bottom: 10px;">
-														<Button Color="ButtonColor.Primary" @onclick="() => AcceptClaim(claim.Id, request.id)">Accept</Button>
-														<Button Color="ButtonColor.Danger" @onclick="() => RejectClaim(claim.Id, request.id)">Reject</Button>
-													</div>
+												@if (claim.Status == 0) {
+														@if (request.status == "Open" || request.status == "PartiallyClaimed" ) {
+														<div class="d-flex justify-content-between" style="position: absolute; width: 90%;bottom: 10px;">
+															<Button Color="ButtonColor.Primary" @onclick="() => AcceptClaim(claim.Id, request.id)">Accept</Button>
+															<Button Color="ButtonColor.Danger" @onclick="() => RejectClaim(claim.Id, request.id)">Reject</Button>
+														</div>
+													}
 												}
+												
 											</CardBody>
 										</Card>
 									}
@@ -81,6 +83,11 @@
 
 	protected override async Task OnInitializedAsync()
 	{
+		await UpdateData();
+	}
+
+	protected async Task UpdateData()
+	{
 		ListDonationRequestResponse? response = await HttpClient.GetFromJsonAsync<ListDonationRequestResponse>(NavigationManager.BaseUri + "DonationRequests?pageSize=10&pageIndex=" +  (currentPageNumber - 1));
 
 		donationRequests = response?.DonationRequests ?? [];
@@ -103,17 +110,21 @@
 		var parameters = new Dictionary<string, object>();
 		parameters.Add("RequestId", id);
 		await offcanvas.ShowAsync<Claim>(title: "Donation Request", parameters: parameters);
+		isLoading = true;
+		await UpdateData();
 	}
 	protected async Task CreateRequest(int id)
 	{
 		await offcanvas.ShowAsync<CreateRequest>(title: "Create Request");
+		isLoading = true;
+		await UpdateData();
 	}
 
 	private async Task HandleRequestCreated()
 	{
 		ListDonationRequestResponse? response = await HttpClient.GetFromJsonAsync<ListDonationRequestResponse>(NavigationManager.BaseUri + "DonationRequests?pageSize=10&pageIndex=" + (currentPageNumber - 1));
-
-		donationRequests = response?.DonationRequests ?? [];
+		isLoading = true;
+		await UpdateData();
 	}
 
 	private int CalculateQuantity(DonationRequestRecord request)
@@ -134,16 +145,21 @@
 	private async Task OnPageChangedAsync(int newPageNumber)
 	{
 		await Task.Run(() => { currentPageNumber = newPageNumber; });
-		ListDonationRequestResponse? response = await HttpClient.GetFromJsonAsync<ListDonationRequestResponse>(NavigationManager.BaseUri + "DonationRequests?pageSize=10&pageIndex=" +  (currentPageNumber - 1));
+		isLoading = true;
+		await UpdateData();
 	}
 
 	protected async Task AcceptClaim(int ClaimId, int RequestId)
 	{
 		HttpResponseMessage response = await HttpClient.PatchAsync(NavigationManager.BaseUri + "DonationRequests/" + RequestId + "/Claims/" + ClaimId + "/Accept", null);
+		isLoading = true;
+		await UpdateData();
 	}
 
 	protected async Task RejectClaim(int ClaimId, int RequestId)
 	{
 		HttpResponseMessage response = await HttpClient.PatchAsync(NavigationManager.BaseUri + "DonationRequests/" + RequestId + "/Claims/" + ClaimId + "/Reject", null);
+		isLoading = true;
+		await UpdateData();
 	}
 }
