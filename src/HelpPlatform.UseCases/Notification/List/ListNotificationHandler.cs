@@ -16,6 +16,7 @@ public class ListNotificationHandler(INotificationService notificationService) :
         var result = await notificationService.ListNotificationsByUserAsync(request.UserId,cancellationToken);
         
         return result.Map(notifications => notifications.Select(n => new NotificationDto(
+            notificationID: n.Id,
             userId: n.UserId,
             message: n.Message,
             read: n.Read,

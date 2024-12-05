@@ -8,6 +8,6 @@ public interface INotificationRepository : IRepository<Notification>
 {   
    new Task AddAsync(Notification notification,
                       CancellationToken cancellationToken);
- //new Task<List<Notification>> ListAsync(ISpecification<Notification> spec, CancellationToken cancellationToken = default);
+
 
 }
