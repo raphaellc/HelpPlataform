@@ -1,4 +1,4 @@
-using Ardalis.Result;
+﻿using Ardalis.Result;
 using HelpPlatform.Core.UserDomain;
 using HelpPlatform.SharedKernel;
 using HelpPlatform.Core.NotificationDomain.Interfaces;
@@ -47,6 +47,12 @@ public class NotificationService(
     {
         var notifications = await repository.ListAsync(new NotificationsByUserSpecification(userId), cancellationToken);
 
+        return Result<List<Notification>>.Success(notifications);
+    }
+    
+    public async Task<Result<List<Notification>>> GetUnreadNotificationsForUserAsync(int userId, CancellationToken cancellationToken = default)
+    {
+        var notifications = await repository.ListAsync(new UnreadNotificationsForUserSpecification(userId), cancellationToken);
         return Result<List<Notification>>.Success(notifications);
     }
 }

@@ -1,13 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <ItemGroup>
-        <PackageReference Include="Ardalis.Result"/>
-        <PackageReference Include="MediatR"/>
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Relational"/>
+        <PackageReference Include="Ardalis.Result" />
+        <PackageReference Include="MediatR" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" />
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\HelpPlatform.Core\HelpPlatform.Core.csproj"/>
+        <ProjectReference Include="..\HelpPlatform.Core\HelpPlatform.Core.csproj" />
         <ProjectReference Include="..\HelpPlatform.SharedKernel\HelpPlatform.SharedKernel.csproj" />
     </ItemGroup>
 
