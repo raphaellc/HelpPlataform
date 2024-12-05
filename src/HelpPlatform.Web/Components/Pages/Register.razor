@@ -1,10 +1,13 @@
 @page "/register"
-@inject HttpClient Http
+@inject HttpClient HttpClient
 @using HelpPlatform.Web.Identity
+@inject NavigationManager NavigationManager
+
+
 
 <h3>Register New User</h3>
 
-<EditForm Model="registerRequest" OnValidSubmit="HandleRegister">
+<EditForm Model="registerRequest" OnValidSubmit="HandleRegister" FormName="RegisterForm" >
     <DataAnnotationsValidator />
     <ValidationSummary />
 
@@ -44,12 +47,14 @@
 
     private async Task HandleRegister()
     {
+
         try
         {
-            var response = await Http.PostAsJsonAsync("register", registerRequest);
+            var response = await HttpClient.PostAsJsonAsync(NavigationManager.BaseUri +"register", registerRequest);
+
             if (response.IsSuccessStatusCode)
             {
-				var registerResponse = await response.Content.ReadFromJsonAsync<RegisterResponse>();
+				registerResponse = await response.Content.ReadFromJsonAsync<RegisterResponse>() ?? new RegisterResponse();
 
 				if (registerResponse == null)
 				{
