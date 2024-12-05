@@ -50,9 +50,9 @@ public class Login : Endpoint<LoginRequest, LoginResponse>
             var jwtToken = JwtBearer.CreateToken(
             o =>
             {
-                o.SigningKey = "sua-chave-secreta-com-32-caracteres"; // TODO - Insira uma chave secreta segur
+                o.SigningKey = "sua-chave-secreta-com-32-caracteres"; // TODO - Configurar chave secreta
                 o.ExpireAt = DateTime.UtcNow.AddDays(1);
-                o.User.Roles.Add("Manager", "Auditor");
+                o.User.Roles.Add("User", "Admin");
                 o.User.Claims.Add(("Email", request.Email));
                 o.User["UserId"] = "001"; //indexer based claim setting
             });

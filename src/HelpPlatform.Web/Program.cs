@@ -48,7 +48,7 @@ builder.Services.Configure<CookiePolicyOptions>(options => {
 });
 
 builder.Services
-    .AddAuthenticationJwtBearer(s => s.SigningKey = "The secret used to sign tokens") //add this
+    .AddAuthenticationJwtBearer(s => s.SigningKey = "sua-chave-secreta-com-32-caracteres") // TODO - Configurar chave secreta
     .AddAuthorization()
     .AddFastEndpoints()
     .SwaggerDocument(o => { 
