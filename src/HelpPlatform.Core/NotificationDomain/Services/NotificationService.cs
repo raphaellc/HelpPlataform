@@ -30,19 +30,16 @@ public class NotificationService(
         var notification = await repository.GetByIdAsync(notificationId, cancellationToken);
         if (notification == null)
         {
-            Console.WriteLine("======================= Not found =======================");
             return Result.NotFound("Notification not found.");
         }
 
         if (notification.UserId != userId)
         {
-            Console.WriteLine("======================= Forbidden =======================");
             return Result.Forbidden();
         }
 
         notification.Read = true;
         await repository.UpdateAsync(notification, cancellationToken);
-        Console.WriteLine("======================= Success =======================");
         return Result.Success();
     }    
 

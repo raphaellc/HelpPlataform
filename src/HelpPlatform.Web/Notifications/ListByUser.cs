@@ -1,5 +1,6 @@
 ﻿using FastEndpoints;
 using HelpPlatform.UseCases.Notifications.List;
+using HelpPlatform.Web.Extensions;
 using MediatR;
 
 namespace HelpPlatform.Web.Notifications;
@@ -33,17 +34,6 @@ public class ListByUser : Endpoint<ListNotificationsByUserRequest, ListNotificat
             var result = await _mediator.Send(new ListNotificationsQuery(request.UserId!.Value), cancellationToken);
             Console.WriteLine(result);
 
-            if (result.IsSuccess)
-            {
-                Response = new ListNotificationsByUserResponse(result.Value);
-                return;
-            }
-
-            foreach (var resultError in result.Errors)
-            {
-                AddError(resultError);
-            }
-
-            ThrowIfAnyErrors();
+            await this.SendResponse(result, r => new ListNotificationsByUserResponse(result.Value));
         }
     }

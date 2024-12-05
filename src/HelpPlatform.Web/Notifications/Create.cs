@@ -1,5 +1,6 @@
 using FastEndpoints;
 using HelpPlatform.UseCases.Notifications.Create;
+using HelpPlatform.Web.Extensions;
 using MediatR;
 
 namespace HelpPlatform.Web.Notifications;
@@ -35,17 +36,6 @@ public class Create : Endpoint<CreateNotificationRequest, CreateNotificationResp
             UserId: request.UserId!.Value,
             Message: request.Message!), cancellationToken);
 
-        if (result.IsSuccess)
-        {
-            Response = new CreateNotificationResponse(result.Value);
-            return;
-        }
-
-        foreach (var resultError in result.Errors)
-        {
-            AddError(resultError);
-        }
-
-        ThrowIfAnyErrors();
+        await this.SendResponse(result, r => new CreateNotificationResponse(result.Value));
     }
 }
