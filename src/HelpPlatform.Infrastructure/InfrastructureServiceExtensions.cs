@@ -15,7 +15,7 @@ using HelpPlatform.Infrastructure.Email;
 using HelpPlatform.UseCases.Contributors.List;
 using HelpPlatform.Core.NotificationDomain.Services;
 using HelpPlatform.Core.NotificationDomain.Interfaces;
-using HelpPlatform.UseCases.DonationRequests.ListClaim;
+using HelpPlatform.UseCases.DonationRequests.ListClaimByRequest;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;

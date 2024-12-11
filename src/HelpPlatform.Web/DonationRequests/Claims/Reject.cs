@@ -1,11 +1,11 @@
-﻿using Ardalis.Result;
-using FastEndpoints;
+﻿using FastEndpoints;
 using HelpPlatform.UseCases.DonationRequests.RejectClaim;
+using HelpPlatform.Web.Extensions;
 using MediatR;
 
 namespace HelpPlatform.Web.DonationRequests.Claims;
 
-public class Reject(IMediator mediator) : Endpoint<RejectDonationRequestClaimRequest, Result>
+public class Reject(IMediator mediator) : Endpoint<RejectDonationRequestClaimRequest>
 {
     public override void Configure()
     {
@@ -15,7 +15,10 @@ public class Reject(IMediator mediator) : Endpoint<RejectDonationRequestClaimReq
         {
             s.ExampleRequest = new RejectDonationRequestClaimRequest { RequestId = 1, ClaimId = 1 };
         });
-        Description(x => x.Accepts<AcceptDonationRequestClaimRequest>());
+        Description(x => x
+            .Accepts<RejectDonationRequestClaimRequest>()
+            .Produces(204)
+            .ClearDefaultProduces(200));
     }
 
     public override async Task HandleAsync(
@@ -24,22 +27,6 @@ public class Reject(IMediator mediator) : Endpoint<RejectDonationRequestClaimReq
     {
         var result = await mediator.Send(new RejectDonationRequestClaimCommand(request.RequestId, request.ClaimId), cancellationToken);
 
-        if (result.IsSuccess)
-        {
-            Response = Result.NoContent();
-        }
-        else
-        {
-            foreach (var resultError in result.Errors)
-            {
-                AddError(resultError);
-            }
-            foreach (var resultError in result.ValidationErrors)
-            {
-                AddError(resultError.ErrorMessage);
-            }
-
-            ThrowIfAnyErrors();
-        }
+        await this.SendNoContent(result);
     }
 }

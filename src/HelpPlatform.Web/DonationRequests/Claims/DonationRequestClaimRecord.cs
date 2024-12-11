@@ -8,6 +8,6 @@ public record DonationRequestClaimRecord(
     int Quantity,
     DateTime CreatedAt,
     DateTime? Deadline,
-    DonationRequestStatusEnum Status,
+    DonationRequestClaimStatusEnum Status,
     int UserId,
     int RequestId);

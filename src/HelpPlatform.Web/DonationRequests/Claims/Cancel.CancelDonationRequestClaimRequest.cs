@@ -2,7 +2,7 @@
 
 public class CancelDonationRequestClaimRequest
 {
-    public const string Route = "/DonationRequests/{RequestId:int}/Claims/{ClaimId:int}/Cancel";
+    public const string Route = "DonationRequests/{RequestId:int}/Claims/{ClaimId:int}/Cancel";
     
     public static string BuildRoute(int requestId, int claimId) => Route
         .Replace("{RequestId:int}", requestId.ToString())

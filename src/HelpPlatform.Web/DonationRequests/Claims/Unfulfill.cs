@@ -1,11 +1,11 @@
-﻿using Ardalis.Result;
-using FastEndpoints;
+﻿using FastEndpoints;
 using HelpPlatform.UseCases.DonationRequests.UnfulfillClaim;
+using HelpPlatform.Web.Extensions;
 using MediatR;
 
 namespace HelpPlatform.Web.DonationRequests.Claims;
 
-public class Unfulfill(IMediator mediator) : Endpoint<UnfulfillDonationRequestClaimRequest, Result>
+public class Unfulfill(IMediator mediator) : Endpoint<UnfulfillDonationRequestClaimRequest>
 {
     public override void Configure()
     {
@@ -15,7 +15,10 @@ public class Unfulfill(IMediator mediator) : Endpoint<UnfulfillDonationRequestCl
         {
             s.ExampleRequest = new UnfulfillDonationRequestClaimRequest { RequestId = 1, ClaimId = 1 };
         });
-        Description(x => x.Accepts<AcceptDonationRequestClaimRequest>());
+        Description(x => x
+        .Accepts<UnfulfillDonationRequestClaimRequest>()
+        .Produces(204)
+        .ClearDefaultProduces(200));
     }
     
     public override async Task HandleAsync(
@@ -24,22 +27,7 @@ public class Unfulfill(IMediator mediator) : Endpoint<UnfulfillDonationRequestCl
     {
         var result = await mediator.Send(new UnfulfillDonationRequestClaimCommand(request.RequestId, request.ClaimId), cancellationToken);
 
-        if (result.IsSuccess)
-        {
-            Response = Result.NoContent();
-        }
-        else
-        {
-            foreach (var resultError in result.Errors)
-            {
-                AddError(resultError);
-            }
-            foreach (var resultError in result.ValidationErrors)
-            {
-                AddError(resultError.ErrorMessage);
-            }
-
-            ThrowIfAnyErrors();
-        }
+        await this.SendNoContent(result);
+        
     }
 }

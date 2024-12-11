@@ -8,6 +8,12 @@ public record DonationRequestClaimDto(
     int Quantity,
     DateTime CreatedAt,
     DateTime? Deadline,
-    DonationRequestStatusEnum Status,
+    DonationRequestClaimStatusEnum Status,
     int UserId,
-    int RequestId);
+    int RequestId,
+    string Location,
+    string RequesterName,
+    string RequesterEmail,
+    string Resource,
+    string ResourceScale
+);

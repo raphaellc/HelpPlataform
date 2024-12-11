@@ -1,24 +1,40 @@
 ﻿using Ardalis.Result;
 using FastEndpoints;
+using HelpPlatform.Core.DonationRequestDomain;
+using HelpPlatform.SharedKernel;
 using HelpPlatform.UseCases.DonationRequests;
 using HelpPlatform.UseCases.DonationRequests.List;
+using HelpPlatform.Web.Extensions;
 using MediatR;
 
 namespace HelpPlatform.Web.DonationRequests;
 
-public class List(IMediator _mediator) : EndpointWithoutRequest<ListDonationRequestResponse> {
+public class List(IMediator mediator, IRepository<DonationRequest> repository) : Endpoint<ListDonationRequestsRequest, ListDonationRequestResponse> {
     public override void Configure() {
         Get("/DonationRequests");
         AllowAnonymous();
     }
 
-    public override async Task HandleAsync(CancellationToken cancellationToken) {
-        Result<IEnumerable<DonationRequestDto>> result = await _mediator.Send(new ListDonationRequestsQuery(null, null), cancellationToken);
+    public override async Task HandleAsync(
+        ListDonationRequestsRequest request,
+        CancellationToken cancellationToken)
+    {
+        Result<IEnumerable<DonationRequestDto>> result =
+            await mediator.Send(new ListDonationRequestsQuery(request.PageSize, request.PageIndex), cancellationToken);
 
-        if (result.IsSuccess){
-            Response = new ListDonationRequestResponse
-            {
-                DonationRequests = result.Value.Select(dto => new DonationRequestRecord(
+        int itemCount = await repository.CountAsync(cancellationToken);
+        int pageCount;
+        if (request.PageSize is > 0)
+        {
+            pageCount = (int)decimal.Ceiling(itemCount / (decimal)request.PageSize!);
+        } else
+        {
+            pageCount = itemCount > 0 ? 1 : 0;
+        }
+
+        await this.SendResponse(result, r => new ListDonationRequestResponse
+        {
+            DonationRequests = result.Value.Select(dto => new DonationRequestRecord(
                 id: dto.Id,
                 description: dto.Description,
                 deadline: dto.Deadline,
@@ -28,16 +44,7 @@ public class List(IMediator _mediator) : EndpointWithoutRequest<ListDonationRequ
                 fulfilledQuantity: dto.FulfilledQuantity,
                 status: dto.Status,
                 userName: dto.UserName,
-                createdAt: dto.CreatedAt)).ToList()
-            };
-            return;
-        }
-        
-        foreach (var resultError in result.Errors)
-        {
-            AddError(resultError);
-        }
-
-        ThrowIfAnyErrors();
+                createdAt: dto.CreatedAt)).ToList(),
+            PageCount = pageCount});
     }
 }
