@@ -11,6 +11,7 @@ public class Create(IMediator _mediator) : Endpoint<CreateUserRequest, CreateUse
     public override void Configure()
     {
         Post(CreateUserRequest.Route);
+        AllowAnonymous();
         Summary(s => {
             s.ExampleRequest = new CreateUserRequest { Name = "User Name", Email = "email@email.com" };
         });

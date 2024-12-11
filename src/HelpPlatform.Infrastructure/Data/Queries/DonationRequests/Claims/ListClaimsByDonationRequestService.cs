@@ -11,8 +11,13 @@ public class ListClaimsByDonationRequestService(AppDbContext db) : IListClaimsBy
     {
          var query = db.Database.SqlQuery<DonationRequestClaimDto>(
              $"""
-              Select Id, Message, Quantity, CreatedAt, Deadline, Status, UserId, RequestId 
-              FROM DonationRequestClaims 
+              Select claim.Id, claim.Message, claim.Quantity, claim.CreatedAt,
+                     claim.Deadline, claim.Status, claim.UserId, claim.RequestId,
+                     dr.Location, u.Name as RequesterName, u.Email as RequesterEmail, rt.Name as Resource, rt.Scale as ResourceScale
+              FROM DonationRequestClaims as claim
+              JOIN DonationRequests as dr ON dr.Id = claim.RequestId
+              JOIN ResourceTypes as rt ON dr.ResourceTypeId = rt.Id
+              JOIN Users as u ON u.Id = dr.UserId
               """
          );
 

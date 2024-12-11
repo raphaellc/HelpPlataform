@@ -1,10 +1,19 @@
+@page "/myclaims"
+@rendermode InteractiveServer
+@using HelpPlatform.Web.DonationRequests.Claims
+@using System.Globalization
+@using HelpPlatform.Core.DonationRequestDomain
+@inject HttpClient HttpClient
+@inject NavigationManager NavigationManager
+
+<link href="css/StyleSheet.css" rel="stylesheet" />
+
 <PageTitle>My Claims</PageTitle>
 <div class="page-title">
     <h1>My Claims</h1>
 </div>
 
 <div class="page-container">
-
     @if (isLoading)
     {
         <div class="spinner-container">
@@ -13,50 +22,63 @@
     }
     else
     {
-        <div class="content">
-            <div class="request-list">
-                @foreach (var request in donationRequests)
-                {
-                    <Card Style="margin: 20px;">
-                        <CardBody>
-                            <h3>@CreateTitle(request.resourceTypeId, request.requestedQuantity, request.location, request.deadline)</h3>
-                            <div class="d-flex flex-wrap">
-                                @if (claimsDictionary.TryGetValue(request.id, out var claimsResponse) && claimsResponse?.Claims != null && claimsResponse.Claims.Any())
-                                {
-                                    @foreach (var claim in claimsResponse.Claims)
-                                    {
-                                        <Card Style="width:18rem;margin:3px;min-height: 20rem;position: relative;">
-                                            <CardBody Style="padding-bottom: 3rem;">
-                                                <CardTitle>@CreateTitle(claim.Id, claim.Quantity, "", claim.Deadline)</CardTitle>
-                                                <CardText>@claim.Message.</CardText>
-												
-                                                @if (request.status == "Open" || request.status == "PartiallyClaimed" ) {
-                                                    <div class="d-flex justify-content-between" style="position: absolute; width: 90%;bottom: 10px;">
-                                                        <Button Color="ButtonColor.Primary" @onclick="() => AcceptClaim(claim.Id, request.id)">Accept</Button>
-                                                        <Button Color="ButtonColor.Danger" @onclick="() => RejectClaim(claim.Id, request.id)">Reject</Button>
-                                                    </div>
-                                                }
-                                            </CardBody>
-                                        </Card>
-                                    }
-                                }
-                                else
-                                {
-                                    <p>No claims available for this request.</p>
-                                }
-                            </div>
-                        </CardBody>
-                    </Card>
-                }
-            </div>
-            <div class="pagination">
-                <Pagination ActivePageNumber="@currentPageNumber"
-                            TotalPages="@totalPages"
-                            PageChanged="OnPageChangedAsync" />
-            </div>
+    <div class="content">
+        <div class="claim-list">
+            @foreach (var claim in userClaims)
+            {
+                <Card Style="margin: 20px;">
+                    <CardBody>
+                        <h3>Claim for @claim.Resource donation request</h3>
+                        <p><strong>Status: </strong>@claim.Status</p>
+                        <p><strong>Message: </strong>@claim.Message</p>
+                        <p><strong>Needed resource: </strong>@claim.Resource</p>
+                        <p><strong>Claimed quantity: </strong>@claim.Quantity @claim.ResourceScale</p>
+                        <p><strong>Location: </strong>@claim.Location</p>
+                        <p><strong>Contact information: </strong>@claim.RequesterName - @claim.RequesterEmail</p>
+
+                        @if (claim.Status is
+                                 DonationRequestClaimStatusEnum.Waiting or
+                                 DonationRequestClaimStatusEnum.Accepted
+                             && (claim.Deadline is null || claim.Deadline > DateTime.Now)) {
+                            <Button Color="ButtonColor.Danger" @onclick="() => CancelClaim(claim.RequestId, claim.Id)">Cancel</Button>
+                        }
+                    </CardBody>
+                </Card>
+            }
         </div>
+    </div>
+    }
+</div>
+
+@code {
+    private List<MyClaimRecord> userClaims = new();
+    private bool isLoading = true;
+
+    override protected async Task OnInitializedAsync()
+    {
+        await LoadClaimsAsync();
     }
 
-    @code {
-    
+    private async Task LoadClaimsAsync()
+    {
+        isLoading = true;
+        ListUserClaimsRequest request = new();
+        ListUserClaimsResponse? response = await HttpClient
+            .GetFromJsonAsync<ListUserClaimsResponse>(NavigationManager.BaseUri + ListUserClaimsRequest.BuildRoute(1));
+
+        userClaims = response?.Claims ?? [];
+        isLoading = false;
+    }
+
+    private async Task CancelClaim(int requestId, int claimId)
+    {
+        HttpResponseMessage response = await HttpClient.PatchAsync(
+            NavigationManager.BaseUri + CancelDonationRequestClaimRequest.BuildRoute(requestId, claimId), null);
+
+        if (response.IsSuccessStatusCode)
+        {
+            // Refresh claims after cancellation
+            await LoadClaimsAsync();
+        }
+    }
 }

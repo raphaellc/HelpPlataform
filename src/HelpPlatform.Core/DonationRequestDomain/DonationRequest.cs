@@ -57,9 +57,9 @@ public class DonationRequest(
         if (!IsEditable) return Result.Invalid(new ValidationError { ErrorMessage = "Cannot modify a closed request" });
         
         var hasOpenClaims =
-            Claims.Any(claim => claim.UserId == userId && claim.Status
-                                    is DonationRequestClaimStatusEnum.Waiting
-                                    or DonationRequestClaimStatusEnum.Accepted);
+            Claims.Any(claim => claim.UserId == userId && claim.Status is
+                                    DonationRequestClaimStatusEnum.Waiting or
+                                    DonationRequestClaimStatusEnum.Accepted);
         if (hasOpenClaims)
         {
             return Result.Invalid

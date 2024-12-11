@@ -1,9 +1,8 @@
 ﻿using FastEndpoints;
 using HelpPlatform.UseCases.DonationRequests.ListClaimByRequest;
-using HelpPlatform.Web.DonationRequests.Claims;
 using MediatR;
 
-namespace HelpPlatform.Web.Users;
+namespace HelpPlatform.Web.DonationRequests.Claims;
 
 public class ListUserClaims(IMediator mediator) : Endpoint<ListUserClaimsRequest, ListUserClaimsResponse>
 {
@@ -26,16 +25,20 @@ public class ListUserClaims(IMediator mediator) : Endpoint<ListUserClaimsRequest
         {
             Response = new ListUserClaimsResponse
             {
-                Claims = result.Value.Select(claim => new DonationRequestClaimRecord
-                (
-                claim.Id,
-                claim.Message,
-                claim.Quantity, 
-                claim.CreatedAt,
-                claim.Deadline,
-                claim.Status,
-                claim.UserId,
-                claim.RequestId
+                Claims = result.Value.Select(claim => new MyClaimRecord(
+                    claim.Id,
+                    claim.Message,
+                    claim.Quantity, 
+                    claim.CreatedAt,
+                    claim.Deadline,
+                    claim.Status,
+                    claim.UserId,
+                    claim.RequestId,
+                    claim.Location,
+                    claim.RequesterName,
+                    claim.RequesterEmail,
+                    claim.Resource,
+                    claim.ResourceScale
                 )).ToList()
             };
         }
