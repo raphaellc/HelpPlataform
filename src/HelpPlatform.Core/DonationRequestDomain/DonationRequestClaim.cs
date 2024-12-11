@@ -30,6 +30,7 @@ public class DonationRequestClaim(
     public User? User { get; private set; }
 
     public int RequestId { get; private set; } = Guard.Against.NegativeOrZero(requestId);
+    public DonationRequest? DonationRequest { get; private set; }
 
     public void ReduceQuantity(int quantity)
     {
@@ -39,25 +40,25 @@ public class DonationRequestClaim(
 
     public void SetAccepted()
     {
-        Guard.Against.Expression(status => status != DonationRequestClaimStatusEnum.Waiting, Status, "Illegal claim acceptance");
+        Guard.Against.Expression(status => status != DonationRequestClaimStatusEnum.Waiting, Status, DonationRequestErrors.IllegalClaimAcceptingErrorMessage);
         Status = DonationRequestClaimStatusEnum.Accepted;
         AcceptedAt = DateTime.Now;
     }
     
     public void SetRejected()
     {
-        Guard.Against.Expression(status => status != DonationRequestClaimStatusEnum.Waiting, Status, "Illegal claim rejecting");
+        Guard.Against.Expression(status => status != DonationRequestClaimStatusEnum.Waiting, Status, DonationRequestErrors.IllegalClaimRejectingErrorMessage);
         Status = DonationRequestClaimStatusEnum.Rejected;
     }
 
     public void SetNotNeeded()
     {
-        Guard.Against.Expression(status => status != DonationRequestClaimStatusEnum.Waiting, Status, "Illegal 'not needed' claim transition");
+        Guard.Against.Expression(status => status != DonationRequestClaimStatusEnum.Waiting, Status, DonationRequestErrors.IllegalNotNeededClaimErrorMessage);
         Status = DonationRequestClaimStatusEnum.NotNeeded;
     }
     public void SetFulfilled()
     {
-        Guard.Against.Expression(status => status != DonationRequestClaimStatusEnum.Accepted, Status, "Illegal claim fulfillment");
+        Guard.Against.Expression(status => status != DonationRequestClaimStatusEnum.Accepted, Status, DonationRequestErrors.IllegalClaimFulfillingErrorMessage);
         Status = DonationRequestClaimStatusEnum.Fulfilled;
     }
 
@@ -67,10 +68,10 @@ public class DonationRequestClaim(
         
         if (AcceptedAt.Value.AddHours(1) > DateTime.Now)
         {
-            var res = Result.Invalid(new ValidationError { ErrorMessage = "Claim cannot be marked unfulfilled before one hour has passed since acceptance" });
+            var res = Result.Invalid(DonationRequestErrors.NotOneHourBeforeUnfulfilled);
         }
         
-        Guard.Against.Expression(status => status != DonationRequestClaimStatusEnum.Accepted, Status, "Illegal claim unfulfilling");
+        Guard.Against.Expression(status => status != DonationRequestClaimStatusEnum.Accepted, Status, DonationRequestErrors.IllegalClaimUnfulfillingErrorMessage);
         Status = DonationRequestClaimStatusEnum.Unfulfilled;
 
         return Result.Success();
@@ -84,23 +85,26 @@ public class DonationRequestClaim(
                 DonationRequestClaimStatusEnum.Fulfilled or
                 DonationRequestClaimStatusEnum.Unfulfilled or
                 DonationRequestClaimStatusEnum.Rejected or
+                DonationRequestClaimStatusEnum.NotNeeded or
                 DonationRequestClaimStatusEnum.RequestClosed,
-            Status, "Illegal claim cancelling"
+            Status, DonationRequestErrors.IllegalClaimCancellingErrorMessage
         );
 
         Status = DonationRequestClaimStatusEnum.Cancelled;
     }
 
-    public void SetRequestCancelled()
+    public void SetRequestClosed()
     {
         Guard.Against.Expression
         (
             status => status is
+                DonationRequestClaimStatusEnum.Cancelled or
+                DonationRequestClaimStatusEnum.NotNeeded or
                 DonationRequestClaimStatusEnum.Fulfilled or
                 DonationRequestClaimStatusEnum.Unfulfilled or
                 DonationRequestClaimStatusEnum.Rejected or 
                 DonationRequestClaimStatusEnum.RequestClosed,
-            Status, "Illegal claim cancelling"
+            Status, DonationRequestErrors.IllegalRequestClosedClaimErrorMessage
         );
 
         Status = DonationRequestClaimStatusEnum.RequestClosed;

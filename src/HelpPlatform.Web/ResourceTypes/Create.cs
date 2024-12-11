@@ -1,6 +1,6 @@
 using FastEndpoints;
 using HelpPlatform.UseCases.ResourceTypes.Create;
-using HelpPlatform.Web.ResourceTypes;
+using HelpPlatform.Web.Extensions;
 using MediatR;
 
 namespace HelpPlatform.Web.ResourceTypes;
@@ -12,9 +12,6 @@ public class Create(IMediator _mediator) : Endpoint<CreateResourceTypeRequest, C
         Post(CreateResourceTypeRequest.Route);
         AllowAnonymous();
         Summary(s => {
-            // XML Docs are used by default but are overridden by these properties:
-            //s.Summary = "Create a new Contributor.";
-            //s.Description = "Create a new Contributor. A valid name is required.";
             s.ExampleRequest = new CreateResourceTypeRequest { Name = "TEST", Scale = "TEST" };
         });
     }
@@ -27,15 +24,8 @@ public class Create(IMediator _mediator) : Endpoint<CreateResourceTypeRequest, C
             request.Scale!),
             cancellationToken);
 
-            if (result.IsSuccess)
-            {
-                Response = new CreateResourceTypeResponse(result.Value,
+            await this.SendResponse(result, r => new CreateResourceTypeResponse(result.Value,
                 request.Name!,
-                request.Scale!);
-            }
-            else
-            {
-                Console.WriteLine("Error");
-            }
+                request.Scale!));
         }
 }
