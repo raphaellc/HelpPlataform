@@ -13,7 +13,7 @@ using HelpPlatform.Infrastructure.Data.Queries;
 using HelpPlatform.Infrastructure.Data.Queries.DonationRequests.Claims;
 using HelpPlatform.Infrastructure.Email;
 using HelpPlatform.UseCases.Contributors.List;
-using HelpPlatform.UseCases.DonationRequests.ListClaim;
+using HelpPlatform.UseCases.DonationRequests.ListClaimByRequest;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;

@@ -1,5 +1,5 @@
 ﻿using FastEndpoints;
-using HelpPlatform.UseCases.DonationRequests.ListClaim;
+using HelpPlatform.UseCases.DonationRequests.ListClaimByRequest;
 using HelpPlatform.Web.Extensions;
 using MediatR;
 

@@ -39,7 +39,7 @@ public class DonationRequestConfiguration : IEntityTypeConfiguration<DonationReq
             .OnDelete(DeleteBehavior.Cascade);
 
         builder.HasMany(dr => dr.Claims)
-            .WithOne()
+            .WithOne(claim => claim.DonationRequest)
             .HasForeignKey(claim => claim.RequestId)
             .OnDelete(DeleteBehavior.Cascade);
     }

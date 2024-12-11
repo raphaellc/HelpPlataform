@@ -30,6 +30,7 @@ public class DonationRequestClaim(
     public User? User { get; private set; }
 
     public int RequestId { get; private set; } = Guard.Against.NegativeOrZero(requestId);
+    public DonationRequest? DonationRequest { get; private set; }
 
     public void ReduceQuantity(int quantity)
     {

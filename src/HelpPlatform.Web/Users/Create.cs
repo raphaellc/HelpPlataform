@@ -2,12 +2,14 @@
 using HelpPlatform.UseCases.Users.Create;
 using HelpPlatform.Web.Extensions;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 
 namespace HelpPlatform.Web.Users;
 
 public class Create(IMediator _mediator) : Endpoint<CreateUserRequest, CreateUserResponse>
 {
-    public override void Configure() {
+    public override void Configure()
+    {
         Post(CreateUserRequest.Route);
         AllowAnonymous();
         Summary(s => {

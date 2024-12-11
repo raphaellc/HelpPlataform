@@ -1,8 +1,8 @@
 ﻿using HelpPlatform.Core.DonationRequestDomain;
 
-namespace HelpPlatform.UseCases.DonationRequests;
+namespace HelpPlatform.Web.DonationRequests.Claims;
 
-public record DonationRequestClaimDto(
+public record MyClaimRecord(
     int Id,
     string? Message,
     int Quantity,
@@ -15,5 +15,4 @@ public record DonationRequestClaimDto(
     string RequesterName,
     string RequesterEmail,
     string Resource,
-    string ResourceScale
-);
+    string ResourceScale);
