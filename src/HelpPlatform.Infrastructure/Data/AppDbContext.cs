@@ -4,6 +4,8 @@ using HelpPlatform.Core.Contributor.ContributorAggregate;
 using HelpPlatform.Core.DonationRequestDomain;
 using HelpPlatform.Core.ResourceTypeDomain;
 using HelpPlatform.Core.UserDomain;
+using HelpPlatform.Core.NotificationDomain;
+
 using Microsoft.EntityFrameworkCore;
 
 namespace HelpPlatform.Infrastructure.Data;
@@ -24,6 +26,8 @@ public class AppDbContext : DbContext {
     public DbSet<DonationRequest> DonationRequests => Set<DonationRequest>();
 
     public DbSet<DonationRequestClaim> DonationRequestClaims => Set<DonationRequestClaim>();
+
+    public DbSet<Notification> Notifications => Set<Notification>();
 
     public DbSet<ResourceType> ResourceTypes => Set<ResourceType>();
 

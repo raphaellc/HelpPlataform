@@ -13,6 +13,8 @@ using HelpPlatform.Infrastructure.Data.Queries;
 using HelpPlatform.Infrastructure.Data.Queries.DonationRequests.Claims;
 using HelpPlatform.Infrastructure.Email;
 using HelpPlatform.UseCases.Contributors.List;
+using HelpPlatform.Core.NotificationDomain.Services;
+using HelpPlatform.Core.NotificationDomain.Interfaces;
 using HelpPlatform.UseCases.DonationRequests.ListClaimByRequest;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -38,6 +40,7 @@ public static class InfrastructureServiceExtensions {
         services.AddScoped<IDeleteUserService, DeleteUserService>();
         services.AddScoped<IUpdateUserService, UpdateUserService>();
         services.AddScoped<ICreateDonationRequestClaimService, CreateDonationRequestClaimService>();
+        services.AddScoped<INotificationService, NotificationService>();
         services.AddScoped<IAcceptDonationRequestClaimService, AcceptDonationRequestClaimService>();
         services.AddScoped<IRejectDonationRequestClaimService, RejectDonationRequestClaimService>();
         services.AddScoped<ICancelDonationRequestClaimService, CancelDonationRequestClaimService>();
