@@ -3,7 +3,7 @@ using HelpPlatform.Core.NotificationDomain;
 
 namespace HelpPlatform.Core.NotificationDomain.Specifications;
 
-public class NotificationsByUserSpecification : Specification<Notification>
+public sealed class NotificationsByUserSpecification : Specification<Notification>
 {
     public NotificationsByUserSpecification(int userId)
     {

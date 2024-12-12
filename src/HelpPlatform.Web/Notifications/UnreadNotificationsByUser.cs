@@ -1,5 +1,6 @@
 ﻿using FastEndpoints;
 using HelpPlatform.UseCases.Notifications.UnreadNotificationsByUser;
+using HelpPlatform.Web.Extensions;
 using MediatR;
 
 namespace HelpPlatform.Web.Notifications;
@@ -31,18 +32,7 @@ public class UnreadNotificationsByUser : Endpoint<UnreadNotificationsByUserReque
     public override async Task HandleAsync(UnreadNotificationsByUserRequest request, CancellationToken cancellationToken)
     {
         var result = await _mediator.Send(new UnreadNotificationsByUserQuery(request.UserId), cancellationToken);
-
-        if (result.IsSuccess)
-        {
-            Response = new UnreadNotificationsByUserResponse(result.Value);
-            return;
-        }
-
-        foreach (var error in result.Errors)
-        {
-            AddError(error);
-        }
-
-        ThrowIfAnyErrors();
+        
+        await this.SendResponse(result, r => new UnreadNotificationsByUserResponse(result.Value));
     }
 }

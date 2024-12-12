@@ -45,6 +45,7 @@ public class List(IMediator mediator, IRepository<DonationRequest> repository) :
                 status: dto.Status,
                 userName: dto.UserName,
                 createdAt: dto.CreatedAt)).ToList(),
-            PageCount = pageCount});
+            PageCount = pageCount
+        });
     }
 }
