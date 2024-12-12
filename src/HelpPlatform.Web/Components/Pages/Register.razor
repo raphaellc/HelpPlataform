@@ -1,0 +1,76 @@
+@page "/register"
+@inject HttpClient HttpClient
+@using HelpPlatform.Web.Identity
+@inject NavigationManager NavigationManager
+
+
+
+<h3>Register New User</h3>
+
+<EditForm Model="registerRequest" OnValidSubmit="HandleRegister" FormName="RegisterForm" >
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="form-group">
+        <label for="email">Email</label>
+        <InputText id="email" class="form-control" @bind-Value="registerRequest.Email" />
+        <ValidationMessage For="@(() => registerRequest.Email)" />
+    </div>
+
+    <div class="form-group">
+        <label for="password">Password</label>
+        <InputText id="password" class="form-control" type="password" @bind-Value="registerRequest.Password" />
+        <ValidationMessage For="@(() => registerRequest.Password)" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Register</button>
+</EditForm>
+
+@if (!string.IsNullOrEmpty(registerResponse.Message))
+{
+    <div class="alert alert-success mt-3">
+        @registerResponse.Message
+    </div>
+}
+
+@if (!string.IsNullOrEmpty(errorMessage))
+{
+    <div class="alert alert-danger mt-3">
+        @errorMessage
+    </div>
+}
+
+@code {
+    private RegisterRequest registerRequest = new RegisterRequest();
+    private RegisterResponse registerResponse = new RegisterResponse();
+    private string errorMessage = string.Empty;
+
+    private async Task HandleRegister()
+    {
+
+        try
+        {
+            var response = await HttpClient.PostAsJsonAsync(NavigationManager.BaseUri +"register", registerRequest);
+
+            if (response.IsSuccessStatusCode)
+            {
+				registerResponse = await response.Content.ReadFromJsonAsync<RegisterResponse>() ?? new RegisterResponse();
+
+				if (registerResponse == null)
+				{
+					throw new InvalidOperationException("Failed to deserialize the response content into RegisterResponse.");
+				}
+
+                errorMessage = string.Empty;
+            }
+            else
+            {
+                errorMessage = "Registration failed. Please try again.";
+            }
+        }
+        catch (Exception ex)
+        {
+            errorMessage = $"An error occurred: {ex.Message}";
+        }
+    }
+}
